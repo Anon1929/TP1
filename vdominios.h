@@ -1,6 +1,7 @@
 #ifndef VDOMINIOSH
 #define VDOMINIOSH
-
+#include <string>
+#include <stdexcept>
 /// Capacidade
 /// Regras de formato :
 /// Quantidade válida caso 100,200,300, 400 ou 500
@@ -9,6 +10,7 @@ class Capacidade {
     private:
         int quantidade;
         void validar(int argumento);
+        static const int DEFAULT = 100;
     public:
 
 /// Inicializa objeto com  quantidade 100.
@@ -39,28 +41,28 @@ inline int Capacidade::getQuantidade(){
     }
 
 class Cargo{
-private:
-    std::string titulo;
-    void validar(std::string argumento)
-public:
-    void setTitulo(std::string titulo);
-    std::string getTitulo();
+    private:
+        std::string titulo;
+        void validar(std::string argumento);
+    public:
+        void setTitulo(std::string titulo);
+        std::string getTitulo();
 };
 inline std::string Cargo::getTitulo(){
-    return titulo
+    return titulo;
 }
 
 class Tipo{
-private:
-    std::string genero;
-    void validar(std::string argumento)
+    private:
+        std::string genero;
+        void validar(std::string argumento);
 
-public:
-    void setGenero(std::string genero);
-    std::string getGenero();
+    public:
+        void setGenero(std::string genero);
+        std::string getGenero();
 };
 
 inline std::string Tipo::getGenero(){
-    return genero
+    return genero;
 }
 #endif
