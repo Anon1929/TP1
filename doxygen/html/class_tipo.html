@@ -88,18 +88,115 @@ $(document).ready(function(){initNavTree('class_tipo.html',''); initResizable();
 <div class="title">Tipo Class Reference</div>  </div>
 </div><!--header-->
 <div class="contents">
+
+<p><code>#include &lt;<a class="el" href="vdominios_8h_source.html">vdominios.h</a>&gt;</code></p>
 <table class="memberdecls">
 <tr class="heading"><td colspan="2"><h2 class="groupheader"><a name="pub-methods"></a>
 Public Member Functions</h2></td></tr>
-<tr class="memitem:ad380fd694fe0ec8813883e891e59ea3c"><td class="memItemLeft" align="right" valign="top"><a id="ad380fd694fe0ec8813883e891e59ea3c"></a>
-void&#160;</td><td class="memItemRight" valign="bottom"><b>setGenero</b> (std::string genero)</td></tr>
+<tr class="memitem:aedef4ec5c6cc0c44b287eb0ae0e2a479"><td class="memItemLeft" align="right" valign="top"><a id="aedef4ec5c6cc0c44b287eb0ae0e2a479"></a>
+&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tipo.html#aedef4ec5c6cc0c44b287eb0ae0e2a479">Tipo</a> ()</td></tr>
+<tr class="memdesc:aedef4ec5c6cc0c44b287eb0ae0e2a479"><td class="mdescLeft">&#160;</td><td class="mdescRight">Inicializa objeto com genero igual a auto. <br /></td></tr>
+<tr class="separator:aedef4ec5c6cc0c44b287eb0ae0e2a479"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:aa13472e29ca6bfa51dad0af33dabf5d6"><td class="memItemLeft" align="right" valign="top">&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tipo.html#aa13472e29ca6bfa51dad0af33dabf5d6">Tipo</a> (std::string genero)</td></tr>
+<tr class="separator:aa13472e29ca6bfa51dad0af33dabf5d6"><td class="memSeparator" colspan="2">&#160;</td></tr>
+<tr class="memitem:ad380fd694fe0ec8813883e891e59ea3c"><td class="memItemLeft" align="right" valign="top">void&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tipo.html#ad380fd694fe0ec8813883e891e59ea3c">setGenero</a> (std::string genero)</td></tr>
 <tr class="separator:ad380fd694fe0ec8813883e891e59ea3c"><td class="memSeparator" colspan="2">&#160;</td></tr>
-<tr class="memitem:ad14b4acb9998711979c1b12ae1cfbb94"><td class="memItemLeft" align="right" valign="top"><a id="ad14b4acb9998711979c1b12ae1cfbb94"></a>
-std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getGenero</b> ()</td></tr>
+<tr class="memitem:ad14b4acb9998711979c1b12ae1cfbb94"><td class="memItemLeft" align="right" valign="top">std::string&#160;</td><td class="memItemRight" valign="bottom"><a class="el" href="class_tipo.html#ad14b4acb9998711979c1b12ae1cfbb94">getGenero</a> ()</td></tr>
 <tr class="separator:ad14b4acb9998711979c1b12ae1cfbb94"><td class="memSeparator" colspan="2">&#160;</td></tr>
 </table>
-<hr/>The documentation for this class was generated from the following file:<ul>
+<a name="details" id="details"></a><h2 class="groupheader">Detailed Description</h2>
+<div class="textblock"><p>Padrão para representação de tipo de entidade Peça Regras de formato : titulo válido caso auto, comédia, drama, farsa, melodrama, monólogo, musical, ópera, revista </p>
+</div><h2 class="groupheader">Constructor &amp; Destructor Documentation</h2>
+<a id="aa13472e29ca6bfa51dad0af33dabf5d6"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#aa13472e29ca6bfa51dad0af33dabf5d6">&#9670;&nbsp;</a></span>Tipo()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">Tipo::Tipo </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>genero</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Inicializa objeto com genero informado caso seja válido Lança exceção caso genero seja inválido </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">genero</td><td>cargo </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">invalid_argument</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<h2 class="groupheader">Member Function Documentation</h2>
+<a id="ad14b4acb9998711979c1b12ae1cfbb94"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad14b4acb9998711979c1b12ae1cfbb94">&#9670;&nbsp;</a></span>getGenero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+<table class="mlabels">
+  <tr>
+  <td class="mlabels-left">
+      <table class="memname">
+        <tr>
+          <td class="memname">std::string Tipo::getGenero </td>
+          <td>(</td>
+          <td class="paramname"></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+  </td>
+  <td class="mlabels-right">
+<span class="mlabels"><span class="mlabel">inline</span></span>  </td>
+  </tr>
+</table>
+</div><div class="memdoc">
+<p>Retorna genero </p><dl class="section return"><dt>Returns</dt><dd>genero </dd></dl>
+
+</div>
+</div>
+<a id="ad380fd694fe0ec8813883e891e59ea3c"></a>
+<h2 class="memtitle"><span class="permalink"><a href="#ad380fd694fe0ec8813883e891e59ea3c">&#9670;&nbsp;</a></span>setGenero()</h2>
+
+<div class="memitem">
+<div class="memproto">
+      <table class="memname">
+        <tr>
+          <td class="memname">void Tipo::setGenero </td>
+          <td>(</td>
+          <td class="paramtype">std::string&#160;</td>
+          <td class="paramname"><em>genero</em></td><td>)</td>
+          <td></td>
+        </tr>
+      </table>
+</div><div class="memdoc">
+<p>Armazena genero informado caso seja válido Lança exceção caso genero seja inválido </p><dl class="params"><dt>Parameters</dt><dd>
+  <table class="params">
+    <tr><td class="paramname">genero</td><td>cargo </td></tr>
+  </table>
+  </dd>
+</dl>
+<dl class="exception"><dt>Exceptions</dt><dd>
+  <table class="exception">
+    <tr><td class="paramname">invalid_argument</td><td></td></tr>
+  </table>
+  </dd>
+</dl>
+
+</div>
+</div>
+<hr/>The documentation for this class was generated from the following files:<ul>
 <li><a class="el" href="vdominios_8h_source.html">vdominios.h</a></li>
+<li>vdominios.cpp</li>
 </ul>
 </div><!-- contents -->
 </div><!-- doc-content -->
@@ -107,7 +204,7 @@ std::string&#160;</td><td class="memItemRight" valign="bottom"><b>getGenero</b> 
 <div id="nav-path" class="navpath"><!-- id is needed for treeview function! -->
   <ul>
     <li class="navelem"><a class="el" href="class_tipo.html">Tipo</a></li>
-    <li class="footer">Generated on Mon Aug 16 2021 17:08:58 for Projeto by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
+    <li class="footer">Generated on Mon Aug 16 2021 18:54:04 for Projeto by <a href="https://www.doxygen.org/index.html"><img class="footer" src="doxygen.svg" width="104" height="31" alt="doxygen"/></a> 1.9.1 </li>
   </ul>
 </div>
 </body>

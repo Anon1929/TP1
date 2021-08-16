@@ -1,3 +1,12 @@
 # depslib dependency file v1.0
-1629144860 source:/home/lain/Documentos/Tp1/TP1/main.cpp
+1629148689 source:/home/lain/Documentos/Tp1/TP1/main.cpp
+	<iostream>
+	"vdominios.h"
+
+1629149085 source:/home/lain/Documentos/Tp1/TP1/vdominios.cpp
+	"vdominios.h"
+
+1629150690 /home/lain/Documentos/Tp1/TP1/vdominios.h
+	<string>
+	<stdexcept>
 
