@@ -1,5 +1,5 @@
 #include "vdominios.h"
-
+#include <set>
 void Capacidade::validar(int argumento){
     bool valido;
     if (argumento==100 || argumento ==200 || argumento == 300 || argumento == 400 || argumento == 500){
@@ -17,7 +17,7 @@ void Capacidade::setQuantidade(int quantidade){
 }
 
 Capacidade::Capacidade(){
-    quantidade = DEFAULT;
+    quantidade = 100;
 }
 
 Capacidade::Capacidade(int quantidade){
@@ -94,3 +94,63 @@ void Classificacao::setIdade(std::string idade){
     this->idade = idade;
 }
 
+void Matricula::validar(std::string registro){
+    if(registro.size()!= 5)
+        throw std::invalid_argument("Argumento inválido, tamanho errado");
+    std::set<char> verificar;
+    for(char c : registro){
+        if(!isdigit(c))
+           throw std::invalid_argument("Argumento inválido, não numero");
+        verificar.insert(c);
+    }
+    if(verificar.size()!=registro.size())
+        throw std::invalid_argument("Argumento inválido, número repetido");
+}
+void Matricula::setRegistro(std::string registro){
+    validar(registro);
+    this->registro = registro;
+}
+Matricula::Matricula(){
+    registro = "00000";
+}
+Matricula::Matricula(std::string registro){
+    validar(registro);
+    this->registro = registro;
+}
+
+void Senha::validar(std::string entrada){
+
+    if(entrada.size()!=8)
+        throw std::invalid_argument("Argumento inválido, tamanho errado");
+    std::set<char> verificar;
+    bool minimo[3] ={false, false, false};
+    for(char c: entrada){
+        if (isdigit(c))
+            minimo[0] = true;
+        else if (islower(c)||isupper(c))
+            minimo[1] = true;
+        else if (c=='!'||c=='@'||c=='#'||c=='$'||c=='%'||c=='&'||c=='?')
+            minimo[2] = true;
+        else
+            throw std::invalid_argument("Argumento inválido, caracter não permitido");
+        verificar.insert(c);
+    }
+    if(verificar.size()!=entrada.size())
+        throw std::invalid_argument("Argumento inválido, caracter repetido");
+    if(!(minimo[0] && minimo[1] && minimo[2]))
+        throw std::invalid_argument("Argumento inválido, não cumpre com o mínimo");
+}
+
+void Senha::setEntrada(std::string entrada){
+    validar(entrada);
+    this->entrada = entrada;
+}
+
+Senha::Senha(std::string entrada){
+    validar(entrada);
+    this->entrada = entrada;
+}
+
+Senha::Senha(){
+    entrada = "ABC123#$";
+}

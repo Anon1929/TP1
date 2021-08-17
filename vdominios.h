@@ -10,8 +10,7 @@ class Capacidade {
     private:
         int quantidade;
         void validar(int argumento);
-        static const int DEFAULT = 100;
-    public:
+        public:
 
 /// Inicializa objeto com  quantidade 100.
 
@@ -154,21 +153,73 @@ inline std::string Classificacao::getIdade(){
     return idade;
 }
 
-/// Padrão para representação de Horário de entidade Sessão
+/// Padrão para representação de Matricula de entidade Participante
 /// Regras de formato :
-/// HH:MM
-/// Em HH tem-se indicação de horário: 00 a 23
-/// Em MM tem-se indicação de minutos: 00, 15, 30, 45
-class Horario{
+/// Formato XXXXX
+/// Cada X é dígito (0-9)
+/// Não há dígitos duplicados
+class Matricula{
 private:
-
+    std::string registro;
+    void validar(std::string registro);
 public:
+///Inicializa objeto com registro igual a "00000"
+
+    Matricula();
+
+///Inicializa objeto com registro dado caso seja válido
+///@param registro Matricula
+
+    Matricula(std::string registro);
+
+///Modifica registro dado caso seja válido
+///@param registro Matricula
+
+    void setRegistro(std::string registro);
+
+///Retorna registro
+///@return registro
+
+    std::string getRegistro();
+};
+inline std::string Matricula::getRegistro(){
+    return registro;
 }
 
-
+/// Padrão para representação de Senha de entidade Participante
+/// Regras de formato :
+/// Formato XXXXXXXX.
+/// Cada X é letra (A-Z ou a-z), dígito(0-9) ou caracter especial.
+/// São possíveis os caracteres especiais ! @ # $ % & ?.
+/// Não existe caracter repetido.
+/// Existe pelo menos uma letra (maiúscula ou minúscula), um dígito e um caracter especial.
 class Senha{
 private:
+    std::string entrada;
+    void validar(std::string entrada);
 public:
+///Inicializa objeto com entrada igual a "ABC123@#$"
+
+    Senha();
+
+///Inicializa objeto com entrada dada caso seja válida
+///@param entrada Senha
+
+    Senha(std::string entrada);
+
+///Modifica entrada dado caso seja válido
+///@param entrada Senha
+
+    void setEntrada(std::string entrada);
+
+///Retorna entrada
+///@return entrada
+
+    std::string getEntrada();
 };
+
+inline std::string Senha::getEntrada(){
+    return entrada;
+}
 
 #endif

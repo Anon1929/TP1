@@ -31,6 +31,8 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="main.cpp" />
+		<Unit filename="vdominios.cpp" />
 		<Unit filename="vdominios.h" />
 		<Extensions />
 	</Project>
