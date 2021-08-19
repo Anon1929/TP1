@@ -1,5 +1,10 @@
 #include "vdominios.h"
+#include <iostream>
 #include <set>
+#include <vector>
+#include <string>
+#include <algorithm>
+
 void Capacidade::validar(int argumento){
     bool valido;
     if (argumento==100 || argumento ==200 || argumento == 300 || argumento == 400 || argumento == 500){
@@ -153,4 +158,46 @@ Senha::Senha(std::string entrada){
 
 Senha::Senha(){
     entrada = "ABC123#$";
+}
+
+void Telefone::validar(std::string entrada) {
+    if(entrada.size() != 14)
+        throw std::invalid_argument("Argumento invalido, tamanho incorreto.");
+
+    std::string specialchars, digits;
+    std::vector<char> ddd;
+    for (unsigned i; i < entrada.size(); i++) {
+        if (i == 0 || i == 3 || i == 4)
+            specialchars.push_back(entrada.at(i));
+        else if (i == 1 || i == 2)
+            ddd.push_back(entrada.at(i));
+        else
+            digits.push_back(entrada.at(i));
+    }
+
+    std::set<int> negar = {20, 23, 25, 26, 29, 30, 31, 36, 39, 40, 50, 52, 56, 57, 58, 59, 60, 70, 72, 76, 78, 80, 90}; // Todos os DDDs entre 11 e 99 que não são permitidos
+    std::string dddstr; for (char c: ddd) {dddstr.push_back(c);}
+    int dddint = 0; try {dddint = std::stoi(dddstr);} catch(...){}
+    if (specialchars != "()-")
+        throw std::invalid_argument("Argumento invalido, formato incorreto.");
+    else if (!isdigit(ddd[0]) || !isdigit(ddd[1]) || negar.find(dddint) != negar.end() || dddint < 11)
+        throw std::invalid_argument("Argumento invalido, DDD invalido.");
+    else if (!std::all_of(digits.begin(), digits.end(), ::isdigit))
+        throw std::invalid_argument("Argumento invalido, numero nao composto por digitos.");
+    else if (digits == "000000000")
+        throw std::invalid_argument("Argumento invalido, numero nao pode ser 000000000.");
+}
+
+Telefone::Telefone(){
+    entrada = "(11)-000000001";
+}
+
+Telefone::Telefone(std::string entrada){
+    validar(entrada);
+    this->entrada = entrada;
+}
+
+void Telefone::setEntrada(std::string entrada){
+    validar(entrada);
+    this->entrada = entrada;
 }

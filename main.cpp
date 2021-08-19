@@ -12,6 +12,10 @@ int main(void){
     std::cout << teste3.getEntrada() << std::endl;
     teste3.setEntrada("123456a!");
     std::cout << teste3.getEntrada() << std::endl;
+    Telefone teste4;
+    std::cout << teste4.getEntrada() << std::endl;
+    teste4.setEntrada("(99)-012345678");
+    std::cout << teste4.getEntrada() << std::endl;
 
     return 0;
 }

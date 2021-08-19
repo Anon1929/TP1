@@ -222,4 +222,36 @@ inline std::string Senha::getEntrada(){
     return entrada;
 }
 
+/// Padrão para representação de Telefone de entidade Participante
+/// Regras de formato:
+/// Formato (XX)-YYYYYYYYY.
+/// XX é um dos seguintes códigos 11, 12, 13, 14, 15, 16, 17, 18, 19, 21, 22, 24, 27, 28, 32, 33, 34, 35, 37, 38, 41, 42, 43, 44, 45, 46, 47, 48, 49, 51, 53, 54, 55, 61, 62, 63, 64, 65, 66, 67, 68, 69, 71, 73, 74, 75, 77, 79, 81, 82, 83, 84, 85, 86, 87, 88, 89, 91, 92, 93, 94, 95, 96, 97, 98, 99.
+/// Cada Y é dígito (0-9).
+/// Não existe número de telefone 000000000.
+class Telefone{
+private:
+    std::string entrada;
+    void validar(std::string entrada);
+
+public:
+/// Inicializa objeto com entrada igual a "(11)-000000001"
+    Telefone();
+
+/// Inicializa objeto com entrada dada caso seja válida
+/// @param entrada Telefone
+    Telefone(std::string entrada);
+
+/// Modifica entrada dada caso seja válida
+/// @param entrada Telefone
+    void setEntrada(std::string entrada);
+
+/// Retorna entrada
+/// @return entrada
+    std::string getEntrada();
+};
+
+inline std::string Telefone::getEntrada(){
+    return entrada;
+}
+
 #endif
