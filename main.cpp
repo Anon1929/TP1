@@ -1,6 +1,6 @@
 #include <iostream>
 #include "vdominios.h"
-int main(void){
+int main(void){/*
     Cargo teste;
     teste.setTitulo("figurinista");
     std::cout << teste.getTitulo() << std::endl;
@@ -16,6 +16,15 @@ int main(void){
     std::cout << teste4.getEntrada() << std::endl;
     teste4.setEntrada("(99)-012345678");
     std::cout << teste4.getEntrada() << std::endl;
+    //Nome*/
+    Nome teste5("Marc.elo. Junqueira");
+    std::cout << teste5.getValor() << std::endl;
+    //teste5.setValor("Abc");
+    //teste5.setValor("Abcdefghijklmnopqrstuvwxyz");
+    //teste5.setValor("Abcds%6.");
+    //teste5.setValor("Marcelo  Junqueira");
+    //teste5.setValor("Marcelo junqueira");
+    std::cout << teste5.getValor() << std::endl;
 
     return 0;
 }

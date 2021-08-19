@@ -27,3 +27,19 @@
 	<string>
 	<algorithm>
 
+1629396215 source:/home/marcelo/Documents/UnB/TP1/TP1/main.cpp
+	<iostream>
+	"vdominios.h"
+
+1629393214 /home/marcelo/Documents/UnB/TP1/TP1/vdominios.h
+	<string>
+	<stdexcept>
+
+1629396234 source:/home/marcelo/Documents/UnB/TP1/TP1/vdominios.cpp
+	"vdominios.h"
+	<iostream>
+	<set>
+	<vector>
+	<string>
+	<algorithm>
+

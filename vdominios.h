@@ -253,5 +253,31 @@ public:
 inline std::string Telefone::getEntrada(){
     return entrada;
 }
+///Padrão para representação de Nome
+///Regras de formato:
+///5 a 20 caracteres
+///Cada caracter é letra, ponto ou espaco em branco
+///Ponto e precedido por letra
+///nao ha espacos em branco em sequencia
+///primeira letra de cada termo maiuscula
+class Nome {
+    private:
+        std::string valor;                      // Atributo para armazenar valor.
+        void validar(std::string);              // Método para validar valor.
+    public:
+    ///Inicializa objeto com entrada dada caso seja valida
+    ///@param nome
+        Nome(std::string);
+    ///Modifica valor de nome caso entrada seja valida
+    ///@param nome
+        void setValor(std::string);             // Método para atribuir valor.
+    ///retorna valor de nome
+    ///@return nome
+        std::string getValor() const;           // Método para recuperar valor.
+};
+
+inline std::string Nome::getValor() const{
+    return valor;
+}
 
 #endif

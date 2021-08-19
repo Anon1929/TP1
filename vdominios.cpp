@@ -201,3 +201,37 @@ void Telefone::setEntrada(std::string entrada){
     validar(entrada);
     this->entrada = entrada;
 }
+
+Nome::Nome(std::string valor){
+    setValor(valor);
+}
+void Nome::validar(std::string valor){
+    int tamanho = valor.length();
+    if(tamanho<5 || tamanho>20)
+        throw std::invalid_argument("O nome deve conter de 5 e 20 caracteres");
+    char anterior = ' ';
+    for(char c : valor){
+        if(anterior==' '){
+            if(c==' ')
+                throw std::invalid_argument("Nao podem haver dois espacos em sequencia");
+            else if(c<'A' || c>'Z')
+                throw std::invalid_argument("Todos os termos devem começar com letra maiuscula");
+        }else{
+            c = std::tolower(c);
+            if((c>='a' && c<='z') || c==' '){
+            }else if(c=='.'){
+                if(anterior<'a' || anterior>'z') //Se anterior não é letra
+                    throw std::invalid_argument("Ponto nao precedido de letra.");
+            }else{
+                std::cout << c << std::endl;
+                throw std::invalid_argument("character invalido");
+            }
+        }
+        anterior = c;
+    }
+}
+void Nome::setValor(std::string valor){
+    validar(valor);
+    this->valor = valor;
+}
+
