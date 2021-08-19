@@ -222,6 +222,7 @@ inline std::string Senha::getEntrada(){
     return entrada;
 }
 
+/// Matrícula: 200016750
 /// Padrão para representação de Telefone de entidade Participante
 /// Regras de formato:
 /// Formato (XX)-YYYYYYYYY.
@@ -251,6 +252,70 @@ public:
 };
 
 inline std::string Telefone::getEntrada(){
+    return entrada;
+}
+
+/// Matrícula: 200016750
+/// Padrão para representação de Código
+/// Regras de formato:
+/// Formato LLDDDD.
+/// Cada L é letra maiúscula (A-Z).
+/// Cada D é dígito (0-9).
+class Codigo{
+private:
+    std::string entrada;
+    void validar(std::string entrada);
+
+public:
+/// Inicializa objeto com entrada igual a "AA0000"
+    Codigo();
+
+/// Inicializa objeto com entrada dada caso seja válida
+/// @param entrada Codigo
+    Codigo(std::string entrada);
+
+/// Modifica entrada dada caso seja válida
+/// @param entrada Codigo
+    void setEntrada(std::string entrada);
+
+/// Retorna entrada
+/// @return entrada
+    std::string getEntrada();
+};
+
+inline std::string Codigo::getEntrada(){
+    return entrada;
+}
+
+/// Matrícula: 200016750
+/// Padrão para representação de Horário de entidade Sessão
+/// Regras de formato:
+/// HH:MM.
+/// Em HH tem-se indicação de horário: 00 a 23
+/// Em MM tem-se indicação de minuto: 00, 15, 30, 45
+class Horario{
+private:
+    std::string entrada;
+    void validar(std::string entrada);
+
+public:
+/// Inicializa objeto com entrada igual a "AA0000"
+    Horario();
+
+/// Inicializa objeto com entrada dada caso seja válida
+/// @param entrada Horario
+    Horario(std::string entrada);
+
+/// Modifica entrada dada caso seja válida
+/// @param entrada Horario
+    void setEntrada(std::string entrada);
+
+/// Retorna entrada
+/// @return entrada
+    std::string getEntrada();
+};
+
+inline std::string Horario::getEntrada(){
     return entrada;
 }
 
