@@ -299,7 +299,7 @@ private:
     void validar(std::string entrada);
 
 public:
-/// Inicializa objeto com entrada igual a "AA0000"
+/// Inicializa objeto com entrada igual a "00:00"
     Horario();
 
 /// Inicializa objeto com entrada dada caso seja válida
