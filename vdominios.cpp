@@ -193,11 +193,77 @@ Telefone::Telefone(){
 }
 
 Telefone::Telefone(std::string entrada){
+    setEntrada(entrada);
+}
+
+void Telefone::setEntrada(std::string entrada){
     validar(entrada);
     this->entrada = entrada;
 }
 
-void Telefone::setEntrada(std::string entrada){
+void Codigo::validar(std::string entrada) {
+    if(entrada.size() != 6)
+        throw std::invalid_argument("Argumento invalido, tamanho incorreto.");
+
+    std::string letters, digits;
+    for (unsigned i; i < entrada.size(); i++) {
+        if (i == 0 || i == 1)
+            letters.push_back(entrada.at(i));
+        else
+            digits.push_back(entrada.at(i));
+    }
+
+    if (!std::all_of(letters.begin(), letters.end(), ::isupper))
+        throw std::invalid_argument("Argumento invalido, formato incorreto. Dois primeiros caracteres nao sao letras maiusculas.");
+    else if (!std::all_of(digits.begin(), digits.end(), ::isdigit))
+        throw std::invalid_argument("Argumento invalido, formato incorreto. Quatro ultimos caracteres nao sao numeros.");
+}
+
+Codigo::Codigo(){
+    entrada = "AA0000";
+}
+
+Codigo::Codigo(std::string entrada){
+    setEntrada(entrada);
+}
+
+void Codigo::setEntrada(std::string entrada){
+    validar(entrada);
+    this->entrada = entrada;
+}
+
+void Horario::validar(std::string entrada) {
+    if(entrada.size() != 5)
+        throw std::invalid_argument("Argumento invalido, tamanho incorreto.");
+
+    std::string HH, MM;
+    for (unsigned i; i < entrada.size(); i++) {
+        if (i == 0 || i == 1)
+            HH.push_back(entrada.at(i));
+        else if (i == 2 && entrada.at(i) != ':')
+            throw std::invalid_argument("Argumento invalido, formato incorreto. Utilize \"HH:MM\".");
+        else if (i != 2)
+            MM.push_back(entrada.at(i));
+    }
+
+    std::set<int> aceitar = {00, 15, 30, 45};
+    if (!std::all_of(HH.begin(), HH.end(), ::isdigit) || !std::all_of(MM.begin(), MM.end(), ::isdigit))
+        throw std::invalid_argument("Argumento invalido, formato incorreto. Hora e minutos devem ser apenas digitos.");
+    else if (std::stoi(HH) > 23)
+        throw std::invalid_argument("Argumento invalido. Hora tem que ser de 00 a 23.");
+    else if (aceitar.find(std::stoi(MM)) == aceitar.end())
+        throw std::invalid_argument("Argumento invalido, Minutos tem que ser 00, 15, 30 ou 45.");
+}
+
+Horario::Horario(){
+    entrada = "00:00";
+}
+
+Horario::Horario(std::string entrada){
+    setEntrada(entrada);
+}
+
+void Horario::setEntrada(std::string entrada){
     validar(entrada);
     this->entrada = entrada;
 }
