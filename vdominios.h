@@ -2,6 +2,7 @@
 #define VDOMINIOSH
 #include <string>
 #include <stdexcept>
+/// Matrícula aluno 200028545
 /// Padrão para representação de Capacadidade de entidade Sala
 /// Regras de formato :
 /// quantidade válida caso 100,200,300, 400 ou 500
@@ -40,6 +41,7 @@ inline int Capacidade::getQuantidade(){
     return quantidade;
     }
 
+/// Matrícula aluno 200028545
 /// Padrão para representação de Cargo de entidade Particidade
 /// Regras de formato :
 /// titulo válido caso ator, cenógrafo,figurinista, maquiador, sonoplasta, iluminador
@@ -76,6 +78,7 @@ inline std::string Cargo::getTitulo(){
     return titulo;
 }
 
+/// Matrícula aluno 200028545
 /// Padrão para representação de tipo de entidade Peça
 /// Regras de formato :
 /// titulo válido caso auto, comédia, drama, farsa, melodrama, monólogo, musical, ópera, revista
@@ -115,6 +118,7 @@ inline std::string Tipo::getGenero(){
     return genero;
 }
 
+/// Matrícula aluno 200028545
 /// Padrão para representação de Classificação de entidade Peça
 /// Regras de formato :
 /// titulo válido caso livre, 10, 12, 14, 16, 18
@@ -153,6 +157,7 @@ inline std::string Classificacao::getIdade(){
     return idade;
 }
 
+/// Matrícula aluno 200028545
 /// Padrão para representação de Matricula de entidade Participante
 /// Regras de formato :
 /// Formato XXXXX
@@ -186,6 +191,7 @@ inline std::string Matricula::getRegistro(){
     return registro;
 }
 
+/// Matrícula aluno 200028545
 /// Padrão para representação de Senha de entidade Participante
 /// Regras de formato :
 /// Formato XXXXXXXX.
@@ -198,8 +204,7 @@ private:
     std::string entrada;
     void validar(std::string entrada);
 public:
-///Inicializa objeto com entrada igual a "ABC123@#$"
-
+///Inicializa objeto com entrada igual a "ABC123#$"
     Senha();
 
 ///Inicializa objeto com entrada dada caso seja válida
