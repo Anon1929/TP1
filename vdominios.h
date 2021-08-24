@@ -254,6 +254,8 @@ public:
 inline std::string Telefone::getEntrada(){
     return entrada;
 }
+
+///Matricula: 200023624
 ///Padrão para representação de Nome
 ///Regras de formato:
 ///5 a 20 caracteres
@@ -281,6 +283,16 @@ inline std::string Nome::getValor() const{
     return valor;
 }
 
+///Matricula: 200023624
+///Padrão para representação de Email
+///Regras de formato:
+///Formato parte-local@domínio
+///parte-local é composta por até 64 caracteres.
+///domínio é composto por até 255 caracteres.
+///Caractere pode ser letra maiúscula (A-Z) ou letra minúscula (a-z).
+///Caractere pode ser dígito (0-9).
+///Caractere pode ser ! # $ % & ' * + - / = ? ^ _ ` { | } ~
+///Caracere pode ser ponto (.) desde que não seja o primeiro ou o último caractere e que não ocorra em sequência.
 class Email {
     private:
         std::string valor;                      // Atributo para armazenar valor.
@@ -301,6 +313,14 @@ inline std::string Email::getValor() const{
     return valor;
 }
 
+///Matricula: 200023624
+///Padrão para representação de Data
+///Regras de formato:
+///Formato DD/MM/AAAA
+///01 a 31 em DD.
+///01 e 12 em MM.
+///2000 a 9999 em AAAA.
+///Data considera a ocorrência de anos bissextos.
 class Data {
     private:
         std::string valor;                      // Atributo para armazenar valor.

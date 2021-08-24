@@ -304,9 +304,44 @@ void Nome::setValor(std::string valor){
 Email::Email(std::string valor){
     setValor(valor);
 }
+
+bool checkChar(char c){
+    std::string validList = "!#$%&'*+-/=?^_`{|}~";
+    for(char e : validList){
+        if(c==e)
+            return true;
+    }
+    return false;
+}
+
 void Email::validar(std::string valor){
     int tamanho = valor.length();
+    int atPosition=-1;
+    std::string validChars = "!#$%&'*+-/=?^_`{|}~";
+    if(valor[tamanho-1]=='.')
+        throw std::invalid_argument("Ponto (.) como último caracter");
+    if(valor[0]=='.')
+        throw std::invalid_argument("Ponto (.) como primeiro caracter");
+    for(int i=0; i<tamanho; i++){
+        if(valor[i]=='@')
+            atPosition=i;
+        else if(valor[i]=='.'){
+            if(i>0 && valor[i-1]=='.')
+                throw std::invalid_argument("Dois pontos (.) em sequencia ");
+        }else if((valor[i]>='a' && valor[i]<='z') || (valor[i]>='A' && valor[i]<='Z')){
+        }else if(valor[i]>='0' && valor[i]<='9'){
+        }else if(checkChar(valor[i])){
+        }else{
+            throw std::invalid_argument("Caracter invalido");
+        }
+    }
 
+    if(atPosition==-1)
+        throw std::invalid_argument("Formato invalido");
+    if(atPosition>64)
+        throw std::invalid_argument("parte-local longa demais");
+    if(tamanho-atPosition>256)
+        throw std::invalid_argument("dominio longo demais");
 }
 void Email::setValor(std::string valor){
     validar(valor);
