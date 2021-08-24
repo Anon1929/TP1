@@ -280,4 +280,44 @@ inline std::string Nome::getValor() const{
     return valor;
 }
 
+class Email {
+    private:
+        std::string valor;                      // Atributo para armazenar valor.
+        void validar(std::string);              // Método para validar valor.
+    public:
+    ///Inicializa objeto com entrada dada caso seja valida
+    ///@param email
+        Email(std::string);
+    ///Modifica valor de email caso entrada seja valida
+    ///@param email
+        void setValor(std::string);             // Método para atribuir valor.
+    ///retorna valor de email
+    ///@return email
+        std::string getValor() const;           // Método para recuperar valor.
+};
+
+inline std::string Email::getValor() const{
+    return valor;
+}
+
+class Data {
+    private:
+        std::string valor;                      // Atributo para armazenar valor.
+        void validar(std::string);              // Método para validar valor.
+    public:
+    ///Inicializa objeto com entrada dada caso seja valida
+    ///@param data
+        Data(std::string);
+    ///Modifica valor de data caso entrada seja valida
+    ///@param data
+        void setValor(std::string);             // Método para atribuir valor.
+    ///retorna valor de data
+    ///@return data
+        std::string getValor() const;           // Método para recuperar valor.
+};
+
+inline std::string Data::getValor() const{
+    return valor;
+}
+
 #endif

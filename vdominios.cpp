@@ -235,3 +235,38 @@ void Nome::setValor(std::string valor){
     this->valor = valor;
 }
 
+Email::Email(std::string valor){
+    setValor(valor);
+}
+void Email::validar(std::string valor){
+    int tamanho = valor.length();
+
+}
+void Email::setValor(std::string valor){
+    validar(valor);
+    this->valor = valor;
+}
+
+
+Data::Data(std::string valor){
+    setValor(valor);
+}
+void Data::validar(std::string valor){
+    if(valor.length()!= 10 || valor[2]!='/' || valor[5]!='/')
+        throw std::invalid_argument("Formato invalido");
+    int dd = std::stoi(valor.substr(0, 2));
+    if(dd<1 || dd>31)
+        throw std::invalid_argument("dia invalido");
+    int mm = std::stoi(valor.substr(3, 2));
+    if(mm<1 || mm>12)
+        throw std::invalid_argument("mes invalido");
+    int aaaa = std::stoi(valor.substr(6, 4));
+    if(aaaa<2000)
+        throw std::invalid_argument("ano invalido");
+}
+void Data::setValor(std::string valor){
+    validar(valor);
+    this->valor = valor;
+}
+
+
