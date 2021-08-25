@@ -104,6 +104,24 @@ public:
     int run();
 };
 
+// Matrícula aluno 200023624
+class TUNome {
+    private:
+    inline static const std::string VALOR_VALIDO = "Marcelo Junqueira";
+    inline static const std::string VALOR_INVALIDO = "m@rc3lo.  junqueira";
+    Nome *nome;
+    int estado;
+    void setUp();
+    void tearDown();
+    void testarCenarioSucesso();
+    void testarCenarioFalha();
+
+public:
+    const static int SUCESSO =  0;
+    const static int FALHA   = -1;
+    int run();
+};
+
 
 #endif
 

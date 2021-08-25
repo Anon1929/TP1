@@ -233,3 +233,42 @@ int TUSenha::run(){
     return estado;
 }
 
+//TUNome
+void TUNome::setUp(){
+    nome = new Nome();
+    estado = SUCESSO;
+}
+
+void TUNome::tearDown(){
+    delete nome;
+}
+
+void TUNome::testarCenarioSucesso(){
+    try{
+        nome->setValor(VALOR_VALIDO);
+        if (nome->getValor() != VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(std::invalid_argument &excecao){
+        estado = FALHA;
+    }
+}
+
+void TUNome::testarCenarioFalha(){
+    try{
+        nome->setValor(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(std::invalid_argument &excecao){
+        if (nome->getValor() == VALOR_INVALIDO)
+            estado = FALHA;
+    }
+}
+int TUNome::run(){
+ setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return estado;
+}
+

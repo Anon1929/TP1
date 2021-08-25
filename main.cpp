@@ -14,6 +14,8 @@ int main(void){
     std::cout << testematricula.run();
     TUSenha testesenha;
     std::cout << testesenha.run();
+    TUNome testeNome;
+    std::cout << testeNome.run();
 
 
 
