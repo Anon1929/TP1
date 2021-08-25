@@ -268,6 +268,10 @@ void Horario::setEntrada(std::string entrada){
     this->entrada = entrada;
 }
 
+Nome::Nome(){
+    setValor("Nome Padrao");
+}
+
 Nome::Nome(std::string valor){
     setValor(valor);
 }
@@ -299,6 +303,10 @@ void Nome::validar(std::string valor){
 void Nome::setValor(std::string valor){
     validar(valor);
     this->valor = valor;
+}
+
+Email::Email(){
+    setValor("teste@email.com");
 }
 
 Email::Email(std::string valor){
@@ -348,6 +356,9 @@ void Email::setValor(std::string valor){
     this->valor = valor;
 }
 
+Data::Data(){
+    setValor("13/03/2002");
+}
 
 Data::Data(std::string valor){
     setValor(valor);
@@ -369,5 +380,3 @@ void Data::setValor(std::string valor){
     validar(valor);
     this->valor = valor;
 }
-
-

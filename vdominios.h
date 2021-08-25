@@ -273,6 +273,8 @@ class Nome {
         std::string valor;                      // Atributo para armazenar valor.
         void validar(std::string);              // Método para validar valor.
     public:
+    ///Inicializa objeto com valor padrão "Nome Padrao"
+        Nome();
     ///Inicializa objeto com entrada dada caso seja valida
     ///@param nome
         Nome(std::string);
@@ -303,6 +305,9 @@ class Email {
         std::string valor;                      // Atributo para armazenar valor.
         void validar(std::string);              // Método para validar valor.
     public:
+    ///Inicializa objeto com valor padrão teste@email.com
+        Email();
+
     ///Inicializa objeto com entrada dada caso seja valida
     ///@param email
         Email(std::string);
@@ -331,6 +336,9 @@ class Data {
         std::string valor;                      // Atributo para armazenar valor.
         void validar(std::string);              // Método para validar valor.
     public:
+    ///Inicializa data com valor "13/03/2002"
+        Data();
+
     ///Inicializa objeto com entrada dada caso seja valida
     ///@param data
         Data(std::string);
