@@ -1,6 +1,6 @@
 #ifndef ENTIDADESH
 #define ENTIDADESH
-
+#include "vdominios.h"
 class Participante {
     private:
             Matricula matricula;
