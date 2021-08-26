@@ -122,6 +122,25 @@ public:
     int run();
 };
 
+// Matrícula aluno 200023624
+class TUEmail {
+    private:
+    inline static const std::string VALOR_VALIDO = "teste@email.com";
+    inline static const std::string VALOR_INVALIDO = "!teste@ email.com";
+    Email *email;
+    int estado;
+    void setUp();
+    void tearDown();
+    void testarCenarioSucesso();
+    void testarCenarioFalha();
+
+public:
+    const static int SUCESSO =  0;
+    const static int FALHA   = -1;
+    int run();
+};
+
+
 
 #endif
 

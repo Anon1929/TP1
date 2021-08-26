@@ -272,3 +272,41 @@ int TUNome::run(){
     return estado;
 }
 
+//TUEmail
+void TUEmail::setUp(){
+    email = new Email();
+    estado = SUCESSO;
+}
+
+void TUEmail::tearDown(){
+    delete email;
+}
+
+void TUEmail::testarCenarioSucesso(){
+    try{
+        email->setValor(VALOR_VALIDO);
+        if (email->getValor() != VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(std::invalid_argument &excecao){
+        estado = FALHA;
+    }
+}
+
+void TUEmail::testarCenarioFalha(){
+    try{
+        email->setValor(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(std::invalid_argument &excecao){
+        if (email->getValor() == VALOR_INVALIDO)
+            estado = FALHA;
+    }
+}
+int TUEmail::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return estado;
+}
