@@ -5,25 +5,27 @@
 #include "entidadesteste.h"
 int main(void){
     TUCapacidade testecapacidade;
-    std::cout << testecapacidade.run();
+    std::cout << "capacidade: " << testecapacidade.run() << std::endl;
     TUCargo testecargo;
-    std::cout << testecargo.run();
+    std::cout << "cargo: " << testecargo.run() << std::endl;
     TUTipo testetipo;
-    std::cout << testetipo.run();
+    std::cout << "tipo: " << testetipo.run() << std::endl;
     TUClassificacao testeclassificacao;
-    std::cout << testeclassificacao.run();
+    std::cout << "classificação: " << testeclassificacao.run() << std::endl;
     TUMatricula testematricula;
-    std::cout << testematricula.run();
+    std::cout << "matricula: " << testematricula.run() << std::endl;
     TUSenha testesenha;
-    std::cout << testesenha.run();
+    std::cout << "senha: " << testesenha.run() << std::endl;
     TUNome testeNome;
-    std::cout << testeNome.run();
+    std::cout << "nome: " << testeNome.run() << std::endl;
     TUEmail testeEmail;
-    std::cout << testeEmail.run();
+    std::cout << "email: " << testeEmail.run() << std::endl;
     TUData testeData;
-    std::cout << testeData.run();
-    TUPeça testepeca;
-    std::cout << testepeca.run();
+    std::cout << "data: " << testeData.run() << std::endl;
+    TUPeca testepeca;
+    std::cout << "Peça: " << testepeca.run() << std::endl;
+    TUParticipante testeParticipante;
+    std::cout << "Participante: " << testeParticipante.run() << std::endl;
 
     return 0;
 }

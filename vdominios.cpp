@@ -100,8 +100,9 @@ void Classificacao::setIdade(std::string idade){
 }
 
 void Matricula::validar(std::string registro){
-    if(registro.size()!= 5)
-        throw std::invalid_argument("Argumento inválido, tamanho errado");
+    if(registro.size()!= 5){
+        throw std::invalid_argument("Argumento inválido, tamanho errado matricula");
+    }
     std::set<char> verificar;
     for(char c : registro){
         if(!isdigit(c))
@@ -116,7 +117,7 @@ void Matricula::setRegistro(std::string registro){
     this->registro = registro;
 }
 Matricula::Matricula(){
-    registro = "00000";
+    registro = "12345";
 }
 Matricula::Matricula(std::string registro){
     validar(registro);
@@ -124,9 +125,8 @@ Matricula::Matricula(std::string registro){
 }
 
 void Senha::validar(std::string entrada){
-
     if(entrada.size()!=8)
-        throw std::invalid_argument("Argumento inválido, tamanho errado");
+        throw std::invalid_argument("Argumento inválido, tamanho errado senha");
     std::set<char> verificar;
     bool minimo[3] ={false, false, false};
     for(char c: entrada){

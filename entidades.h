@@ -2,6 +2,9 @@
 #ifndef ENTIDADESH
 #define ENTIDADESH
 #include "vdominios.h"
+
+///Matrícula do aluno: 200023624
+///Classe representativa da entidade participante
 class Participante {
     private:
             Matricula matricula;
@@ -12,25 +15,53 @@ class Participante {
             Senha senha;
             Cargo cargo;
     public:
+            ///Define Matrícula a partir de objeto Matricula recebido
+            ///@param const Matricula& matricula
             void setMatricula(const Matricula&);
+            ///Retorna atributo Matrícula
+            ///@return Matricula matricula
             Matricula getMatricula() const;
 
+            ///Define Nome a partir de objeto Nome recebido
+            ///@param const Nome& nome
             void setNome(const Nome&);
+            ///Retorna atributo Nome
+            ///@return Nome nome
             Nome getNome() const;
 
-            void setSobrenome(const Nome&);
+            ///Define sobrenomeNome a partir de objeto Nome recebido
+            ///@param const Nome& sobrenome
+            void setSobrenome(const Nome& sobrenome);
+            ///Retorna atributo sobrenome
+            ///@return Nome sobrenome
             Nome getSobrenome() const;
 
+            ///Define Email a partir de objeto Email recebido
+            ///@param const Email& email
             void setEmail(const Email&);
+            ///Retorna atributo Email
+            ///@return Email email
             Email getEmail() const;
 
-            void setTelefone(const Telefone&);
+            ///Define Telefone a partir de objeto Telefone recebido
+            ///@param const Telefone&
+            void setTelefone(const Telefone& telefone);
+            ///Retorna atributo Telefone
+            ///@return Telefone telefone
             Telefone getTelefone() const;
 
-            void setSenha(const Senha&);
+            ///Define Senha a partir de objeto Senha recebido
+            ///@param const Senha&
+            void setSenha(const Senha& senha);
+            ///Retorna atributo Senha
+            ///@return Senha senha
             Senha getSenha() const;
 
-            void setCargo(const Cargo&);
+            ///Define Cargo a partir de objeto Cargo recebido
+            ///@param const Cargo&
+            void setCargo(const Cargo& cargo);
+            ///Retorna atributo Cargo
+            ///@return Cargo cargo
             Cargo getCargo() const;
 };
 //Matricula
@@ -92,7 +123,7 @@ inline Cargo Participante::getCargo() const{
 
 ///Matricula aluno 200028545
 /// Classe representativa de entidade Peça
-class Peça{
+class Peca{
 private:
     Codigo codigo;
     Nome nome;
@@ -144,37 +175,37 @@ public:
 
 };
 
-inline void Peça::setCodigo(const Codigo& codigo){
+inline void Peca::setCodigo(const Codigo& codigo){
     this->codigo = codigo;
 }
 
-inline Codigo Peça::getCodigo(){
+inline Codigo Peca::getCodigo(){
     return codigo;
 }
 
-inline void Peça::setNome(const Nome& nome){
+inline void Peca::setNome(const Nome& nome){
     this->nome = nome;
 }
 
-inline Nome Peça::getNome(){
+inline Nome Peca::getNome(){
     return nome;
 }
 
-inline void Peça::setTipo(const Tipo& tipo){
+inline void Peca::setTipo(const Tipo& tipo){
     this->tipo = tipo;
 }
 
-inline Tipo Peça::getTipo(){
+inline Tipo Peca::getTipo(){
     return tipo;
 }
 
 
-inline void Peça::setClassificacao(const Classificacao& classificacao){
+inline void Peca::setClassificacao(const Classificacao& classificacao){
     this->classificacao = classificacao;
 }
 
 
-inline Classificacao Peça::getClassificacao(){
+inline Classificacao Peca::getClassificacao(){
     return classificacao;
 }
 
