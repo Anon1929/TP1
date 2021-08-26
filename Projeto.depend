@@ -1,9 +1,10 @@
 # depslib dependency file v1.0
-1629989966 source:/home/lain/Documentos/Tp1/TP1/main.cpp
+1629991385 source:/home/lain/Documentos/Tp1/TP1/main.cpp
 	<iostream>
 	"vdominios.h"
 	"dominiosteste.h"
 	"entidades.h"
+	"entidadesteste.h"
 
 1629986773 source:/home/lain/Documentos/Tp1/TP1/vdominios.cpp
 	"vdominios.h"
@@ -72,9 +73,9 @@
 1629991285 source:/home/lain/Documentos/Tp1/TP1/entidadesteste.cpp
 	"entidadesteste.h"
 
-1629990700 /home/lain/Documentos/Tp1/TP1/entidadesteste.h
+1629991431 /home/lain/Documentos/Tp1/TP1/entidadesteste.h
 	"entidades.h"
 
-1629989296 /home/lain/Documentos/Tp1/TP1/entidades.h
+1630003674 /home/lain/Documentos/Tp1/TP1/entidades.h
 	"vdominios.h"
 

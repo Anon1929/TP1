@@ -90,6 +90,7 @@ inline Cargo Participante::getCargo() const{
 }
 
 
+///Matricula aluno 200028545
 /// Classe representativa de entidade Peça
 class Peça{
 private:
@@ -99,65 +100,80 @@ private:
     Classificacao classificacao;
 public:
 
+///Define atributo código com objeto Código passado
+///@param const Codigo& codigo
+
     void setCodigo(const Codigo&);
+
+///Retorna atributo código como objeto
+///@return Codigo codigo
+
     Codigo getCodigo();
 
+
+///Define atributo nome com objeto Nome passado
+///@param const Nome& nome
+
     void setNome(const Nome&);
+
+///Retorna atributo nome como objeto
+///@return Nome nome
+
     Nome getNome();
 
+///Define atributo tipo com objeto Tipo passado
+///@param const Tipo& tipo
+
     void setTipo(const Tipo&);
+
+
+///Retorna atributo tipo como objeto
+///@return Tipo tipo
+
     Tipo getTipo();
 
+///Define atributo classificação com objeto Classificação passado
+///@param const Classificacao& classificacao
+
     void setClassificacao(const Classificacao&);
+
+///Retorna atributo classificação como objeto
+///@return Classificacao classificacao
+
     Classificacao getClassificacao();
 
 };
 
-///Matricula aluno 200028545
-///Define atributo código com objeto Código passado
-///@param const Codigo& codigo
 inline void Peça::setCodigo(const Codigo& codigo){
     this->codigo = codigo;
 }
 
-///Retorna atributo código como objeto
-///@return Codigo codigo
 inline Codigo Peça::getCodigo(){
     return codigo;
 }
 
-///Define atributo nome com objeto Nome passado
-///@param const Nome& nome
 inline void Peça::setNome(const Nome& nome){
     this->nome = nome;
 }
 
-///Retorna atributo nome como objeto
-///@return Nome nome
 inline Nome Peça::getNome(){
     return nome;
 }
 
-///Define atributo tipo com objeto Tipo passado
-///@param const Tipo& tipo
 inline void Peça::setTipo(const Tipo& tipo){
     this->tipo = tipo;
 }
 
-///Retorna atributo tipo como objeto
-///@return Tipo tipo
 inline Tipo Peça::getTipo(){
     return tipo;
 }
 
-///Define atributo classificação com objeto Classificação passado
-///@param const Classificacao& classificacao
+
 inline void Peça::setClassificacao(const Classificacao& classificacao){
     this->classificacao = classificacao;
 }
 
-///Retorna atributo classificação como objeto
-///@return Classificacao classificacao
+
 inline Classificacao Peça::getClassificacao(){
     return classificacao;
 }
