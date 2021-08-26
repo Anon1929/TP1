@@ -36,11 +36,11 @@
 	<iostream>
 	"vdominios.h"
 
-1629393214 /home/marcelo/Documents/UnB/TP1/TP1/vdominios.h
+1629922888 /home/marcelo/Documents/UnB/TP1/TP1/vdominios.h
 	<string>
 	<stdexcept>
 
-1629396234 source:/home/marcelo/Documents/UnB/TP1/TP1/vdominios.cpp
+1629922882 source:/home/marcelo/Documents/UnB/TP1/TP1/vdominios.cpp
 	"vdominios.h"
 	<iostream>
 	<set>
@@ -53,5 +53,12 @@
 	<stdexcept>
 
 1629846259 /home/lain/Documentos/Tp1/TP1/dominiosteste.h
+	"vdominios.h"
+
+1629981546 source:/home/marcelo/Documents/UnB/TP1/TP1/dominiosteste.cpp
+	"dominiosteste.h"
+	<stdexcept>
+
+1629981437 /home/marcelo/Documents/UnB/TP1/TP1/dominiosteste.h
 	"vdominios.h"
 
