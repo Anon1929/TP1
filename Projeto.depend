@@ -1,10 +1,11 @@
 # depslib dependency file v1.0
-1629846201 source:/home/lain/Documentos/Tp1/TP1/main.cpp
+1629989966 source:/home/lain/Documentos/Tp1/TP1/main.cpp
 	<iostream>
 	"vdominios.h"
 	"dominiosteste.h"
+	"entidades.h"
 
-1629835624 source:/home/lain/Documentos/Tp1/TP1/vdominios.cpp
+1629986773 source:/home/lain/Documentos/Tp1/TP1/vdominios.cpp
 	"vdominios.h"
 	<iostream>
 	<set>
@@ -12,7 +13,7 @@
 	<string>
 	<algorithm>
 
-1629846177 /home/lain/Documentos/Tp1/TP1/vdominios.h
+1629986773 /home/lain/Documentos/Tp1/TP1/vdominios.h
 	<string>
 	<stdexcept>
 
@@ -48,11 +49,11 @@
 	<string>
 	<algorithm>
 
-1629845913 source:/home/lain/Documentos/Tp1/TP1/dominiosteste.cpp
+1629986773 source:/home/lain/Documentos/Tp1/TP1/dominiosteste.cpp
 	"dominiosteste.h"
 	<stdexcept>
 
-1629846259 /home/lain/Documentos/Tp1/TP1/dominiosteste.h
+1629986773 /home/lain/Documentos/Tp1/TP1/dominiosteste.h
 	"vdominios.h"
 
 1629981546 source:/home/marcelo/Documents/UnB/TP1/TP1/dominiosteste.cpp
@@ -66,5 +67,14 @@
 	"entidades.h"
 
 1629988199 /home/marcelo/Documents/UnB/TP1/TP1/entidades.h
+	"vdominios.h"
+
+1629991285 source:/home/lain/Documentos/Tp1/TP1/entidadesteste.cpp
+	"entidadesteste.h"
+
+1629990700 /home/lain/Documentos/Tp1/TP1/entidadesteste.h
+	"entidades.h"
+
+1629989296 /home/lain/Documentos/Tp1/TP1/entidades.h
 	"vdominios.h"
 

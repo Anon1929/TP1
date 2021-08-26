@@ -2,6 +2,7 @@
 #include "vdominios.h"
 #include "dominiosteste.h"
 #include "entidades.h"
+#include "entidadesteste.h"
 int main(void){
     TUCapacidade testecapacidade;
     std::cout << testecapacidade.run();
@@ -21,15 +22,8 @@ int main(void){
     std::cout << testeEmail.run();
     TUData testeData;
     std::cout << testeData.run();
-
-    Participante participante;
-    participante.setMatricula(new Matricula);
-    participante.setNome(new Nome);
-    participante.setSobrenome(new Nome);
-    participante.setEmail(new Email);
-    participante.setTelefone(new Telefone);
-    participante.setSenha(new Senha);
-    participante.setCargo(new Cargo);
+    TUPeça testepeca;
+    std::cout << testepeca.run();
 
     return 0;
 }
