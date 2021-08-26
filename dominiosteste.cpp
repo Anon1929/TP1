@@ -310,3 +310,42 @@ int TUEmail::run(){
     tearDown();
     return estado;
 }
+
+//TUData
+void TUData::setUp(){
+    data = new Data();
+    estado = SUCESSO;
+}
+
+void TUData::tearDown(){
+    delete data;
+}
+
+void TUData::testarCenarioSucesso(){
+    try{
+        data->setValor(VALOR_VALIDO);
+        if (data->getValor() != VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(std::invalid_argument &excecao){
+        estado = FALHA;
+    }
+}
+
+void TUData::testarCenarioFalha(){
+    try{
+        data->setValor(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(std::invalid_argument &excecao){
+        if (data->getValor() == VALOR_INVALIDO)
+            estado = FALHA;
+    }
+}
+int TUData::run(){
+    setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return estado;
+}

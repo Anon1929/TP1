@@ -16,7 +16,10 @@ int main(void){
     std::cout << testesenha.run();
     TUNome testeNome;
     std::cout << testeNome.run();
-
+    TUEmail testeEmail;
+    std::cout << testeEmail.run();
+    TUData testeData;
+    std::cout << testeData.run();
 
 
     return 0;

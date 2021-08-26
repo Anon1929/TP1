@@ -140,6 +140,23 @@ public:
     int run();
 };
 
+// Matrícula aluno 200023624
+class TUData {
+    private:
+    inline static const std::string VALOR_VALIDO = "01/01/2000";
+    inline static const std::string VALOR_INVALIDO = "00/00/0000";
+    Data *data;
+    int estado;
+    void setUp();
+    void tearDown();
+    void testarCenarioSucesso();
+    void testarCenarioFalha();
+
+public:
+    const static int SUCESSO =  0;
+    const static int FALHA   = -1;
+    int run();
+};
 
 
 #endif
