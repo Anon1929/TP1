@@ -26,6 +26,7 @@ int main(void){
     std::cout << "Peça: " << testepeca.run() << std::endl;
     TUParticipante testeParticipante;
     std::cout << "Participante: " << testeParticipante.run() << std::endl;
-
+    TUSala testesala;
+    std::cout << "Sala: " << testesala.run() << std::endl;
     return 0;
 }

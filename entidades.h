@@ -211,8 +211,68 @@ inline Classificacao Peca::getClassificacao(){
 
 
 
+class Sala {
+private:
+    Codigo codigo;
+    Nome nome;
+    Capacidade capacidade;
+public:
 
+///Define atributo código com objeto Código passado
+///@param const Codigo& codigo
 
+    void setCodigo(const Codigo&);
+
+///Retorna atributo código como objeto
+///@return Codigo codigo
+
+    Codigo getCodigo();
+
+///Define atributo nome com objeto Nome passado
+///@param const Nome& nome
+
+    void setNome(const Nome&);
+
+///Retorna atributo nome como objeto
+///@return Nome nome
+
+    Nome getNome();
+
+///Define atributo Capacidade com objeto capacidade passado
+///@param const Capacidade& capacidade
+
+    void setCapacidade(const Capacidade&);
+
+///Retorna atributo Capacidade como objeto
+///@return Capacidade capacidade
+
+    Capacidade getCapacidade();
+
+};
+
+inline void Sala::setCodigo(const Codigo& codigo){
+    this->codigo = codigo;
+}
+
+inline Codigo Sala::getCodigo(){
+        return codigo;
+}
+
+inline void Sala::setNome(const Nome& nome){
+    this->nome = nome;
+}
+
+inline Nome Sala::getNome(){
+    return nome;
+}
+
+inline void Sala::setCapacidade(const Capacidade& capacidade){
+    this->capacidade = capacidade;
+}
+
+inline Capacidade Sala::getCapacidade(){
+    return capacidade;
+}
 /*
 class Entidade {
     private:

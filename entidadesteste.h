@@ -43,6 +43,24 @@ public:
     int run();
 };
 
+///Matricula aluno 200028545
+class TUSala{
+private:
+    Sala *sala;
+    int estado;
+    inline const static std::string CODIGOVALIDO = "AA0000";
+    inline const static std::string NOMEVALIDO = "Testeum";
+    const static int CAPACIDADEVALIDA = 100;
+    void setUp();
+    void tearDown();
+    void testarCenarioSucesso();
+public:
+    const static int SUCESSO = 0;
+    const static int FALHA = -1;
+    int run();
+
+};
+
 /*
 class TUProjeto {
 private:

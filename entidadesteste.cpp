@@ -1,5 +1,5 @@
 #include "entidadesteste.h"
-#include <iostream>>
+#include <iostream>
 void TUPeca::setUp(){
     peca = new Peca();
     estado = SUCESSO;
@@ -9,8 +9,6 @@ void TUPeca::tearDown(){
     delete peca;
 }
 
-    inline const static std::string SENHAVALIDA = "ABC123#$";
-    inline const static std::string CARGOVALIDO = "ator";
 void TUPeca::testarCenarioSucesso(){
 
         Codigo codigo;
@@ -92,6 +90,47 @@ void TUParticipante::testarCenarioSucesso(){
 }
 
 int TUParticipante::run(){
+    setUp();
+    testarCenarioSucesso();
+    tearDown();
+    return estado;
+}
+
+
+void TUSala::setUp(){
+    sala = new Sala();
+}
+
+void TUSala::tearDown(){
+    delete sala;
+}
+
+void TUSala::testarCenarioSucesso(){
+    Codigo codigo;
+    codigo.setEntrada(CODIGOVALIDO);
+    estado = SUCESSO;
+    sala->setCodigo(codigo);
+    if(sala->getCodigo().getEntrada()!=codigo.getEntrada()){
+        std::cout <<"A";
+        estado=FALHA;
+    }
+    Nome nome;
+    nome.setValor(NOMEVALIDO);
+    sala->setNome(nome);
+    if(sala->getNome().getValor()!=nome.getValor()){
+        std::cout <<"B";
+        estado=FALHA;
+    }
+    Capacidade capacidade;
+    capacidade.setQuantidade(CAPACIDADEVALIDA);
+    sala->setCapacidade(capacidade);
+    if(sala->getCapacidade().getQuantidade()!=capacidade.getQuantidade()){
+        std::cout <<"C";
+        estado=FALHA;
+        }
+
+}
+int TUSala::run(){
     setUp();
     testarCenarioSucesso();
     tearDown();
