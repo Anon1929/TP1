@@ -1,5 +1,5 @@
 # depslib dependency file v1.0
-1630024121 source:/home/lain/Documentos/Tp1/TP1/main.cpp
+1630024804 source:/home/lain/Documentos/Tp1/TP1/main.cpp
 	<iostream>
 	"vdominios.h"
 	"dominiosteste.h"
@@ -53,11 +53,11 @@
 	<string>
 	<algorithm>
 
-1629986773 source:/home/lain/Documentos/Tp1/TP1/dominiosteste.cpp
+1630024804 source:/home/lain/Documentos/Tp1/TP1/dominiosteste.cpp
 	"dominiosteste.h"
 	<stdexcept>
 
-1629986773 /home/lain/Documentos/Tp1/TP1/dominiosteste.h
+1630024804 /home/lain/Documentos/Tp1/TP1/dominiosteste.h
 	"vdominios.h"
 
 1630023199 source:/home/marcelo/Documents/UnB/TP1/TP1/dominiosteste.cpp
@@ -73,7 +73,7 @@
 1630013537 /home/marcelo/Documents/UnB/TP1/TP1/entidades.h
 	"vdominios.h"
 
-1630024185 source:/home/lain/Documentos/Tp1/TP1/entidadesteste.cpp
+1630024662 source:/home/lain/Documentos/Tp1/TP1/entidadesteste.cpp
 	"entidadesteste.h"
 	<iostream>
 
