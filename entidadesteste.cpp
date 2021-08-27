@@ -97,6 +97,7 @@ int TUParticipante::run(){
 }
 
 
+<<<<<<< HEAD
 void TUSala::setUp(){
     sala = new Sala();
 }
@@ -131,6 +132,38 @@ void TUSala::testarCenarioSucesso(){
 
 }
 int TUSala::run(){
+=======
+void TUSessao::setUp(){
+    sessao = new Sessao();
+    estado = SUCESSO;
+}
+
+void TUSessao::tearDown(){
+    delete sessao;
+}
+
+void TUSessao::testarCenarioSucesso(){
+
+    Codigo codigo;
+    codigo.setEntrada(CODIGOVALIDO);
+    sessao->setCodigo(codigo);
+    if(sessao->getCodigo().getEntrada() != CODIGOVALIDO)
+        estado = FALHA;
+
+    Data data;
+    data.setValor(DATAVALIDA);
+    sessao->setData(data);
+    if(sessao->getData().getValor() != DATAVALIDA)
+        estado = FALHA;
+
+    Horario horario;
+    horario.setEntrada(HORARIOVALIDO);
+    sessao->setHorario(horario);
+    if(sessao->getHorario().getEntrada() != HORARIOVALIDO)
+        estado = FALHA;
+}
+int TUSessao::run(){
+>>>>>>> e89b01571eb98cf3a29ceb7715f53e26701a0f9a
     setUp();
     testarCenarioSucesso();
     tearDown();

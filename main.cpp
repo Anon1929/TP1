@@ -34,7 +34,13 @@ int main(void){
     std::cout << "Peça: " << testepeca.run() << std::endl;
     TUParticipante testeParticipante;
     std::cout << "Participante: " << testeParticipante.run() << std::endl;
+<<<<<<< HEAD
     TUSala testesala;
     std::cout << "Sala: " << testesala.run() << std::endl;
+=======
+    TUSessao testeSessao;
+    std::cout << "Sessao: " << testeSessao.run() << std::endl;
+
+>>>>>>> e89b01571eb98cf3a29ceb7715f53e26701a0f9a
     return 0;
 }

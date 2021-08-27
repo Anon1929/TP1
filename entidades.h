@@ -211,15 +211,26 @@ inline Classificacao Peca::getClassificacao(){
 
 
 
+<<<<<<< HEAD
 class Sala {
 private:
     Codigo codigo;
     Nome nome;
     Capacidade capacidade;
+=======
+/// Matrícula: 200016750
+/// Classe representativa de entidade Sessao
+class Sessao{
+private:
+    Codigo codigo;
+    Data data;
+    Horario horario;
+>>>>>>> e89b01571eb98cf3a29ceb7715f53e26701a0f9a
 public:
 
 ///Define atributo código com objeto Código passado
 ///@param const Codigo& codigo
+<<<<<<< HEAD
 
     void setCodigo(const Codigo&);
 
@@ -280,15 +291,126 @@ class Entidade {
     public:
             void setnomeAtributo(const Dominio&);   // Declarar método set para cada atributo.
             Dominio getnomeAtributo() const;        // Declarar método get para cada atributo.
+=======
+
+    void setCodigo(const Codigo& );
+
+///Retorna atributo código como objeto
+///@return Codigo codigo
+
+    Codigo getCodigo();
+
+///Define atributo data com objeto Data passado
+///@param const Data& data
+
+    void setData(const Data&);
+
+///Retorna atributo data como objeto
+///@return Data data
+
+    Data getData();
+
+///Define atributo horario com objeto Horario passado
+///@param const Horario& horario
+
+    void setHorario(const Horario&);
+
+
+///Retorna atributo horario como objeto
+///@return Horario horario
+
+    Horario getHorario();
+>>>>>>> e89b01571eb98cf3a29ceb7715f53e26701a0f9a
 };
 
-inline void Entidade::setnomeAtributo(const Dominio &nomeAtributo){
-    this->nomeAtributo = nomeAtributo;
+inline void Sessao::setCodigo(const Codigo& codigo){
+    this->codigo = codigo;
 }
 
-inline Dominio Entidade::getnomeAtributo() const{
-    return nomeAtributo;
+inline Codigo Sessao::getCodigo(){
+    return codigo;
 }
-*/
+
+inline void Sessao::setData(const Data& data){
+    this->data = data;
+}
+
+inline Data Sessao::getData(){
+    return data;
+}
+
+inline void Sessao::setHorario(const Horario& horario){
+    this->horario = horario;
+}
+
+inline Horario Sessao::getHorario(){
+    return horario;
+}
+
+
+
+/// Matrícula: 200016750
+/// Classe representativa de entidade Sala
+class Sala{
+private:
+    Codigo codigo;
+    Nome nome;
+    Capacidade capacidade;
+public:
+
+///Define atributo código com objeto Código passado
+///@param const Codigo& codigo
+
+    void setCodigo(const Codigo&);
+
+///Retorna atributo código como objeto
+///@return Codigo codigo
+
+    Codigo getCodigo();
+
+///Define atributo nome com objeto Nome passado
+///@param const Nome& nome
+
+    void setNome(const Nome&);
+
+///Retorna atributo nome como objeto
+///@return Nome nome
+
+    Nome getNome();
+
+///Define atributo capacidade com objeto Capacidade passado
+///@param const Capacidade& capacidade
+
+    void setCapacidade(const Capacidade&);
+
+///Retorna atributo capacidade como objeto
+///@return Capacidade capacidade
+
+    Capacidade getCapacidade();
+};
+
+inline void Sala::setCodigo(const Codigo& codigo){
+    this->codigo = codigo;
+}
+
+inline Codigo Sala::getCodigo(){
+    return codigo;
+}
+
+inline void Sala::setNome(const Nome& nome){
+    this->nome = nome;
+}
+
+inline Nome Sala::getNome(){
+    return nome;
+}
+
+inline void Sala::setCapacidade(const Capacidade& capacidade){
+    this->capacidade = capacidade;
+}
+
+inline Capacidade Sala::getCapacidade(){
+    return capacidade;
+}
 
 #endif // ENTIDADESH
