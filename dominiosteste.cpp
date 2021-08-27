@@ -349,3 +349,122 @@ int TUData::run(){
     tearDown();
     return estado;
 }
+
+//TUTelefone
+void TUTelefone::setUp(){
+    telefone = new Telefone();
+    estado = SUCESSO;
+}
+
+void TUTelefone::tearDown(){
+    delete telefone;
+}
+
+void TUTelefone::testarCenarioSucesso(){
+    try{
+        telefone->setEntrada(VALOR_VALIDO);
+        if (telefone->getEntrada() != VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(std::invalid_argument &excecao){
+        estado = FALHA;
+    }
+}
+
+void TUTelefone::testarCenarioFalha(){
+    try{
+        telefone->setEntrada(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(std::invalid_argument &excecao){
+        if (telefone->getEntrada() == VALOR_INVALIDO)
+            estado = FALHA;
+    }
+}
+int TUTelefone::run(){
+ setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return estado;
+}
+
+//TUCodigo
+void TUCodigo::setUp(){
+    codigo = new Codigo();
+    estado = SUCESSO;
+}
+
+void TUCodigo::tearDown(){
+    delete codigo;
+}
+
+void TUCodigo::testarCenarioSucesso(){
+    try{
+        codigo->setEntrada(VALOR_VALIDO);
+        if (codigo->getEntrada() != VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(std::invalid_argument &excecao){
+        estado = FALHA;
+    }
+}
+
+void TUCodigo::testarCenarioFalha(){
+    try{
+        codigo->setEntrada(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(std::invalid_argument &excecao){
+        if (codigo->getEntrada() == VALOR_INVALIDO)
+            estado = FALHA;
+    }
+}
+int TUCodigo::run(){
+ setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return estado;
+}
+
+
+//TUHorario
+void TUHorario::setUp(){
+    horario = new Horario();
+    estado = SUCESSO;
+}
+
+void TUHorario::tearDown(){
+    delete horario;
+}
+
+void TUHorario::testarCenarioSucesso(){
+    try{
+        horario->setEntrada(VALOR_VALIDO);
+        if (horario->getEntrada() != VALOR_VALIDO)
+            estado = FALHA;
+    }
+    catch(std::invalid_argument &excecao){
+        estado = FALHA;
+    }
+}
+
+void TUHorario::testarCenarioFalha(){
+    try{
+        horario->setEntrada(VALOR_INVALIDO);
+        estado = FALHA;
+    }
+    catch(std::invalid_argument &excecao){
+        if (horario->getEntrada() == VALOR_INVALIDO)
+            estado = FALHA;
+    }
+}
+int TUHorario::run(){
+ setUp();
+    testarCenarioSucesso();
+    testarCenarioFalha();
+    tearDown();
+    return estado;
+}
+

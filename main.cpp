@@ -4,6 +4,7 @@
 #include "entidades.h"
 #include "entidadesteste.h"
 int main(void){
+    std::cout << "----Dominios---" << std::endl;
     TUCapacidade testecapacidade;
     std::cout << "capacidade: " << testecapacidade.run() << std::endl;
     TUCargo testecargo;
@@ -22,6 +23,13 @@ int main(void){
     std::cout << "email: " << testeEmail.run() << std::endl;
     TUData testeData;
     std::cout << "data: " << testeData.run() << std::endl;
+    TUTelefone testeTelefone;
+    std::cout << "Telefone: " << testeTelefone.run() << std::endl;
+    TUCodigo testeCodigo;
+    std::cout << "Codigo: " << testeCodigo.run() << std::endl;
+    TUHorario testeHorario;
+    std::cout << "Horario: " << testeHorario.run() << std::endl;
+    std::cout << "----Entidades---" << std::endl;
     TUPeca testepeca;
     std::cout << "Peça: " << testepeca.run() << std::endl;
     TUParticipante testeParticipante;
