@@ -1,5 +1,5 @@
 #include "entidadesteste.h"
-#include <iostream>>
+#include <iostream>
 void TUPeca::setUp(){
     peca = new Peca();
     estado = SUCESSO;
@@ -9,8 +9,6 @@ void TUPeca::tearDown(){
     delete peca;
 }
 
-    inline const static std::string SENHAVALIDA = "ABC123#$";
-    inline const static std::string CARGOVALIDO = "ator";
 void TUPeca::testarCenarioSucesso(){
 
         Codigo codigo;
@@ -96,4 +94,35 @@ int TUParticipante::run(){
     testarCenarioSucesso();
     tearDown();
     return estado;
+}
+
+
+void TUSessao::setUp(){
+    sessao = new Sessao();
+    estado = SUCESSO;
+}
+
+void TUSessao::tearDown(){
+    delete sessao;
+}
+
+void TUSessao::testarCenarioSucesso(){
+
+    Codigo codigo;
+    codigo.setEntrada(CODIGOVALIDO);
+    sessao->setCodigo(codigo);
+    if(sessao->getCodigo().getEntrada() != CODIGOVALIDO)
+        estado = FALHA;
+
+    Data data;
+    data.setValor(DATAVALIDA);
+    sessao->setData(data);
+    if(sessao->getData().getValor() != DATAVALIDA)
+        estado = FALHA;
+
+    Horario horario;
+    horario.setEntrada(HORARIOVALIDO);
+    sessao->setHorario(horario);
+    if(sessao->getHorario().getEntrada() != HORARIOVALIDO)
+        estado = FALHA;
 }
