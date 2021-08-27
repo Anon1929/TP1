@@ -97,7 +97,6 @@ int TUParticipante::run(){
 }
 
 
-<<<<<<< HEAD
 void TUSala::setUp(){
     sala = new Sala();
 }
@@ -132,7 +131,12 @@ void TUSala::testarCenarioSucesso(){
 
 }
 int TUSala::run(){
-=======
+    setUp();
+    testarCenarioSucesso();
+    tearDown();
+    return estado;
+
+    }
 void TUSessao::setUp(){
     sessao = new Sessao();
     estado = SUCESSO;
@@ -163,7 +167,6 @@ void TUSessao::testarCenarioSucesso(){
         estado = FALHA;
 }
 int TUSessao::run(){
->>>>>>> e89b01571eb98cf3a29ceb7715f53e26701a0f9a
     setUp();
     testarCenarioSucesso();
     tearDown();

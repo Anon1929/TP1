@@ -43,7 +43,7 @@ public:
     int run();
 };
 
-<<<<<<< HEAD
+
 ///Matricula aluno 200028545
 class TUSala{
 private:
@@ -62,13 +62,8 @@ public:
 
 };
 
-/*
-class TUProjeto {
-=======
-
 ///Matricula aluno 200016750
 class TUSessao{
->>>>>>> e89b01571eb98cf3a29ceb7715f53e26701a0f9a
 private:
     Sessao *sessao;
     int estado;
