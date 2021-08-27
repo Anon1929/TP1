@@ -158,6 +158,59 @@ public:
     int run();
 };
 
+// Matrícula aluno 200023624
+class TUTelefone {
+    private:
+    inline static const std::string VALOR_VALIDO = "(11)-111111111";
+    inline static const std::string VALOR_INVALIDO = "000000000";
+    Telefone *telefone;
+    int estado;
+    void setUp();
+    void tearDown();
+    void testarCenarioSucesso();
+    void testarCenarioFalha();
+
+public:
+    const static int SUCESSO =  0;
+    const static int FALHA   = -1;
+    int run();
+};
+
+// Matrícula aluno 200023624
+class TUCodigo {
+    private:
+    inline static const std::string VALOR_VALIDO = "AA0000";
+    inline static const std::string VALOR_INVALIDO = "11AAAA";
+    Codigo *codigo;
+    int estado;
+    void setUp();
+    void tearDown();
+    void testarCenarioSucesso();
+    void testarCenarioFalha();
+
+public:
+    const static int SUCESSO =  0;
+    const static int FALHA   = -1;
+    int run();
+};
+
+// Matrícula aluno 200023624
+class TUHorario {
+    private:
+    inline static const std::string VALOR_VALIDO = "00:00";
+    inline static const std::string VALOR_INVALIDO = "Meio dia";
+    Horario *horario;
+    int estado;
+    void setUp();
+    void tearDown();
+    void testarCenarioSucesso();
+    void testarCenarioFalha();
+
+public:
+    const static int SUCESSO =  0;
+    const static int FALHA   = -1;
+    int run();
+};
 
 #endif
 
