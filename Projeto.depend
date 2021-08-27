@@ -34,7 +34,7 @@
 	<string>
 	<algorithm>
 
-1630022437 source:/home/marcelo/Documents/UnB/TP1/TP1/main.cpp
+1630025649 source:/home/marcelo/Documents/UnB/TP1/TP1/main.cpp
 	<iostream>
 	"vdominios.h"
 	"dominiosteste.h"
@@ -70,7 +70,7 @@
 1629985508 source:/home/marcelo/Documents/UnB/TP1/TP1/entidades.cpp
 	"entidades.h"
 
-1630013537 /home/marcelo/Documents/UnB/TP1/TP1/entidades.h
+1630025649 /home/marcelo/Documents/UnB/TP1/TP1/entidades.h
 	"vdominios.h"
 
 1629991285 source:/home/lain/Documentos/Tp1/TP1/entidadesteste.cpp
@@ -82,10 +82,10 @@
 1630003674 /home/lain/Documentos/Tp1/TP1/entidades.h
 	"vdominios.h"
 
-1630016316 source:/home/marcelo/Documents/UnB/TP1/TP1/entidadesteste.cpp
+1630024982 source:/home/marcelo/Documents/UnB/TP1/TP1/entidadesteste.cpp
 	"entidadesteste.h"
 	<iostream>
 
-1630015644 /home/marcelo/Documents/UnB/TP1/TP1/entidadesteste.h
+1630025649 /home/marcelo/Documents/UnB/TP1/TP1/entidadesteste.h
 	"entidades.h"
 

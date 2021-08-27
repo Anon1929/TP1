@@ -126,3 +126,9 @@ void TUSessao::testarCenarioSucesso(){
     if(sessao->getHorario().getEntrada() != HORARIOVALIDO)
         estado = FALHA;
 }
+int TUSessao::run(){
+    setUp();
+    testarCenarioSucesso();
+    tearDown();
+    return estado;
+}
