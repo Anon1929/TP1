@@ -1,5 +1,5 @@
-#ifndef VDOMINIOSH
-#define VDOMINIOSH
+#ifndef DOMINIOSH
+#define DOMINIOSH
 #include <string>
 #include <stdexcept>
 /// Matrícula aluno 200028545
