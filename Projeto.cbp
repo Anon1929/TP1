@@ -31,14 +31,17 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="controladoresapresentacao.h" />
+		<Unit filename="controladoresservico.h" />
+		<Unit filename="dominios.cpp" />
+		<Unit filename="dominios.h" />
 		<Unit filename="dominiosteste.cpp" />
 		<Unit filename="dominiosteste.h" />
 		<Unit filename="entidades.h" />
 		<Unit filename="entidadesteste.cpp" />
 		<Unit filename="entidadesteste.h" />
+		<Unit filename="interface.h" />
 		<Unit filename="main.cpp" />
-		<Unit filename="vdominios.cpp" />
-		<Unit filename="vdominios.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>
