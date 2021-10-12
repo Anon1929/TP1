@@ -11,8 +11,8 @@ void TUCapacidade::tearDown(){
 
 void TUCapacidade::testarCenarioSucesso(){
     try{
-        capacidade->setQuantidade(VALOR_VALIDO);
-        if (capacidade->getQuantidade() != VALOR_VALIDO)
+        capacidade->setValor(VALOR_VALIDO);
+        if (capacidade->getValor() != VALOR_VALIDO)
             estado = FALHA;
     }
     catch(std::invalid_argument &excecao){
@@ -22,11 +22,11 @@ void TUCapacidade::testarCenarioSucesso(){
 
 void TUCapacidade::testarCenarioFalha(){
     try{
-        capacidade->setQuantidade(VALOR_INVALIDO);
+        capacidade->setValor(VALOR_INVALIDO);
         estado = FALHA;
     }
     catch(std::invalid_argument &excecao){
-        if (capacidade->getQuantidade() == VALOR_INVALIDO)
+        if (capacidade->getValor() == VALOR_INVALIDO)
             estado = FALHA;
     }
 }
@@ -49,8 +49,8 @@ void TUCargo::tearDown(){
 
 void TUCargo::testarCenarioSucesso(){
     try{
-        cargo->setTitulo(VALOR_VALIDO);
-        if (cargo->getTitulo() != VALOR_VALIDO)
+        cargo->setValor(VALOR_VALIDO);
+        if (cargo->getValor() != VALOR_VALIDO)
             estado = FALHA;
     }
     catch(std::invalid_argument &excecao){
@@ -60,11 +60,11 @@ void TUCargo::testarCenarioSucesso(){
 
 void TUCargo::testarCenarioFalha(){
     try{
-        cargo->setTitulo(VALOR_INVALIDO);
+        cargo->setValor(VALOR_INVALIDO);
         estado = FALHA;
     }
     catch(std::invalid_argument &excecao){
-        if (cargo->getTitulo() == VALOR_INVALIDO)
+        if (cargo->getValor() == VALOR_INVALIDO)
             estado = FALHA;
     }
 }
@@ -88,8 +88,8 @@ void TUTipo::tearDown(){
 
 void TUTipo::testarCenarioSucesso(){
     try{
-        tipo->setGenero(VALOR_VALIDO);
-        if (tipo->getGenero() != VALOR_VALIDO)
+        tipo->setValor(VALOR_VALIDO);
+        if (tipo->getValor() != VALOR_VALIDO)
             estado = FALHA;
     }
     catch(std::invalid_argument &excecao){
@@ -99,11 +99,11 @@ void TUTipo::testarCenarioSucesso(){
 
 void TUTipo::testarCenarioFalha(){
     try{
-        tipo->setGenero(VALOR_INVALIDO);
+        tipo->setValor(VALOR_INVALIDO);
         estado = FALHA;
     }
     catch(std::invalid_argument &excecao){
-        if (tipo->getGenero() == VALOR_INVALIDO)
+        if (tipo->getValor() == VALOR_INVALIDO)
             estado = FALHA;
     }
 }
@@ -128,8 +128,8 @@ void TUClassificacao::tearDown(){
 
 void TUClassificacao::testarCenarioSucesso(){
     try{
-        classificao->setIdade(VALOR_VALIDO);
-        if (classificao->getIdade() != VALOR_VALIDO)
+        classificao->setValor(VALOR_VALIDO);
+        if (classificao->getValor() != VALOR_VALIDO)
             estado = FALHA;
     }
     catch(std::invalid_argument &excecao){
@@ -139,11 +139,11 @@ void TUClassificacao::testarCenarioSucesso(){
 
 void TUClassificacao::testarCenarioFalha(){
     try{
-        classificao->setIdade(VALOR_INVALIDO);
+        classificao->setValor(VALOR_INVALIDO);
         estado = FALHA;
     }
     catch(std::invalid_argument &excecao){
-        if (classificao->getIdade() == VALOR_INVALIDO)
+        if (classificao->getValor() == VALOR_INVALIDO)
             estado = FALHA;
     }
 }
@@ -167,8 +167,8 @@ void TUMatricula::tearDown(){
 
 void TUMatricula::testarCenarioSucesso(){
     try{
-        matricula->setRegistro(VALOR_VALIDO);
-        if (matricula->getRegistro() != VALOR_VALIDO)
+        matricula->setValor(VALOR_VALIDO);
+        if (matricula->getValor() != VALOR_VALIDO)
             estado = FALHA;
     }
     catch(std::invalid_argument &excecao){
@@ -178,11 +178,11 @@ void TUMatricula::testarCenarioSucesso(){
 
 void TUMatricula::testarCenarioFalha(){
     try{
-        matricula->setRegistro(VALOR_INVALIDO);
+        matricula->setValor(VALOR_INVALIDO);
         estado = FALHA;
     }
     catch(std::invalid_argument &excecao){
-        if (matricula->getRegistro() == VALOR_INVALIDO)
+        if (matricula->getValor() == VALOR_INVALIDO)
             estado = FALHA;
     }
 }
@@ -206,8 +206,8 @@ void TUSenha::tearDown(){
 
 void TUSenha::testarCenarioSucesso(){
     try{
-        senha->setEntrada(VALOR_VALIDO);
-        if (senha->getEntrada() != VALOR_VALIDO)
+        senha->setValor(VALOR_VALIDO);
+        if (senha->getValor() != VALOR_VALIDO)
             estado = FALHA;
     }
     catch(std::invalid_argument &excecao){
@@ -217,11 +217,11 @@ void TUSenha::testarCenarioSucesso(){
 
 void TUSenha::testarCenarioFalha(){
     try{
-        senha->setEntrada(VALOR_INVALIDO);
+        senha->setValor(VALOR_INVALIDO);
         estado = FALHA;
     }
     catch(std::invalid_argument &excecao){
-        if (senha->getEntrada() == VALOR_INVALIDO)
+        if (senha->getValor() == VALOR_INVALIDO)
             estado = FALHA;
     }
 }
@@ -362,8 +362,8 @@ void TUTelefone::tearDown(){
 
 void TUTelefone::testarCenarioSucesso(){
     try{
-        telefone->setEntrada(VALOR_VALIDO);
-        if (telefone->getEntrada() != VALOR_VALIDO)
+        telefone->setValor(VALOR_VALIDO);
+        if (telefone->getValor() != VALOR_VALIDO)
             estado = FALHA;
     }
     catch(std::invalid_argument &excecao){
@@ -373,11 +373,11 @@ void TUTelefone::testarCenarioSucesso(){
 
 void TUTelefone::testarCenarioFalha(){
     try{
-        telefone->setEntrada(VALOR_INVALIDO);
+        telefone->setValor(VALOR_INVALIDO);
         estado = FALHA;
     }
     catch(std::invalid_argument &excecao){
-        if (telefone->getEntrada() == VALOR_INVALIDO)
+        if (telefone->getValor() == VALOR_INVALIDO)
             estado = FALHA;
     }
 }
@@ -401,8 +401,8 @@ void TUCodigo::tearDown(){
 
 void TUCodigo::testarCenarioSucesso(){
     try{
-        codigo->setEntrada(VALOR_VALIDO);
-        if (codigo->getEntrada() != VALOR_VALIDO)
+        codigo->setValor(VALOR_VALIDO);
+        if (codigo->getValor() != VALOR_VALIDO)
             estado = FALHA;
     }
     catch(std::invalid_argument &excecao){
@@ -412,11 +412,11 @@ void TUCodigo::testarCenarioSucesso(){
 
 void TUCodigo::testarCenarioFalha(){
     try{
-        codigo->setEntrada(VALOR_INVALIDO);
+        codigo->setValor(VALOR_INVALIDO);
         estado = FALHA;
     }
     catch(std::invalid_argument &excecao){
-        if (codigo->getEntrada() == VALOR_INVALIDO)
+        if (codigo->getValor() == VALOR_INVALIDO)
             estado = FALHA;
     }
 }
@@ -441,8 +441,8 @@ void TUHorario::tearDown(){
 
 void TUHorario::testarCenarioSucesso(){
     try{
-        horario->setEntrada(VALOR_VALIDO);
-        if (horario->getEntrada() != VALOR_VALIDO)
+        horario->setValor(VALOR_VALIDO);
+        if (horario->getValor() != VALOR_VALIDO)
             estado = FALHA;
     }
     catch(std::invalid_argument &excecao){
@@ -452,11 +452,11 @@ void TUHorario::testarCenarioSucesso(){
 
 void TUHorario::testarCenarioFalha(){
     try{
-        horario->setEntrada(VALOR_INVALIDO);
+        horario->setValor(VALOR_INVALIDO);
         estado = FALHA;
     }
     catch(std::invalid_argument &excecao){
-        if (horario->getEntrada() == VALOR_INVALIDO)
+        if (horario->getValor() == VALOR_INVALIDO)
             estado = FALHA;
     }
 }

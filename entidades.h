@@ -1,7 +1,7 @@
 
 #ifndef ENTIDADESH
 #define ENTIDADESH
-#include "vdominios.h"
+#include "dominios.h"
 
 ///Matrícula do aluno: 200023624
 ///Classe representativa da entidade participante

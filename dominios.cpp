@@ -16,23 +16,23 @@ void Capacidade::validar(int argumento){
         throw std::invalid_argument("Argumento invalido");
     }
 
-void Capacidade::setQuantidade(int quantidade){
-    validar(quantidade);
-    this->quantidade = quantidade;
+void Capacidade::setValor(int valor){
+    validar(valor);
+    this->valor = valor;
 }
 
 Capacidade::Capacidade(){
-    quantidade = 100;
+    valor = 100;
 }
 
-Capacidade::Capacidade(int quantidade){
-    validar(quantidade);
-    this->quantidade = quantidade;
+Capacidade::Capacidade(int valor){
+    validar(valor);
+    this->valor = valor;
 }
 
-void Cargo::validar(std::string titulo){
+void Cargo::validar(std::string valor){
     bool valido;
-    if (titulo=="ator"||titulo=="cenógrafo"||titulo=="figurinista"||titulo=="maquiador"||titulo=="sonoplasta"||titulo=="iluminador")
+    if (valor=="ator"||valor=="cenógrafo"||valor=="figurinista"||valor=="maquiador"||valor=="sonoplasta"||valor=="iluminador")
         valido=true;
     else
         valido=false;
@@ -40,20 +40,20 @@ void Cargo::validar(std::string titulo){
         throw std::invalid_argument("Argumento invalido");
 }
 Cargo::Cargo(){
-    titulo = "ator";
+    valor = "ator";
 }
-Cargo::Cargo(std::string titulo){
-    validar(titulo);
-    this->titulo = titulo;
+Cargo::Cargo(std::string valor){
+    validar(valor);
+    this->valor = valor;
 }
-void Cargo::setTitulo(std::string titulo){
-    validar(titulo);
-    this->titulo = titulo;
+void Cargo::setValor(std::string valor){
+    validar(valor);
+    this->valor = valor;
 }
 
-void Tipo::validar(std::string genero){
+void Tipo::validar(std::string valor){
     bool valido;
-    if (genero=="auto"||genero=="comédia"||genero=="drama"||genero=="farsa"||genero=="melodrama"||genero=="monólogo"||genero=="musical"||genero=="ópera"||genero=="revista")
+    if (valor=="auto"||valor=="comédia"||valor=="drama"||valor=="farsa"||valor=="melodrama"||valor=="monólogo"||valor=="musical"||valor=="ópera"||valor=="revista")
         valido=true;
     else
         valido=false;
@@ -63,22 +63,22 @@ void Tipo::validar(std::string genero){
 }
 
 Tipo::Tipo(){
-    genero = "auto";
+    valor = "auto";
 }
 
-Tipo::Tipo(std::string genero){
-    validar(genero);
-    this->genero = genero;
+Tipo::Tipo(std::string valor){
+    validar(valor);
+    this->valor = valor;
 }
 
-void Tipo::setGenero(std::string genero){
-    validar(genero);
-    this->genero = genero;
+void Tipo::setValor(std::string valor){
+    validar(valor);
+    this->valor = valor;
 }
 
-void Classificacao::validar(std::string idade){
+void Classificacao::validar(std::string valor){
     bool valido;
-    if (idade=="livre"||idade=="10"||idade=="12"||idade=="14"||idade=="16"||idade=="18")
+    if (valor=="livre"||valor=="10"||valor=="12"||valor=="14"||valor=="16"||valor=="18")
         valido=true;
     else
         valido=false;
@@ -86,50 +86,50 @@ void Classificacao::validar(std::string idade){
         throw std::invalid_argument("Argumento invalido");
 }
 Classificacao::Classificacao(){
-    idade = "auto";
+    valor = "auto";
 }
 
-Classificacao::Classificacao(std::string idade){
-    validar(idade);
-    this->idade = idade;
+Classificacao::Classificacao(std::string valor){
+    validar(valor);
+    this->valor = valor;
 }
 
-void Classificacao::setIdade(std::string idade){
-    validar(idade);
-    this->idade = idade;
+void Classificacao::setValor(std::string valor){
+    validar(valor);
+    this->valor = valor;
 }
 
-void Matricula::validar(std::string registro){
-    if(registro.size()!= 5){
+void Matricula::validar(std::string valor){
+    if(valor.size()!= 5){
         throw std::invalid_argument("Argumento inválido, tamanho errado matricula");
     }
     std::set<char> verificar;
-    for(char c : registro){
+    for(char c : valor){
         if(!isdigit(c))
            throw std::invalid_argument("Argumento inválido, não numero");
         verificar.insert(c);
     }
-    if(verificar.size()!=registro.size())
+    if(verificar.size()!=valor.size())
         throw std::invalid_argument("Argumento inválido, número repetido");
 }
-void Matricula::setRegistro(std::string registro){
-    validar(registro);
-    this->registro = registro;
+void Matricula::setValor(std::string valor){
+    validar(valor);
+    this->valor = valor;
 }
 Matricula::Matricula(){
-    registro = "12345";
+    valor = "12345";
 }
-Matricula::Matricula(std::string registro){
-    validar(registro);
-    this->registro = registro;
+Matricula::Matricula(std::string valor){
+    validar(valor);
+    this->valor = valor;
 }
 
-void Senha::validar(std::string entrada){
-    if(entrada.size()!=8)
+void Senha::validar(std::string valor){
+    if(valor.size()!=8)
         throw std::invalid_argument("Argumento inválido, tamanho errado senha");
     std::set<char> verificar;
     bool minimo[3] ={false, false, false};
-    for(char c: entrada){
+    for(char c: valor){
         if (isdigit(c))
             minimo[0] = true;
         else if (islower(c)||isupper(c))
@@ -140,39 +140,39 @@ void Senha::validar(std::string entrada){
             throw std::invalid_argument("Argumento inválido, caracter não permitido");
         verificar.insert(c);
     }
-    if(verificar.size()!=entrada.size())
+    if(verificar.size()!=valor.size())
         throw std::invalid_argument("Argumento inválido, caracter repetido");
     if(!(minimo[0] && minimo[1] && minimo[2]))
         throw std::invalid_argument("Argumento inválido, não cumpre com o mínimo");
 }
 
-void Senha::setEntrada(std::string entrada){
-    validar(entrada);
-    this->entrada = entrada;
+void Senha::setValor(std::string valor){
+    validar(valor);
+    this->valor = valor;
 }
 
-Senha::Senha(std::string entrada){
-    validar(entrada);
-    this->entrada = entrada;
+Senha::Senha(std::string valor){
+    validar(valor);
+    this->valor = valor;
 }
 
 Senha::Senha(){
-    entrada = "ABC123#$";
+    valor = "ABC123#$";
 }
 
-void Telefone::validar(std::string entrada) {
-    if(entrada.size() != 14)
+void Telefone::validar(std::string valor) {
+    if(valor.size() != 14)
         throw std::invalid_argument("Argumento invalido, tamanho incorreto.");
 
     std::string specialchars, digits;
     std::vector<char> ddd;
-    for (unsigned i; i < entrada.size(); i++) {
+    for (unsigned i; i < valor.size(); i++) {
         if (i == 0 || i == 3 || i == 4)
-            specialchars.push_back(entrada.at(i));
+            specialchars.push_back(valor.at(i));
         else if (i == 1 || i == 2)
-            ddd.push_back(entrada.at(i));
+            ddd.push_back(valor.at(i));
         else
-            digits.push_back(entrada.at(i));
+            digits.push_back(valor.at(i));
     }
 
     std::set<int> negar = {20, 23, 25, 26, 29, 30, 31, 36, 39, 40, 50, 52, 56, 57, 58, 59, 60, 70, 72, 76, 78, 80, 90}; // Todos os DDDs entre 11 e 99 que não são permitidos
@@ -189,28 +189,28 @@ void Telefone::validar(std::string entrada) {
 }
 
 Telefone::Telefone(){
-    entrada = "(11)-000000001";
+    valor = "(11)-000000001";
 }
 
-Telefone::Telefone(std::string entrada){
-    setEntrada(entrada);
+Telefone::Telefone(std::string valor){
+    setValor(valor);
 }
 
-void Telefone::setEntrada(std::string entrada){
-    validar(entrada);
-    this->entrada = entrada;
+void Telefone::setValor(std::string valor){
+    validar(valor);
+    this->valor = valor;
 }
 
-void Codigo::validar(std::string entrada) {
-    if(entrada.size() != 6)
+void Codigo::validar(std::string valor) {
+    if(valor.size() != 6)
         throw std::invalid_argument("Argumento invalido, tamanho incorreto.");
 
     std::string letters, digits;
-    for (unsigned i; i < entrada.size(); i++) {
+    for (unsigned i; i < valor.size(); i++) {
         if (i == 0 || i == 1)
-            letters.push_back(entrada.at(i));
+            letters.push_back(valor.at(i));
         else
-            digits.push_back(entrada.at(i));
+            digits.push_back(valor.at(i));
     }
 
     if (!std::all_of(letters.begin(), letters.end(), ::isupper))
@@ -220,30 +220,30 @@ void Codigo::validar(std::string entrada) {
 }
 
 Codigo::Codigo(){
-    entrada = "AA0000";
+    valor = "AA0000";
 }
 
-Codigo::Codigo(std::string entrada){
-    setEntrada(entrada);
+Codigo::Codigo(std::string valor){
+    setValor(valor);
 }
 
-void Codigo::setEntrada(std::string entrada){
-    validar(entrada);
-    this->entrada = entrada;
+void Codigo::setValor(std::string valor){
+    validar(valor);
+    this->valor = valor;
 }
 
-void Horario::validar(std::string entrada) {
-    if(entrada.size() != 5)
+void Horario::validar(std::string valor) {
+    if(valor.size() != 5)
         throw std::invalid_argument("Argumento invalido, tamanho incorreto.");
 
     std::string HH, MM;
-    for (unsigned i; i < entrada.size(); i++) {
+    for (unsigned i; i < valor.size(); i++) {
         if (i == 0 || i == 1)
-            HH.push_back(entrada.at(i));
-        else if (i == 2 && entrada.at(i) != ':')
+            HH.push_back(valor.at(i));
+        else if (i == 2 && valor.at(i) != ':')
             throw std::invalid_argument("Argumento invalido, formato incorreto. Utilize \"HH:MM\".");
         else if (i != 2)
-            MM.push_back(entrada.at(i));
+            MM.push_back(valor.at(i));
     }
 
     std::set<int> aceitar = {00, 15, 30, 45};
@@ -256,16 +256,16 @@ void Horario::validar(std::string entrada) {
 }
 
 Horario::Horario(){
-    entrada = "00:00";
+    valor = "00:00";
 }
 
-Horario::Horario(std::string entrada){
-    setEntrada(entrada);
+Horario::Horario(std::string valor){
+    setValor(valor);
 }
 
-void Horario::setEntrada(std::string entrada){
-    validar(entrada);
-    this->entrada = entrada;
+void Horario::setValor(std::string valor){
+    validar(valor);
+    this->valor = valor;
 }
 
 Nome::Nome(){

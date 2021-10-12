@@ -12,9 +12,9 @@ void TUPeca::tearDown(){
 void TUPeca::testarCenarioSucesso(){
 
         Codigo codigo;
-    codigo.setEntrada(CODIGOVALIDO);
+    codigo.setValor(CODIGOVALIDO);
     peca->setCodigo(codigo);
-    if(peca->getCodigo().getEntrada() != CODIGOVALIDO)
+    if(peca->getCodigo().getValor() != CODIGOVALIDO)
         estado = FALHA;
     Nome nome;
     nome.setValor(NOMEVALIDO);
@@ -22,14 +22,14 @@ void TUPeca::testarCenarioSucesso(){
     if(peca->getNome().getValor() != NOMEVALIDO)
         estado = FALHA;
     Tipo tipo;
-    tipo.setGenero(TIPOVALIDO);
+    tipo.setValor(TIPOVALIDO);
     peca->setTipo(tipo);
-    if(peca->getTipo().getGenero() != TIPOVALIDO)
+    if(peca->getTipo().getValor() != TIPOVALIDO)
         estado = FALHA;
     Classificacao classificacao;
-    classificacao.setIdade(CLASSICACAOVALIDA);
+    classificacao.setValor(CLASSICACAOVALIDA);
     peca->setClassificacao(classificacao);
-    if(peca->getClassificacao().getIdade() != CLASSICACAOVALIDA)
+    if(peca->getClassificacao().getValor() != CLASSICACAOVALIDA)
         estado = FALHA;
 
 }
@@ -53,9 +53,9 @@ void TUParticipante::tearDown(){
 
 void TUParticipante::testarCenarioSucesso(){
     Matricula matricula;
-    matricula.setRegistro(MATRICULAVALIDA);
+    matricula.setValor(MATRICULAVALIDA);
     participante->setMatricula(matricula);
-    if(participante->getMatricula().getRegistro() != MATRICULAVALIDA)
+    if(participante->getMatricula().getValor() != MATRICULAVALIDA)
         estado = FALHA;
 
     Nome nome;
@@ -77,15 +77,15 @@ void TUParticipante::testarCenarioSucesso(){
         estado = FALHA;
 
     Senha senha;
-    senha.setEntrada(SENHAVALIDA);
+    senha.setValor(SENHAVALIDA);
     participante->setSenha(senha);
-    if(participante->getSenha().getEntrada() != SENHAVALIDA)
+    if(participante->getSenha().getValor() != SENHAVALIDA)
         estado = FALHA;
 
     Cargo cargo;
-    cargo.setTitulo(CARGOVALIDO);
+    cargo.setValor(CARGOVALIDO);
     participante->setCargo(cargo);
-    if(participante->getCargo().getTitulo() != CARGOVALIDO)
+    if(participante->getCargo().getValor() != CARGOVALIDO)
         estado = FALHA;
 }
 
@@ -107,10 +107,10 @@ void TUSala::tearDown(){
 
 void TUSala::testarCenarioSucesso(){
     Codigo codigo;
-    codigo.setEntrada(CODIGOVALIDO);
+    codigo.setValor(CODIGOVALIDO);
     estado = SUCESSO;
     sala->setCodigo(codigo);
-    if(sala->getCodigo().getEntrada()!=codigo.getEntrada()){
+    if(sala->getCodigo().getValor()!=codigo.getValor()){
         std::cout <<"A";
         estado=FALHA;
     }
@@ -122,9 +122,9 @@ void TUSala::testarCenarioSucesso(){
         estado=FALHA;
     }
     Capacidade capacidade;
-    capacidade.setQuantidade(CAPACIDADEVALIDA);
+    capacidade.setValor(CAPACIDADEVALIDA);
     sala->setCapacidade(capacidade);
-    if(sala->getCapacidade().getQuantidade()!=capacidade.getQuantidade()){
+    if(sala->getCapacidade().getValor()!=capacidade.getValor()){
         std::cout <<"C";
         estado=FALHA;
         }
@@ -149,9 +149,9 @@ void TUSessao::tearDown(){
 void TUSessao::testarCenarioSucesso(){
 
     Codigo codigo;
-    codigo.setEntrada(CODIGOVALIDO);
+    codigo.setValor(CODIGOVALIDO);
     sessao->setCodigo(codigo);
-    if(sessao->getCodigo().getEntrada() != CODIGOVALIDO)
+    if(sessao->getCodigo().getValor() != CODIGOVALIDO)
         estado = FALHA;
 
     Data data;
@@ -161,9 +161,9 @@ void TUSessao::testarCenarioSucesso(){
         estado = FALHA;
 
     Horario horario;
-    horario.setEntrada(HORARIOVALIDO);
+    horario.setValor(HORARIOVALIDO);
     sessao->setHorario(horario);
-    if(sessao->getHorario().getEntrada() != HORARIOVALIDO)
+    if(sessao->getHorario().getValor() != HORARIOVALIDO)
         estado = FALHA;
 }
 int TUSessao::run(){

@@ -1,5 +1,5 @@
 #include <iostream>
-#include "vdominios.h"
+#include "dominios.h"
 #include "dominiosteste.h"
 #include "entidades.h"
 #include "entidadesteste.h"

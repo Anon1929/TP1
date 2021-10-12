@@ -5,156 +5,156 @@
 /// Matrícula aluno 200028545
 /// Padrão para representação de Capacadidade de entidade Sala
 /// Regras de formato :
-/// quantidade válida caso 100,200,300, 400 ou 500
+/// valor válida caso 100,200,300, 400 ou 500
 class Capacidade {
 
     private:
-        int quantidade;
+        int valor;
         void validar(int argumento);
         public:
 
-/// Inicializa objeto com  quantidade 100.
+/// Inicializa objeto com  valor 100.
 
         Capacidade();
 
-/// Inicializa objeto com quantidade informada caso seja válida
+/// Inicializa objeto com valor informada caso seja válida
 /// Lança exceção caso valor seja inválido
-/// @param quantidade capacidade
+/// @param valor capacidade
 /// @throw invalid_argument
 
-        Capacidade(int quantidade);
+        Capacidade(int valor);
 
-/// Armazena quantidade caso valor informado seja válido
+/// Armazena valor caso valor informado seja válido
 /// Lança exceção caso valor seja inválido
-/// @param quantidade capacidade
+/// @param valor capacidade
 /// @throw invalid_argument
 
-        void setQuantidade(int quantidade);
+        void setValor(int valor);
 
-/// Retorna quantidade
-/// @return quantidade
+/// Retorna valor
+/// @return valor
 
-        int getQuantidade();
+        int getValor();
 
     };
-inline int Capacidade::getQuantidade(){
-    return quantidade;
+inline int Capacidade::getValor(){
+    return valor;
     }
 
 /// Matrícula aluno 200028545
 /// Padrão para representação de Cargo de entidade Particidade
 /// Regras de formato :
-/// titulo válido caso ator, cenógrafo,figurinista, maquiador, sonoplasta, iluminador
+/// valor válido caso ator, cenógrafo,figurinista, maquiador, sonoplasta, iluminador
 class Cargo{
     private:
-        std::string titulo;
+        std::string valor;
         void validar(std::string argumento);
     public:
 
-/// Inicializa objeto com titulo igual a ator
+/// Inicializa objeto com valor igual a ator
 
         Cargo();
 
-/// Inicializa objeto com titulo informado caso seja válido
-/// Lança exceção caso titulo seja inválido
-/// @param titulo cargo
+/// Inicializa objeto com valor informado caso seja válido
+/// Lança exceção caso valor seja inválido
+/// @param valor cargo
 /// @throw invalid_argument
 
-        Cargo(std::string titulo);
+        Cargo(std::string valor);
 
-/// Armazena titulo informado caso seja válido
-/// Lança exceção caso titulo seja inválido
-/// @param titulo cargo
+/// Armazena valor informado caso seja válido
+/// Lança exceção caso valor seja inválido
+/// @param valor cargo
 /// @throw invalid_argument
 
-        void setTitulo(std::string titulo);
+        void setValor(std::string valor);
 
-/// Retorna titulo
-/// @return titulo
+/// Retorna valor
+/// @return valor
 
-        std::string getTitulo();
+        std::string getValor();
 };
-inline std::string Cargo::getTitulo(){
-    return titulo;
+inline std::string Cargo::getValor(){
+    return valor;
 }
 
 /// Matrícula aluno 200028545
 /// Padrão para representação de tipo de entidade Peça
 /// Regras de formato :
-/// titulo válido caso auto, comédia, drama, farsa, melodrama, monólogo, musical, ópera, revista
+/// valor válido caso auto, comédia, drama, farsa, melodrama, monólogo, musical, ópera, revista
 
 class Tipo{
     private:
-        std::string genero;
+        std::string valor;
         void validar(std::string argumento);
 
     public:
 
-/// Inicializa objeto com genero igual a auto
+/// Inicializa objeto com valor igual a auto
 
         Tipo();
 
-/// Inicializa objeto com genero informado caso seja válido
-/// Lança exceção caso genero seja inválido
-/// @param genero cargo
+/// Inicializa objeto com valor informado caso seja válido
+/// Lança exceção caso valor seja inválido
+/// @param valor cargo
 /// @throw invalid_argument
 
-        Tipo(std::string genero);
+        Tipo(std::string valor);
 
-/// Armazena genero informado caso seja válido
-/// Lança exceção caso genero seja inválido
-/// @param genero cargo
+/// Armazena valor informado caso seja válido
+/// Lança exceção caso valor seja inválido
+/// @param valor cargo
 /// @throw invalid_argument
 
-        void setGenero(std::string genero);
+        void setValor(std::string valor);
 
-/// Retorna genero
-/// @return genero
+/// Retorna valor
+/// @return valor
 
-        std::string getGenero();
+        std::string getValor();
 };
 
-inline std::string Tipo::getGenero(){
-    return genero;
+inline std::string Tipo::getValor(){
+    return valor;
 }
 
 /// Matrícula aluno 200028545
 /// Padrão para representação de Classificação de entidade Peça
 /// Regras de formato :
-/// titulo válido caso livre, 10, 12, 14, 16, 18
+/// valor válido caso livre, 10, 12, 14, 16, 18
 class Classificacao{
     private:
-        std::string idade;
-        void validar(std::string idade);
+        std::string valor;
+        void validar(std::string valor);
 
     public:
 
-/// Inicializa objeto com idade igual a livre
+/// Inicializa objeto com valor igual a livre
 
         Classificacao();
 
-/// Inicializa objeto com idade informada caso seja válida
-/// Lança exceção caso genero seja inválida
-/// @param idade calssificação
+/// Inicializa objeto com valor informada caso seja válida
+/// Lança exceção caso valor seja inválida
+/// @param valor calssificação
 /// @throw invalid_argument
 
-        Classificacao(std::string idade);
+        Classificacao(std::string valor);
 
-/// Armazena idade informada caso seja válida
-/// Lança exceção caso genero seja inválida
-/// @param idade calssificação
+/// Armazena valor informada caso seja válida
+/// Lança exceção caso valor seja inválida
+/// @param valor calssificação
 /// @throw invalid_argument
 
-        void setIdade(std::string idade);
+        void setValor(std::string valor);
 
-/// Retorna idade
-/// @return idade
+/// Retorna valor
+/// @return valor
 
-        std::string getIdade();
+        std::string getValor();
 };
 
-inline std::string Classificacao::getIdade(){
-    return idade;
+inline std::string Classificacao::getValor(){
+    return valor;
 }
 
 /// Matrícula aluno 200028545
@@ -165,30 +165,30 @@ inline std::string Classificacao::getIdade(){
 /// Não há dígitos duplicados
 class Matricula{
 private:
-    std::string registro;
-    void validar(std::string registro);
+    std::string valor;
+    void validar(std::string valor);
 public:
-///Inicializa objeto com registro igual a "00000"
+///Inicializa objeto com valor igual a "00000"
 
     Matricula();
 
-///Inicializa objeto com registro dado caso seja válido
-///@param registro Matricula
+///Inicializa objeto com valor dado caso seja válido
+///@param valor Matricula
 
-    Matricula(std::string registro);
+    Matricula(std::string valor);
 
-///Modifica registro dado caso seja válido
-///@param registro Matricula
+///Modifica valor dado caso seja válido
+///@param valor Matricula
 
-    void setRegistro(std::string registro);
+    void setValor(std::string valor);
 
-///Retorna registro
-///@return registro
+///Retorna valor
+///@return valor
 
-    std::string getRegistro();
+    std::string getValor();
 };
-inline std::string Matricula::getRegistro(){
-    return registro;
+inline std::string Matricula::getValor(){
+    return valor;
 }
 
 /// Matrícula aluno 200028545
@@ -201,30 +201,30 @@ inline std::string Matricula::getRegistro(){
 /// Existe pelo menos uma letra (maiúscula ou minúscula), um dígito e um caracter especial.
 class Senha{
 private:
-    std::string entrada;
-    void validar(std::string entrada);
+    std::string valor;
+    void validar(std::string valor);
 public:
-///Inicializa objeto com entrada igual a "ABC123#$"
+///Inicializa objeto com valor igual a "ABC123#$"
     Senha();
 
-///Inicializa objeto com entrada dada caso seja válida
-///@param entrada Senha
+///Inicializa objeto com valor dada caso seja válida
+///@param valor Senha
 
-    Senha(std::string entrada);
+    Senha(std::string valor);
 
-///Modifica entrada dado caso seja válido
-///@param entrada Senha
+///Modifica valor dado caso seja válido
+///@param valor Senha
 
-    void setEntrada(std::string entrada);
+    void setValor(std::string valor);
 
-///Retorna entrada
-///@return entrada
+///Retorna valor
+///@return valor
 
-    std::string getEntrada();
+    std::string getValor();
 };
 
-inline std::string Senha::getEntrada(){
-    return entrada;
+inline std::string Senha::getValor(){
+    return valor;
 }
 
 /// Matrícula: 200016750
@@ -236,28 +236,28 @@ inline std::string Senha::getEntrada(){
 /// Não existe número de telefone 000000000.
 class Telefone{
 private:
-    std::string entrada;
-    void validar(std::string entrada);
+    std::string valor;
+    void validar(std::string valor);
 
 public:
-/// Inicializa objeto com entrada igual a "(11)-000000001"
+/// Inicializa objeto com valor igual a "(11)-000000001"
     Telefone();
 
-/// Inicializa objeto com entrada dada caso seja válida
-/// @param entrada Telefone
-    Telefone(std::string entrada);
+/// Inicializa objeto com valor dada caso seja válida
+/// @param valor Telefone
+    Telefone(std::string valor);
 
-/// Modifica entrada dada caso seja válida
-/// @param entrada Telefone
-    void setEntrada(std::string entrada);
+/// Modifica valor dada caso seja válida
+/// @param valor Telefone
+    void setValor(std::string valor);
 
-/// Retorna entrada
-/// @return entrada
-    std::string getEntrada();
+/// Retorna valor
+/// @return valor
+    std::string getValor();
 };
 
-inline std::string Telefone::getEntrada(){
-    return entrada;
+inline std::string Telefone::getValor(){
+    return valor;
 }
 
 ///Matricula: 200023624
@@ -362,28 +362,28 @@ inline std::string Data::getValor() const{
 /// Cada D é dígito (0-9).
 class Codigo{
 private:
-    std::string entrada;
-    void validar(std::string entrada);
+    std::string valor;
+    void validar(std::string valor);
 
 public:
-/// Inicializa objeto com entrada igual a "AA0000"
+/// Inicializa objeto com valor igual a "AA0000"
     Codigo();
 
-/// Inicializa objeto com entrada dada caso seja válida
-/// @param entrada Codigo
-    Codigo(std::string entrada);
+/// Inicializa objeto com valor dada caso seja válida
+/// @param valor Codigo
+    Codigo(std::string valor);
 
-/// Modifica entrada dada caso seja válida
-/// @param entrada Codigo
-    void setEntrada(std::string entrada);
+/// Modifica valor dada caso seja válida
+/// @param valor Codigo
+    void setValor(std::string valor);
 
-/// Retorna entrada
-/// @return entrada
-    std::string getEntrada();
+/// Retorna valor
+/// @return valor
+    std::string getValor();
 };
 
-inline std::string Codigo::getEntrada(){
-    return entrada;
+inline std::string Codigo::getValor(){
+    return valor;
 }
 
 /// Matrícula: 200016750
@@ -394,28 +394,28 @@ inline std::string Codigo::getEntrada(){
 /// Em MM tem-se indicação de minuto: 00, 15, 30, 45
 class Horario{
 private:
-    std::string entrada;
-    void validar(std::string entrada);
+    std::string valor;
+    void validar(std::string valor);
 
 public:
-/// Inicializa objeto com entrada igual a "00:00"
+/// Inicializa objeto com valor igual a "00:00"
     Horario();
 
-/// Inicializa objeto com entrada dada caso seja válida
-/// @param entrada Horario
-    Horario(std::string entrada);
+/// Inicializa objeto com valor dada caso seja válida
+/// @param valor Horario
+    Horario(std::string valor);
 
-/// Modifica entrada dada caso seja válida
-/// @param entrada Horario
-    void setEntrada(std::string entrada);
+/// Modifica valor dada caso seja válida
+/// @param valor Horario
+    void setValor(std::string valor);
 
-/// Retorna entrada
-/// @return entrada
-    std::string getEntrada();
+/// Retorna valor
+/// @return valor
+    std::string getValor();
 };
 
-inline std::string Horario::getEntrada(){
-    return entrada;
+inline std::string Horario::getValor(){
+    return valor;
 }
 
 #endif
