@@ -31,7 +31,9 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Unit filename="controladoresapresentacao.cpp" />
 		<Unit filename="controladoresapresentacao.h" />
+		<Unit filename="controladoresservico.cpp" />
 		<Unit filename="controladoresservico.h" />
 		<Unit filename="dominios.cpp" />
 		<Unit filename="dominios.h" />

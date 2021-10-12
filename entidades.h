@@ -3,8 +3,8 @@
 #define ENTIDADESH
 #include "dominios.h"
 
-///Matrícula do aluno: 200023624
-///Classe representativa da entidade participante
+/// Matrícula do aluno: 200023624
+/// Classe representativa da entidade participante
 class Participante {
     private:
             Matricula matricula;
@@ -121,7 +121,7 @@ inline Cargo Participante::getCargo() const{
 }
 
 
-///Matricula aluno 200028545
+/// Matricula aluno 200028545
 /// Classe representativa de entidade Peça
 class Peca{
 private:
@@ -174,11 +174,9 @@ public:
     Classificacao getClassificacao();
 
 };
-
 inline void Peca::setCodigo(const Codigo& codigo){
     this->codigo = codigo;
 }
-
 inline Codigo Peca::getCodigo(){
     return codigo;
 }
@@ -186,30 +184,26 @@ inline Codigo Peca::getCodigo(){
 inline void Peca::setNome(const Nome& nome){
     this->nome = nome;
 }
-
 inline Nome Peca::getNome(){
+
     return nome;
 }
-
 inline void Peca::setTipo(const Tipo& tipo){
     this->tipo = tipo;
 }
-
 inline Tipo Peca::getTipo(){
     return tipo;
 }
 
-
 inline void Peca::setClassificacao(const Classificacao& classificacao){
     this->classificacao = classificacao;
 }
-
-
 inline Classificacao Peca::getClassificacao(){
     return classificacao;
 }
 
 /// Matricula do Aluno 200028545
+/// Classe representativa de entidade Sala
 class Sala {
 private:
     Codigo codigo;
@@ -249,11 +243,9 @@ public:
     Capacidade getCapacidade();
 
 };
-
 inline void Sala::setCodigo(const Codigo& codigo){
     this->codigo = codigo;
 }
-
 inline Codigo Sala::getCodigo(){
         return codigo;
 }
@@ -261,7 +253,6 @@ inline Codigo Sala::getCodigo(){
 inline void Sala::setNome(const Nome& nome){
     this->nome = nome;
 }
-
 inline Nome Sala::getNome(){
     return nome;
 }
@@ -269,10 +260,10 @@ inline Nome Sala::getNome(){
 inline void Sala::setCapacidade(const Capacidade& capacidade){
     this->capacidade = capacidade;
 }
-
 inline Capacidade Sala::getCapacidade(){
     return capacidade;
 }
+
 /// Matrícula: 200016750
 /// Classe representativa de entidade Sessao
 class Sessao{
@@ -310,11 +301,9 @@ public:
 
     Horario getHorario();
 };
-
 inline void Sessao::setCodigo(const Codigo& codigo){
     this->codigo = codigo;
 }
-
 inline Codigo Sessao::getCodigo(){
     return codigo;
 }
@@ -322,7 +311,6 @@ inline Codigo Sessao::getCodigo(){
 inline void Sessao::setData(const Data& data){
     this->data = data;
 }
-
 inline Data Sessao::getData(){
     return data;
 }
@@ -330,11 +318,9 @@ inline Data Sessao::getData(){
 inline void Sessao::setHorario(const Horario& horario){
     this->horario = horario;
 }
-
 inline Horario Sessao::getHorario(){
     return horario;
 }
-
 
 
 

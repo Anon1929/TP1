@@ -9,11 +9,15 @@
 //Apresentacao
 class IApresentacaoAutenticacao;
 class IApresentacaoParticipante;
-class IApresentacaoPecaSessaoSala;
-//servico
+class IApresentacaoPSS;
+
+//Servico
 class IServicoAutenticacao;
 class IServicoParticipante;
-class IServicoPecaSessaoSala;
+class IServicoPSS;
+
+
+
 
 //Autenticacao
 class IApresentacaoAutenticacao {
@@ -22,24 +26,21 @@ class IApresentacaoAutenticacao {
         virtual void setCntrServicoAutenticacao(IServicoAutenticacao*) = 0;
         virtual ~IApresentacaoAutenticacao(){}
 };
-
 class IServicoAutenticacao {
     public:
         virtual int autenticar(const Matricula&, const Senha&) = 0;
         virtual ~IServicoAutenticacao(){}
 };
 
-
 //Participante
-
 class IApresentacaoParticipante {
     public:
         virtual void cadastrar() = 0;
+        virtual void executar() = 0;
         virtual void executar(const Matricula&) = 0;
         virtual void setCntrServicoAutenticacao(IServicoAutenticacao*) = 0;
         virtual ~IApresentacaoParticipante(){}
 };
-
 class IServicoParticipante {
     public:
         virtual int cadastrarUsuario(const Participante&) = 0;
@@ -48,6 +49,7 @@ class IServicoParticipante {
         virtual int cadastrarComoParticipante(const Matricula&, const Codigo&) = 0;
         virtual ~IServicoParticipante(){}
 };
+
 //Peca Sessao Sala
 class IApresentacaoPSS {
     public:
@@ -56,7 +58,6 @@ class IApresentacaoPSS {
         virtual void setCntrServicoAutenticacao(IServicoAutenticacao*) = 0;
         virtual ~IApresentacaoPSS(){}
 };
-
 class IServicoPSS {
     public:
         //Sem cadastro

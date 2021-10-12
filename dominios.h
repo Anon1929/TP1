@@ -1,7 +1,9 @@
+
 #ifndef DOMINIOSH
 #define DOMINIOSH
 #include <string>
 #include <stdexcept>
+
 /// Matrícula aluno 200028545
 /// Padrão para representação de Capacadidade de entidade Sala
 /// Regras de formato :
@@ -82,7 +84,6 @@ inline std::string Cargo::getValor(){
 /// Padrão para representação de tipo de entidade Peça
 /// Regras de formato :
 /// valor válido caso auto, comédia, drama, farsa, melodrama, monólogo, musical, ópera, revista
-
 class Tipo{
     private:
         std::string valor;
@@ -113,7 +114,6 @@ class Tipo{
 
         std::string getValor();
 };
-
 inline std::string Tipo::getValor(){
     return valor;
 }
@@ -152,7 +152,6 @@ class Classificacao{
 
         std::string getValor();
 };
-
 inline std::string Classificacao::getValor(){
     return valor;
 }
@@ -222,7 +221,6 @@ public:
 
     std::string getValor();
 };
-
 inline std::string Senha::getValor(){
     return valor;
 }
@@ -255,7 +253,6 @@ public:
 /// @return valor
     std::string getValor();
 };
-
 inline std::string Telefone::getValor(){
     return valor;
 }
@@ -285,7 +282,6 @@ class Nome {
     ///@return nome
         std::string getValor() const;           // Método para recuperar valor.
 };
-
 inline std::string Nome::getValor() const{
     return valor;
 }
@@ -318,7 +314,6 @@ class Email {
     ///@return email
         std::string getValor() const;           // Método para recuperar valor.
 };
-
 inline std::string Email::getValor() const{
     return valor;
 }
@@ -349,7 +344,6 @@ class Data {
     ///@return data
         std::string getValor() const;           // Método para recuperar valor.
 };
-
 inline std::string Data::getValor() const{
     return valor;
 }
@@ -381,7 +375,6 @@ public:
 /// @return valor
     std::string getValor();
 };
-
 inline std::string Codigo::getValor(){
     return valor;
 }
@@ -413,9 +406,10 @@ public:
 /// @return valor
     std::string getValor();
 };
-
 inline std::string Horario::getValor(){
     return valor;
 }
+
+
 
 #endif

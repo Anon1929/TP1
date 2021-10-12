@@ -7,10 +7,8 @@
 #include "entidades.h"
 #include "interfaces.h"
 
-
-//--------------------------------------------------------------------------------------------
 // Declarações de classes controladoras e implementações de métodos.
-
+//--------------------------------------------------------------------------------------------
 class CntrApresentacaoControle{
     private:
         Matricula matricula;
@@ -24,34 +22,32 @@ class CntrApresentacaoControle{
         void setCntrApresentacaoPSS(IApresentacaoPSS*);
 };
 
-inline void CntrApresentacaoControle::setCntrApresentacaoAutenticacao(IApresentacaoAutenticacao *cntr){
-    cntrApresentacaoAutenticacao = cntr;
+inline void CntrApresentacaoControle::setCntrApresentacaoAutenticacao(IApresentacaoAutenticacao *cntrApresentacaoAutenticacao){
+    this->cntrApresentacaoAutenticacao = cntrApresentacaoAutenticacao;
 }
 
-inline void CntrApresentacaoControle::setCntrApresentacaoParticipante(IApresentacaoParticipante *cntr){
-            cntrApresentacaoParticipante = cntr;
+inline void CntrApresentacaoControle::setCntrApresentacaoParticipante(IApresentacaoParticipante *cntrApresentacaoParticipante){
+    this->cntrApresentacaoParticipante = cntrApresentacaoParticipante;
 }
 
-inline void CntrApresentacaoControle::setCntrApresentacaoPSS(IApresentacaoPSS *cntr){
-    cntrApresentacaoPSS = cntr;
+inline void CntrApresentacaoControle::setCntrApresentacaoPSS(IApresentacaoPSS *cntrApresentacaoPSS){
+    this->cntrApresentacaoPSS = cntrApresentacaoPSS;
 }
 
 //--------------------------------------------------------------------------------------------
-
 class CntrApresentacaoAutenticacao:public IApresentacaoAutenticacao{
     private:
-        IServicoAutenticacao *cntr;
+        IServicoAutenticacao *cntrServicoAutenticacao;
     public:
         int autenticar(Matricula*);
         void setCntrServicoAutenticacao(IServicoAutenticacao*);
 };
 
-inline void CntrApresentacaoAutenticacao::setCntrServicoAutenticacao(IServicoAutenticacao *cntr){
-    this->cntr = cntr;
+inline void CntrApresentacaoAutenticacao::setCntrServicoAutenticacao(IServicoAutenticacao *cntrServicoAutenticacao){
+    this->cntrServicoAutenticacao = cntrServicoAutenticacao;
 }
 
 //--------------------------------------------------------------------------------------------
-
 class CntrApresentacaoParticipante:public IApresentacaoParticipante{
     private:
         IServicoParticipante *cntrServicoParticipante;
@@ -60,19 +56,20 @@ class CntrApresentacaoParticipante:public IApresentacaoParticipante{
         void excluirUsuario();
         void cadastrarComoParticipante();
     public:
-        void executar(Matricula*);
         void cadastrar();
+        void executar() = 0;
+        void executar(Matricula*);
         void setCntrServicoParticipante(IServicoParticipante*);
 };
 
-inline void CntrApresentacaoParticipante::setCntrServicoParticipante(IServicoParticipante *cntr){
-    cntrServicoParticipante = cntr;
+inline void CntrApresentacaoParticipante::setCntrServicoParticipante(IServicoParticipante *cntrServicoParticipante){
+    this->cntrServicoParticipante = cntrServicoParticipante;
 }
-//--------------------------------------------------------------------------------------------
 
+//--------------------------------------------------------------------------------------------
 class CntrApresentacaoPSS:public IApresentacaoPSS{
     private:
-        IServicoPSS *cntr;
+        IServicoPSS *cntrServicoPSS;
         void listarPecas();
         void listarSessoes();
         void listarSalas();
@@ -97,8 +94,8 @@ class CntrApresentacaoPSS:public IApresentacaoPSS{
         void setCntrServicoPSS(IServicoPSS*); //possível bug
 };
 
-inline void CntrApresentacaoPSS::setCntrServicoPSS(IServicoPSS *cntr){
-    this->cntr = cntr;
+inline void CntrApresentacaoPSS::setCntrServicoPSS(IServicoPSS *cntrServicoPSS){
+    this->cntrServicoPSS = cntrServicoPSS;
 }
 
 #endif // CONTROLADORESAPRESENTACAO_H_INCLUDED
