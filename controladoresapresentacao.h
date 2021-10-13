@@ -5,7 +5,7 @@
 #include "curses.h"
 #include "dominios.h"
 #include "entidades.h"
-#include "interfaces.h"
+#include "interface.h"
 
 // Declarações de classes controladoras e implementações de métodos.
 //--------------------------------------------------------------------------------------------

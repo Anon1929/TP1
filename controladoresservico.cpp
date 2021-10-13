@@ -1,7 +1,7 @@
 #include <string.h>
 #include "dominios.h"
 #include "entidades.h"
-#include "interfaces.h"
+#include "interface.h"
 #include "controladoresservico.h"
 
 // Implementações de métodos de classes controladoras de apresentação.

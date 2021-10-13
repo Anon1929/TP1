@@ -4,6 +4,7 @@
 #include "dominios.h"
 #include "entidades.h"
 #include "vector"
+using namespace std;
 
 // Forward declarations.
 //Apresentacao
