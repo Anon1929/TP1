@@ -1,0 +1,11 @@
+#include "UnidadePersistencia.h"
+
+list<ElementoResultado> ComandoSQL::listaResultado;
+
+void ElementoResultado::setNomeColuna(const string& nomeColuna) {
+        this->nomeColuna = nomeColuna;
+}
+
+void ElementoResultado::setValorColuna(const string& valorColuna){
+        this->valorColuna = valorColuna;
+}

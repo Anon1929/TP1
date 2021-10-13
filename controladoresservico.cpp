@@ -3,13 +3,24 @@
 #include "entidades.h"
 #include "interfaces.h"
 #include "controladoresservico.h"
+#include "unidadepersistencia.h"
 
 // Implementações de métodos de classes controladoras de apresentação.
 //--------------------------------------------------------------------------------------------
 // CntrServicoAutenticacao
 //--------------------------- Private ---------------------------
 //---------------------------- Public ----------------------------
-int CntrServicoAutenticacao::autenticar(const Matricula&, const Senha&){
+int CntrServicoAutenticacao::autenticar(Matricula matricula, Senha senha){
+    try {
+        ComandoLerSenha comando(matricula);
+        comando.executar();
+        Senha senhaReal = comando.getResultado();
+        if(senhaReal.getValor() == senha.getValor()) return 0;
+        else return 1;
+    }catch (EErroPersistencia &exp) {
+        cout << exp.what() << endl;
+        return 2;
+    }
 }
 
 //--------------------------------------------------------------------------------------------

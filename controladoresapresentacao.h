@@ -54,11 +54,9 @@ class CntrApresentacaoParticipante:public IApresentacaoParticipante{
         void consultarDadosPessoais();
         void editarUsuario();
         void excluirUsuario();
-        void cadastrarComoParticipante();
     public:
         void cadastrar();
-        void executar() = 0;
-        void executar(Matricula*);
+        void executar(const Matricula&);
         void setCntrServicoParticipante(IServicoParticipante*);
 };
 
@@ -90,7 +88,7 @@ class CntrApresentacaoPSS:public IApresentacaoPSS{
         void visualizarSala();
     public:
         void executar();
-        void executar(Matricula*);
+        void executar(const Matricula&);
         void setCntrServicoPSS(IServicoPSS*); //possível bug
 };
 

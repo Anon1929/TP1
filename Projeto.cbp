@@ -31,6 +31,10 @@
 		<Compiler>
 			<Add option="-Wall" />
 		</Compiler>
+		<Linker>
+			<Add option="-lpthread" />
+			<Add option="-ldl" />
+		</Linker>
 		<Unit filename="controladoresapresentacao.cpp" />
 		<Unit filename="controladoresapresentacao.h" />
 		<Unit filename="controladoresservico.cpp" />
@@ -42,8 +46,15 @@
 		<Unit filename="entidades.h" />
 		<Unit filename="entidadesteste.cpp" />
 		<Unit filename="entidadesteste.h" />
-		<Unit filename="interface.h" />
+		<Unit filename="interfaces.h" />
 		<Unit filename="main.cpp" />
+		<Unit filename="sqlite3.c">
+			<Option compilerVar="CC" />
+		</Unit>
+		<Unit filename="sqlite3.h" />
+		<Unit filename="sqlite3ext.h" />
+		<Unit filename="unidadepersistencia.cpp" />
+		<Unit filename="unidadepersistencia.h" />
 		<Extensions />
 	</Project>
 </CodeBlocks_project_file>

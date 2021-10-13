@@ -1,43 +1,64 @@
 #include <iostream>
 #include "dominios.h"
-#include "dominiosteste.h"
 #include "entidades.h"
-#include "entidadesteste.h"
-int main(void){
-    std::cout << "----Dominios---" << std::endl;
-    TUCapacidade testecapacidade;
-    std::cout << "capacidade: " << testecapacidade.run() << std::endl;
-    TUCargo testecargo;
-    std::cout << "cargo: " << testecargo.run() << std::endl;
-    TUTipo testetipo;
-    std::cout << "tipo: " << testetipo.run() << std::endl;
-    TUClassificacao testeclassificacao;
-    std::cout << "classificação: " << testeclassificacao.run() << std::endl;
-    TUMatricula testematricula;
-    std::cout << "matricula: " << testematricula.run() << std::endl;
-    TUSenha testesenha;
-    std::cout << "senha: " << testesenha.run() << std::endl;
-    TUNome testeNome;
-    std::cout << "nome: " << testeNome.run() << std::endl;
-    TUEmail testeEmail;
-    std::cout << "email: " << testeEmail.run() << std::endl;
-    TUData testeData;
-    std::cout << "data: " << testeData.run() << std::endl;
-    TUTelefone testeTelefone;
-    std::cout << "Telefone: " << testeTelefone.run() << std::endl;
-    TUCodigo testeCodigo;
-    std::cout << "Codigo: " << testeCodigo.run() << std::endl;
-    TUHorario testeHorario;
-    std::cout << "Horario: " << testeHorario.run() << std::endl;
-    std::cout << "----Entidades---" << std::endl;
-    TUPeca testepeca;
-    std::cout << "Peça: " << testepeca.run() << std::endl;
-    TUParticipante testeParticipante;
-    std::cout << "Participante: " << testeParticipante.run() << std::endl;
-    TUSala testesala;
-    std::cout << "Sala: " << testesala.run() << std::endl;
-    TUSessao testeSessao;
-    std::cout << "Sessao: " << testeSessao.run() << std::endl;
+#include "unidadepersistencia.h"
+#include "interfaces.h"
+#include "controladoresapresentacao.h"
+#include "controladoresservico.h"
 
+int main(void){
+    //Instanciar controladores de apresentação
+    CntrApresentacaoControle cntrApresentacaoControle;
+    CntrApresentacaoAutenticacao cntrApresentacaoAutenticacao;
+    CntrApresentacaoParticipante cntrApresentacaoParticipante;
+    CntrApresentacaoPSS cntrApresentacaoPSS;
+
+    //instranciar controladores de serviço
+    CntrServicoAutenticacao cntrServicoAutenticacao;
+    CntrServicoParticipante cntrServicoParticipante;
+    CntrServicoPSS cntrServicoPSS;
+    //Interligar
+    //Autenticação
+    cntrApresentacaoControle.setCntrApresentacaoAutenticacao(&cntrApresentacaoAutenticacao);
+    cntrApresentacaoAutenticacao.setCntrServicoAutenticacao(&cntrServicoAutenticacao);
+    //Participante
+    cntrApresentacaoControle.setCntrApresentacaoParticipante(&cntrApresentacaoParticipante);
+    cntrApresentacaoParticipante.setCntrServicoParticipante(&cntrServicoParticipante);
+    //Peça Sessão Sala
+    cntrApresentacaoControle.setCntrApresentacaoPSS(&cntrApresentacaoPSS);
+    cntrApresentacaoPSS.setCntrServicoPSS(&cntrServicoPSS);
+
+    //Chamar executar
+    cntrApresentacaoControle.executar();
+
+    cout << "obrigado por usar o programa!" << endl;
     return 0;
+
+    /* //Exemplo de cadastro
+    Participante participante;
+    Matricula matricula("12345");
+    participante.setMatricula(matricula);
+    Nome nome("Marcelo");
+    participante.setNome(nome);
+    Nome sobrenome("Junqueira");
+    participante.setSobrenome(sobrenome);
+    Email email("marcelojunqueiraf@gmail.com");
+    participante.setEmail(email);
+    Senha senha("ABC123#$");
+    Telefone telefone("(61)-998395011");
+    participante.setTelefone(telefone);
+    participante.setSenha(senha);
+    Cargo cargo("ator");
+    participante.setCargo(cargo);
+
+    ComandoCadastrar cadastrar(participante);
+
+    if (cadastrar.executar()==0){
+        cout << "sucesso" << endl;
+    }else {
+        cout << "falha" << endl;
+    }
+
+    */
+
 }
