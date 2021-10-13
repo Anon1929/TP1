@@ -12,47 +12,21 @@
 //--------------------------- Private ---------------------------
 //--------------------------- Public ----------------------------
 void CntrApresentacaoControle::executar(){
-/*
-<<<<<<< HEAD
-    int entrada;
-    while(true){
-        cout << "Escolha entre uma das funções disponíveis:" << endl;
-        cout << "0-sair 1-login" << endl;
-        cin >> entrada;
-        switch(entrada){
-            case 0:
-                return;
-            case 1:
-                cntrApresentacaoAutenticacao->autenticar(&matricula);
-                break;
-            default:
-                cout << "opção inválida" << endl;
-        }
-    }
-=======*/
+
     bool apresentar = true;
     int campo;
     int linha,coluna;
     getmaxyx(stdscr,linha,coluna);                                                              // Armazena quantidade de linhas e colunas.
-    char texto1[]="Selecione um dos servicos : ";
-    char texto2[]="1 - Acessar sistema.";
-    char texto3[]="2 - Cadastrar usuario.";
-    char texto4[]="3 - Listar dados sobre pecas, sessoes ou salas.";
-    char texto5[]="4 - Encerrar execucao do sistema.";
 
-    char texto6[]="Selecione um dos servicos : ";
-    char texto7[]="1 - Selecionar servicos de participante.";
-    char texto8[]="2 - Selecionar servicos relacionados a pecas, sessoes ou salas.";
-    char texto9[]="3 - Encerrar sessao.";
-    char texto10[]="Falha na autenticacao. Digite algo para continuar.";
+
 
         while(apresentar){
             clear();
             mvprintw(linha/4,coluna/4,"%s","Selecione um dos servicos : ");                                                 // Imprime nome do campo.
-            mvprintw(linha/4 + 2,coluna/4,"%s",texto2);                                             // Imprime nome do campo.
-            mvprintw(linha/4 + 4,coluna/4,"%s",texto3);                                             // Imprime nome do campo.
-            mvprintw(linha/4 + 6,coluna/4,"%s",texto4);                                             // Imprime nome do campo.
-            mvprintw(linha/4 + 8,coluna/4,"%s",texto5);                                             // Imprime nome do campo.
+            mvprintw(linha/4 + 2,coluna/4,"%s","1 - Acessar sistema.");                                             // Imprime nome do campo.
+            mvprintw(linha/4 + 4,coluna/4,"%s","2 - Cadastrar usuario.");                                             // Imprime nome do campo.
+            mvprintw(linha/4 + 6,coluna/4,"%s","3 - Listar dados sobre pecas, sessoes ou salas.");                                             // Imprime nome do campo.
+            mvprintw(linha/4 + 8,coluna/4,"%s","4 - Encerrar execucao do sistema.");                                             // Imprime nome do campo.
             noecho();
             campo = getch() - 48;                                                                   // Leitura do campo de entrada e conversão de ASCII.
             echo();
@@ -66,10 +40,10 @@ void CntrApresentacaoControle::executar(){
                     case 0:
                         while(apresentar){
                             clear();                                                            // Limpa janela.
-                            mvprintw(linha/4,coluna/4,"%s",texto6);                             // Imprime nome do campo.
-                            mvprintw(linha/4 + 2,coluna/4,"%s",texto7);                         // Imprime nome do campo.
-                            mvprintw(linha/4 + 4,coluna/4,"%s",texto8);                         // Imprime nome do campo.
-                            mvprintw(linha/4 + 6,coluna/4,"%s",texto9);                         // Imprime nome do campo.                                    // Apresenta tela de seleção de serviço.
+                            mvprintw(linha/4,coluna/4,"%s","Selecione um dos servicos : ");                             // Imprime nome do campo.
+                            mvprintw(linha/4 + 2,coluna/4,"%s","1 - Selecionar servicos de participante.");                         // Imprime nome do campo.
+                            mvprintw(linha/4 + 4,coluna/4,"%s","2 - Selecionar servicos relacionados a pecas, sessoes ou salas.");                         // Imprime nome do campo.
+                            mvprintw(linha/4 + 6,coluna/4,"%s","3 - Encerrar sessao.");                         // Imprime nome do campo.                                    // Apresenta tela de seleção de serviço.
                             noecho();
                             campo = getch() - 48;                                               // Leitura do campo de entrada e conversão de ASCII.
                             echo();
@@ -95,7 +69,7 @@ void CntrApresentacaoControle::executar(){
                         break;
                     default:
                             clear();                                                                // Limpa janela.
-                            mvprintw(linha/4,coluna/4,"%s",texto10);                                // Imprime mensagem.
+                            mvprintw(linha/4,coluna/4,"%s","Falha na autenticacao. Digite algo para continuar.");                                // Imprime mensagem.
                             noecho();                                                               // Desabilita eco.
                             getch();                                                                // Leitura de caracter digitado.
                             echo();
@@ -133,18 +107,13 @@ int CntrApresentacaoAutenticacao::autenticar(Matricula *matricula){
     echo();                                                                                     // Habilita eco.
     char campo1[80];
     char campo2[80];
-
-    char texto1[]="Digite a Matricula : ";
-    char texto2[]="Digite a senha: ";
-    char texto3[]="Dado em formato incorreto. Digite algo.";
-
     // Solicitar matricula e senha.
 
     while(true) {
         clear();                                                                                // Limpa janela.
-        mvprintw(linha/4,coluna/4,"%s",texto1);                                                 // Imprime nome do campo.
+        mvprintw(linha/4,coluna/4,"%s","Digite a Matricula : ");                                                 // Imprime nome do campo.
         getstr(campo1);                                                                         // Lê valor do campo.
-        mvprintw(linha/4 + 2,coluna/4,"%s",texto2);                                             // Imprime nome do campo.
+        mvprintw(linha/4 + 2,coluna/4,"%s","Digite a senha: ");                                             // Imprime nome do campo.
         getstr(campo2);
 
         try {
@@ -156,7 +125,7 @@ int CntrApresentacaoAutenticacao::autenticar(Matricula *matricula){
         }
         catch (const invalid_argument &exp) {
             clear();                                                                            // Limpa janela.
-            mvprintw(linha/4,coluna/4,"%s",texto3);                                             // Informa formato incorreto.
+            mvprintw(linha/4,coluna/4,"%s","Dado em formato incorreto. Digite algo.");                                             // Informa formato incorreto.
             noecho();
             getch();                                                                            // Lê caracter digitado.
             echo();
@@ -181,6 +150,91 @@ void CntrApresentacaoParticipante::excluirUsuario(){
 }
 //--------------------------- Public ----------------------------
 void CntrApresentacaoParticipante::cadastrar(){
+    Participante participante;
+    char campo1[80];
+    int linha,coluna;                                                                           // Dados sobre tamanho da tela.
+    getmaxyx(stdscr,linha,coluna);                                                              // Armazena quantidade de linhas e colunas.
+    Matricula matricula;
+    Nome nome;
+    Nome sobrenome;
+    Email email;
+    Cargo cargo;
+    Telefone telefone;
+    Senha senha;
+    while(true) {
+        clear();                                                                                // Limpa janela.
+                                                                                // Lê valor do campo.
+        try {
+            mvprintw(linha/4,coluna/4,"%s","Digite a Matricula : ");
+            getstr(campo1);
+
+            matricula.setValor(campo1);
+
+            clear();                                                                                // Limpa janela.
+            mvprintw(linha/4,coluna/4,"%s","Digite o Nome : ");
+            getstr(campo1);
+            nome.setValor(campo1);
+
+            clear();                                                                                // Limpa janela.
+            mvprintw(linha/4,coluna/4,"%s","Digite o Sobrenome : ");
+            getstr(campo1);
+            sobrenome.setValor(campo1);
+
+            clear();                                                                                // Limpa janela.
+            mvprintw(linha/4,coluna/4,"%s","Digite o Email : ");
+            getstr(campo1);
+            email.setValor(campo1);
+
+            clear();                                                                                // Limpa janela.
+            mvprintw(linha/4,coluna/4,"%s","Digite o Cargo : ");
+            getstr(campo1);
+            cargo.setValor(campo1);
+
+            clear();                                                                                // Limpa janela.
+            mvprintw(linha/4,coluna/4,"%s","Digite a Senha : ");
+            getstr(campo1);
+            senha.setValor(campo1);
+
+            clear();                                                                                // Limpa janela.
+            mvprintw(linha/4,coluna/4,"%s","Digite o Telefone : ");
+            getstr(campo1);
+            telefone.setValor(campo1);
+
+            participante.setMatricula(matricula);
+            participante.setNome(nome);
+            participante.setSobrenome(sobrenome);
+            participante.setCargo(cargo);
+            participante.setEmail(email);
+            participante.setSenha(senha);
+            participante.setTelefone(telefone);
+
+            break;
+        }
+        catch (const invalid_argument &exp) {
+            clear();                                                                            // Limpa janela.
+            mvprintw(linha/4,coluna/4,"%s","Dado em formato incorreto. Digite algo.");                                             // Informa formato incorreto.
+            noecho();
+            getch();                                                                            // Lê caracter digitado.
+            echo();
+            // Tratamento de exceção
+        }
+    }
+    int resultado;
+    clear();
+    resultado = cntrServicoParticipante->cadastrarUsuario(participante);
+    switch(resultado){
+    case 0:
+        mvprintw(linha/4,coluna/4,"%s","Participante cadastrado com sucesso. Digite algo.");
+        noecho();
+        getch();
+        echo();
+
+    case 1:
+    break;
+    }
+
+
+
 }
 void CntrApresentacaoParticipante::executar(const Matricula&){
 }
@@ -227,21 +281,28 @@ void CntrApresentacaoPSS::executar(){
     int campo;
     int linha,coluna;
     getmaxyx(stdscr,linha,coluna);                                                              // Armazena quantidade de linhas e colunas.
-    char texto1[]="Selecione um dos servicos : ";
-    char texto2[]="1 - Listar Pecas.";
-    char texto3[]="2 - Listar Sessoes.";
-    char texto4[]="3 - Listar Salas.";
-    char texto5[]="4 - Retornar.";
     while(apresentar){
         clear();
-        mvprintw(linha/4,coluna/4,"%s",texto1);                                                 // Imprime nome do camp
-        mvprintw(linha/4 + 2,coluna/4,"%s",texto2);                                             // Imprime nome do campo.
-        mvprintw(linha/4 + 4,coluna/4,"%s",texto3);                                             // Imprime nome do campo.
-        mvprintw(linha/4 + 6,coluna/4,"%s",texto4);                                             // Imprime nome do campo.
-        mvprintw(linha/4 + 8,coluna/4,"%s",texto5);                                             // Imprime nome do campo.
+        mvprintw(linha/4,coluna/4,"%s","Selecione um dos servicos : ");                                                 // Imprime nome do camp
+        mvprintw(linha/4 + 2,coluna/4,"%s","1 - Listar Pecas.");                                             // Imprime nome do campo.
+        mvprintw(linha/4 + 4,coluna/4,"%s","2 - Listar Sessoes.");                                             // Imprime nome do campo.
+        mvprintw(linha/4 + 6,coluna/4,"%s","3 - Listar Salas.");                                             // Imprime nome do campo.
+        mvprintw(linha/4 + 8,coluna/4,"%s","4 - Retornar.");                                             // Imprime nome do campo.
         noecho();
         campo = getch() - 48;                                                                   // Leitura do campo de entrada e conversão de ASCII.
         echo();
+        switch(campo){
+            case 1:
+                break;
+            case 2:
+                break;
+            case 3:
+                break;
+            case 4:
+                apresentar = false;
+                break;
+
+        }
 
     }
 
