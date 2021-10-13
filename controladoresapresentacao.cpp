@@ -57,6 +57,7 @@ void CntrApresentacaoControle::executar(){
             campo = getch() - 48;                                                                   // Leitura do campo de entrada e conversão de ASCII.
             echo();
 
+
             switch(campo){
                 case 1:
                 int retorno;
@@ -217,6 +218,28 @@ void CntrApresentacaoPSS::visualizarSala(){
 }
 //--------------------------- Public ----------------------------
 void CntrApresentacaoPSS::executar(){
+    bool apresentar = true;
+    int campo;
+    int linha,coluna;
+    getmaxyx(stdscr,linha,coluna);                                                              // Armazena quantidade de linhas e colunas.
+    char texto1[]="Selecione um dos servicos : ";
+    char texto2[]="1 - Listar Pecas.";
+    char texto3[]="2 - Listar Sessoes.";
+    char texto4[]="3 - Listar Salas.";
+    char texto5[]="4 - Retornar.";
+    while(apresentar){
+        clear();
+        mvprintw(linha/4,coluna/4,"%s",texto1);                                                 // Imprime nome do camp
+        mvprintw(linha/4 + 2,coluna/4,"%s",texto2);                                             // Imprime nome do campo.
+        mvprintw(linha/4 + 4,coluna/4,"%s",texto3);                                             // Imprime nome do campo.
+        mvprintw(linha/4 + 6,coluna/4,"%s",texto4);                                             // Imprime nome do campo.
+        mvprintw(linha/4 + 8,coluna/4,"%s",texto5);                                             // Imprime nome do campo.
+        noecho();
+        campo = getch() - 48;                                                                   // Leitura do campo de entrada e conversão de ASCII.
+        echo();
+
+    }
+
 }
 void CntrApresentacaoPSS::executar(const Matricula&){
 }
