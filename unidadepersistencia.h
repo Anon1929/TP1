@@ -6,7 +6,6 @@
 
 #include <list>
 
-#include <iostream>
 #include <string>
 #include <stdio.h>
 

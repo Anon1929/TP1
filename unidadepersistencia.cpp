@@ -1,5 +1,4 @@
 #include "unidadepersistencia.h"
-#include <iostream>
 
 using namespace std;
 
@@ -38,7 +37,6 @@ int ComandoSQL::desconectar() {
 
 int ComandoSQL::executar() {
         conectar();
-        cout << "executando comando: \n" << comandoSQL.c_str() << endl;
         rc = sqlite3_exec(bd, comandoSQL.c_str(), callback, 0, &mensagem);
         if(rc != SQLITE_OK){
                 sqlite3_free(mensagem);
@@ -51,7 +49,6 @@ int ComandoSQL::executar() {
 
 int ComandoSQL::callback(void *NotUsed, int argc, char **valorColuna, char **nomeColuna){
       NotUsed=0;
-      cout << "argc: " << argc << endl;
       ElementoResultado elemento;
       int i;
       for(i=0; i<argc; i++){
@@ -94,19 +91,15 @@ Senha ComandoLerSenha::getResultado() {
 
 
 ComandoPesquisarParticipante::ComandoPesquisarParticipante(Matricula matricula){
-        cout << "Criando comando" << endl;
         comandoSQL = "SELECT * FROM participantes WHERE matricula = ";
         comandoSQL += matricula.getValor();
-        cout << comandoSQL << endl;
 }
 Participante ComandoPesquisarParticipante::getResultado(){
-        cout << "pegando valor de participante" << endl;
         ElementoResultado resultado;
         Participante participante;
 
         // matricula;
         if (listaResultado.empty()){
-            cout << "lista vazia" << endl;
             throw "Lista de resultados vazia.";
         }
         resultado = listaResultado.back();
@@ -148,7 +141,6 @@ Participante ComandoPesquisarParticipante::getResultado(){
         resultado = listaResultado.back();
         listaResultado.pop_back();
         participante.setCargo(Cargo(resultado.getValorColuna()));
-        cout << "Deu bom" << endl;
         return participante;
 }
 

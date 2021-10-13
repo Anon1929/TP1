@@ -30,7 +30,7 @@ class IApresentacaoAutenticacao {
 };
 class IServicoAutenticacao {
     public:
-        virtual int autenticar(Matricula, Senha) = 0;
+        virtual int autenticar(const Matricula&, const Senha&) = 0;
         virtual ~IServicoAutenticacao(){}
 };
 
@@ -47,6 +47,7 @@ class IServicoParticipante {
         virtual int cadastrarUsuario(const Participante&) = 0;
         virtual int editarUsuario(const Participante&) = 0;
         virtual int excluirUsuario(const Matricula&) = 0;
+        virtual int visualizarUsuario(const Matricula&, Participante*) = 0;
         virtual int cadastrarComoParticipante(const Matricula&, const Codigo&) = 0;
         virtual ~IServicoParticipante(){}
 };

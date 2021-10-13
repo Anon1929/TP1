@@ -36,10 +36,10 @@ class Capacidade {
 /// Retorna valor
 /// @return valor
 
-        int getValor();
+        int getValor() const;
 
     };
-inline int Capacidade::getValor(){
+inline int Capacidade::getValor() const{
     return valor;
     }
 
@@ -74,9 +74,9 @@ class Cargo{
 /// Retorna valor
 /// @return valor
 
-        std::string getValor();
+        std::string getValor() const;
 };
-inline std::string Cargo::getValor(){
+inline std::string Cargo::getValor() const{
     return valor;
 }
 
@@ -112,9 +112,9 @@ class Tipo{
 /// Retorna valor
 /// @return valor
 
-        std::string getValor();
+        std::string getValor() const;
 };
-inline std::string Tipo::getValor(){
+inline std::string Tipo::getValor() const{
     return valor;
 }
 
@@ -150,9 +150,9 @@ class Classificacao{
 /// Retorna valor
 /// @return valor
 
-        std::string getValor();
+        std::string getValor() const;
 };
-inline std::string Classificacao::getValor(){
+inline std::string Classificacao::getValor() const{
     return valor;
 }
 
@@ -184,9 +184,9 @@ public:
 ///Retorna valor
 ///@return valor
 
-    std::string getValor();
+    std::string getValor() const;
 };
-inline std::string Matricula::getValor(){
+inline std::string Matricula::getValor() const{
     return valor;
 }
 
@@ -219,9 +219,9 @@ public:
 ///Retorna valor
 ///@return valor
 
-    std::string getValor();
+    std::string getValor() const;
 };
-inline std::string Senha::getValor(){
+inline std::string Senha::getValor() const{
     return valor;
 }
 
@@ -251,9 +251,9 @@ public:
 
 /// Retorna valor
 /// @return valor
-    std::string getValor();
+    std::string getValor() const;
 };
-inline std::string Telefone::getValor(){
+inline std::string Telefone::getValor() const{
     return valor;
 }
 
@@ -373,9 +373,9 @@ public:
 
 /// Retorna valor
 /// @return valor
-    std::string getValor();
+    std::string getValor() const;
 };
-inline std::string Codigo::getValor(){
+inline std::string Codigo::getValor() const{
     return valor;
 }
 
@@ -404,9 +404,9 @@ public:
 
 /// Retorna valor
 /// @return valor
-    std::string getValor();
+    std::string getValor() const;
 };
-inline std::string Horario::getValor(){
+inline std::string Horario::getValor() const{
     return valor;
 }
 

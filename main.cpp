@@ -5,8 +5,10 @@
 #include "interfaces.h"
 #include "controladoresapresentacao.h"
 #include "controladoresservico.h"
+using namespace std;
 
 int main(void){
+
     //Instanciar controladores de apresentação
     CntrApresentacaoControle cntrApresentacaoControle;
     CntrApresentacaoAutenticacao cntrApresentacaoAutenticacao;

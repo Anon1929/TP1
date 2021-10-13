@@ -7,12 +7,12 @@
 #include "entidades.h"
 #include "interfaces.h"
 
-// Declarações de classes controladoras e implementações de métodos.
+// Declaraï¿½ï¿½es de classes controladoras e implementaï¿½ï¿½es de mï¿½todos.
 //--------------------------------------------------------------------------------------------
 class CntrServicoAutenticacao:public IServicoAutenticacao{
     private:
     public:
-        int autenticar(Matricula, Senha);
+        int autenticar(const Matricula&, const Senha&);
 };
 
 //--------------------------------------------------------------------------------------------
@@ -22,7 +22,7 @@ class CntrServicoParticipante:public IServicoParticipante{
         int cadastrarUsuario(const Participante&);
         int editarUsuario(const Participante&);
         int excluirUsuario(const Matricula&);
-        int visualizarUsuario(const Matricula, Participante*);
+        int visualizarUsuario(const Matricula&, Participante*);
         int cadastrarComoParticipante(const Matricula&, const Codigo&);
 };
 
@@ -33,12 +33,12 @@ class CntrServicoPSS:public IServicoPSS{
         vector<Peca> listarPecas();
         vector<Sessao> listarSessoes();
         vector<Sala> listarSalas();
-        //Peças
+        //Peï¿½as
         int incluirPeca (const Peca&);
         int editarPeca (const Peca&);
         int excluirPeca (const Codigo&);
         int visualizarPeca (const Codigo&, Peca*);
-        //Sessões
+        //Sessï¿½es
         int incluirSessao (const Sessao&, const Codigo&, const Codigo&);
         int editarSessao (const Sessao&);
         int excluirSessao (const Codigo&);

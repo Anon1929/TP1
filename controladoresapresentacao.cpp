@@ -48,7 +48,7 @@ void CntrApresentacaoControle::executar(){
 
         while(apresentar){
             clear();
-            mvprintw(linha/4,coluna/4,"%s",texto1);                                                 // Imprime nome do campo.
+            mvprintw(linha/4,coluna/4,"%s","Selecione um dos servicos : ");                                                 // Imprime nome do campo.
             mvprintw(linha/4 + 2,coluna/4,"%s",texto2);                                             // Imprime nome do campo.
             mvprintw(linha/4 + 4,coluna/4,"%s",texto3);                                             // Imprime nome do campo.
             mvprintw(linha/4 + 6,coluna/4,"%s",texto4);                                             // Imprime nome do campo.
@@ -83,30 +83,36 @@ void CntrApresentacaoControle::executar(){
                                         }
                             }
                             break;
-                            case 1:
-                                //Senha incorreta
-                            case 2:
-                                //Falha em recuperar senha no banco de dados
-                            default:
-                                clear();                                                                // Limpa janela.
-                                mvprintw(linha/4,coluna/4,"%s",texto10);                                // Imprime mensagem.
-                                noecho();                                                               // Desabilita eco.
-                                getch();                                                                // Leitura de caracter digitado.
-                                echo();
-                                break;                                                          // Habilita eco.
+                    case 1:
+                        clear();
+                        mvprintw(linha/4,coluna/4,"%s","Senha incorreta");
+                        getch();
+                        break;
+                    case 2:
+                        clear();
+                        mvprintw(linha/4,coluna/4,"%s","Matricula inexistente");
+                        getch();
+                        break;
+                    default:
+                            clear();                                                                // Limpa janela.
+                            mvprintw(linha/4,coluna/4,"%s",texto10);                                // Imprime mensagem.
+                            noecho();                                                               // Desabilita eco.
+                            getch();                                                                // Leitura de caracter digitado.
+                            echo();
+                            break;                                                          // Habilita eco.
                     }
                     break;
 
-                    case 2:
-                        cntrApresentacaoParticipante->cadastrar();
-                        break;
+                case 2:
+                    cntrApresentacaoParticipante->cadastrar();
+                    break;
 
-                    case 3:
-                        cntrApresentacaoPSS->executar();
-                        break;
-                    case 4:
-                        apresentar = false;
-                        break;
+                case 3:
+                    cntrApresentacaoPSS->executar();
+                    break;
+                case 4:
+                    apresentar = false;
+                    break;
 
             }
 
@@ -140,13 +146,12 @@ int CntrApresentacaoAutenticacao::autenticar(Matricula *matricula){
         getstr(campo1);                                                                         // Lê valor do campo.
         mvprintw(linha/4 + 2,coluna/4,"%s",texto2);                                             // Imprime nome do campo.
         getstr(campo2);
-        Senha senha;
 
         try {
             // Pedir matrícula e salvar em entrada
-            matricula->setValor(string(campo1));
+            matricula->setValor(campo1);
             // Pedir senha e salvar em entrada
-            senha.setValor(string(campo2));
+            senha.setValor(campo2);
             break;
         }
         catch (const invalid_argument &exp) {
@@ -158,9 +163,9 @@ int CntrApresentacaoAutenticacao::autenticar(Matricula *matricula){
             // Tratamento de exceção
         }
     }
-
     // Solicitar autenticação.
     int resultado = cntrServicoAutenticacao->autenticar(*matricula, senha);
+
     // Retornar resultado da autenticação.
     return resultado;
 }

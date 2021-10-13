@@ -10,15 +10,14 @@
 // CntrServicoAutenticacao
 //--------------------------- Private ---------------------------
 //---------------------------- Public ----------------------------
-int CntrServicoAutenticacao::autenticar(Matricula matricula, Senha senha){
+int CntrServicoAutenticacao::autenticar(const Matricula& matricula, const Senha& senha){
     try {
         ComandoLerSenha comando(matricula);
         comando.executar();
         Senha senhaReal = comando.getResultado();
         if(senhaReal.getValor() == senha.getValor()) return 0;
         else return 1;
-    }catch (EErroPersistencia &exp) {
-        cout << exp.what() << endl;
+    }catch(...) {
         return 2;
     }
 }
@@ -34,6 +33,8 @@ int CntrServicoParticipante::editarUsuario(const Participante&){
 int CntrServicoParticipante::excluirUsuario(const Matricula&){
 }
 int CntrServicoParticipante::cadastrarComoParticipante(const Matricula&, const Codigo&){
+}
+int CntrServicoParticipante::visualizarUsuario(const Matricula&, Participante*){
 }
 
 //--------------------------------------------------------------------------------------------
