@@ -38,17 +38,19 @@ void CntrApresentacaoControle::executar(){
             noecho();
             campo = getch() - 48;                                                                   // Leitura do campo de entrada e conversão de ASCII.
             echo();
+
             switch(campo){
                 case 1:
-                if(cntrApresentacaoAutenticacao->autenticar(matricula)){
-                    while(apresentar){
-
+                int retorno;
+                retorno = cntrApresentacaoAutenticacao->autenticar(&matricula);
+                switch(retorno){
+                    case 0:
+                        while(apresentar){
                             clear();                                                            // Limpa janela.
                             mvprintw(linha/4,coluna/4,"%s",texto6);                             // Imprime nome do campo.
                             mvprintw(linha/4 + 2,coluna/4,"%s",texto7);                         // Imprime nome do campo.
                             mvprintw(linha/4 + 4,coluna/4,"%s",texto8);                         // Imprime nome do campo.
                             mvprintw(linha/4 + 6,coluna/4,"%s",texto9);                         // Imprime nome do campo.                                    // Apresenta tela de seleção de serviço.
-
                             noecho();
                             campo = getch() - 48;                                               // Leitura do campo de entrada e conversão de ASCII.
                             echo();
@@ -61,13 +63,16 @@ void CntrApresentacaoControle::executar(){
                                         break;
                                         }
                             }
-                    }
-                    else{
-                        clear();                                                                // Limpa janela.
-                        mvprintw(linha/4,coluna/4,"%s",texto10);                                // Imprime mensagem.
-                        noecho();                                                               // Desabilita eco.
-                        getch();                                                                // Leitura de caracter digitado.
-                        echo();                                                                 // Habilita eco.
+                            break;
+                            case 1:
+                            case 2:
+                            default:
+                                clear();                                                                // Limpa janela.
+                                mvprintw(linha/4,coluna/4,"%s",texto10);                                // Imprime mensagem.
+                                noecho();                                                               // Desabilita eco.
+                                getch();                                                                // Leitura de caracter digitado.
+                                echo();
+                                break;                                                          // Habilita eco.
                     }
                     break;
 
@@ -96,17 +101,38 @@ void CntrApresentacaoControle::executar(){
 //--------------------------- Public ----------------------------
 int CntrApresentacaoAutenticacao::autenticar(Matricula *matricula){
     Senha senha;
-    string entrada;
+    int linha,coluna;                                                                           // Dados sobre tamanho da tela.
+    getmaxyx(stdscr,linha,coluna);                                                              // Armazena quantidade de linhas e colunas.
+    echo();                                                                                     // Habilita eco.
+    char campo1[80];
+    char campo2[80];
+
+    char texto1[]="Digite a Matricula : ";
+    char texto2[]="Digite a senha: ";
+    char texto3[]="Dado em formato incorreto. Digite algo.";
+
     // Solicitar matricula e senha.
     while(true) {
+        clear();                                                                                // Limpa janela.
+        mvprintw(linha/4,coluna/4,"%s",texto1);                                                 // Imprime nome do campo.
+        getstr(campo1);                                                                         // Lê valor do campo.
+        mvprintw(linha/4 + 2,coluna/4,"%s",texto2);                                             // Imprime nome do campo.
+        getstr(campo2);
+        Senha senha;
+
         try {
             // Pedir matrícula e salvar em entrada
-            matricula->setValor(entrada);
+            matricula->setValor(string(campo1));
             // Pedir senha e salvar em entrada
-            senha.setValor(entrada);
+            senha.setValor(string(campo2));
             break;
         }
         catch (const invalid_argument &exp) {
+            clear();                                                                            // Limpa janela.
+            mvprintw(linha/4,coluna/4,"%s",texto3);                                             // Informa formato incorreto.
+            noecho();
+            getch();                                                                            // Lê caracter digitado.
+            echo();
             // Tratamento de exceção
         }
     }

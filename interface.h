@@ -23,7 +23,7 @@ class IServicoPSS;
 //Autenticacao
 class IApresentacaoAutenticacao {
     public:
-        virtual int autenticar(const Matricula&) = 0;
+        virtual int autenticar(Matricula*) = 0;
         virtual void setCntrServicoAutenticacao(IServicoAutenticacao*) = 0;
         virtual ~IApresentacaoAutenticacao(){}
 };

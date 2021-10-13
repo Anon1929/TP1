@@ -12,10 +12,9 @@ int main(void){
     IApresentacaoParticipante *cntrapresentacaoparticipante;
     IApresentacaoPSS *cntrapresentacaopps;
 
+    cntrapresentacaoautenticacao = new CntrApresentacaoAutenticacao();
 
     ControleApresentacao.setCntrApresentacaoAutenticacao(cntrapresentacaoautenticacao);
-    ControleApresentacao.setCntrApresentacaoParticipante(cntrapresentacaoparticipante);
-    ControleApresentacao.setCntrApresentacaoPSS(cntrapresentacaopps);
 
     initscr();
     ControleApresentacao.executar();
