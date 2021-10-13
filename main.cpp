@@ -13,8 +13,10 @@ int main(void){
     IApresentacaoPSS *cntrapresentacaopps;
 
     cntrapresentacaoautenticacao = new CntrApresentacaoAutenticacao();
+    cntrapresentacaopps = new CntrApresentacaoPSS();
 
     ControleApresentacao.setCntrApresentacaoAutenticacao(cntrapresentacaoautenticacao);
+    ControleApresentacao.setCntrApresentacaoPSS(cntrapresentacaopps);
 
     initscr();
     ControleApresentacao.executar();

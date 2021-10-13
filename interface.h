@@ -55,8 +55,8 @@ class IServicoParticipante {
 class IApresentacaoPSS {
     public:
         virtual void executar() = 0;
-        virtual void executar(const Matricula&) = 0;
-        virtual void setCntrServicoAutenticacao(IServicoAutenticacao*) = 0;
+        virtual void executar(Matricula*) = 0;
+        virtual void setCntrServicoPSS(IServicoPSS*) = 0;
         virtual ~IApresentacaoPSS(){}
 };
 class IServicoPSS {
