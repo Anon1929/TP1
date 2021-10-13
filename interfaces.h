@@ -7,7 +7,6 @@
 
 using namespace std;
 
-
 // Forward declarations.
 //Apresentacao
 class IApresentacaoAutenticacao;

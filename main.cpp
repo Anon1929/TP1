@@ -28,8 +28,9 @@ int main(void){
     cntrApresentacaoControle.setCntrApresentacaoPSS(&cntrApresentacaoPSS);
     cntrApresentacaoPSS.setCntrServicoPSS(&cntrServicoPSS);
 
-    //Chamar executar
+    initscr();
     cntrApresentacaoControle.executar();
+    endwin();
 
     cout << "obrigado por usar o programa!" << endl;
     return 0;

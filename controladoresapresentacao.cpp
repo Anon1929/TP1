@@ -12,6 +12,8 @@
 //--------------------------- Private ---------------------------
 //--------------------------- Public ----------------------------
 void CntrApresentacaoControle::executar(){
+/*
+<<<<<<< HEAD
     int entrada;
     while(true){
         cout << "Escolha entre uma das funções disponíveis:" << endl;
@@ -27,6 +29,89 @@ void CntrApresentacaoControle::executar(){
                 cout << "opção inválida" << endl;
         }
     }
+=======*/
+    bool apresentar = true;
+    int campo;
+    int linha,coluna;
+    getmaxyx(stdscr,linha,coluna);                                                              // Armazena quantidade de linhas e colunas.
+    char texto1[]="Selecione um dos servicos : ";
+    char texto2[]="1 - Acessar sistema.";
+    char texto3[]="2 - Cadastrar usuario.";
+    char texto4[]="3 - Listar dados sobre pecas, sessoes ou salas.";
+    char texto5[]="4 - Encerrar execucao do sistema.";
+
+    char texto6[]="Selecione um dos servicos : ";
+    char texto7[]="1 - Selecionar servicos de participante.";
+    char texto8[]="2 - Selecionar servicos relacionados a pecas, sessoes ou salas.";
+    char texto9[]="3 - Encerrar sessao.";
+    char texto10[]="Falha na autenticacao. Digite algo para continuar.";
+
+        while(apresentar){
+            clear();
+            mvprintw(linha/4,coluna/4,"%s",texto1);                                                 // Imprime nome do campo.
+            mvprintw(linha/4 + 2,coluna/4,"%s",texto2);                                             // Imprime nome do campo.
+            mvprintw(linha/4 + 4,coluna/4,"%s",texto3);                                             // Imprime nome do campo.
+            mvprintw(linha/4 + 6,coluna/4,"%s",texto4);                                             // Imprime nome do campo.
+            mvprintw(linha/4 + 8,coluna/4,"%s",texto5);                                             // Imprime nome do campo.
+            noecho();
+            campo = getch() - 48;                                                                   // Leitura do campo de entrada e conversão de ASCII.
+            echo();
+
+            switch(campo){
+                case 1:
+                int retorno;
+                retorno = cntrApresentacaoAutenticacao->autenticar(&matricula);
+                switch(retorno){
+                    case 0:
+                        while(apresentar){
+                            clear();                                                            // Limpa janela.
+                            mvprintw(linha/4,coluna/4,"%s",texto6);                             // Imprime nome do campo.
+                            mvprintw(linha/4 + 2,coluna/4,"%s",texto7);                         // Imprime nome do campo.
+                            mvprintw(linha/4 + 4,coluna/4,"%s",texto8);                         // Imprime nome do campo.
+                            mvprintw(linha/4 + 6,coluna/4,"%s",texto9);                         // Imprime nome do campo.                                    // Apresenta tela de seleção de serviço.
+                            noecho();
+                            campo = getch() - 48;                                               // Leitura do campo de entrada e conversão de ASCII.
+                            echo();
+                            switch(campo){
+                                case 1: cntrApresentacaoParticipante->executar(matricula);               // Solicita serviço de participante
+                                        break;
+                                case 2: cntrApresentacaoPSS->executar(matricula);
+                                        break;
+                                case 3: apresentar = false;
+                                        break;
+                                        }
+                            }
+                            break;
+                            case 1:
+                                //Senha incorreta
+                            case 2:
+                                //Falha em recuperar senha no banco de dados
+                            default:
+                                clear();                                                                // Limpa janela.
+                                mvprintw(linha/4,coluna/4,"%s",texto10);                                // Imprime mensagem.
+                                noecho();                                                               // Desabilita eco.
+                                getch();                                                                // Leitura de caracter digitado.
+                                echo();
+                                break;                                                          // Habilita eco.
+                    }
+                    break;
+
+                    case 2:
+                        cntrApresentacaoParticipante->cadastrar();
+                        break;
+
+                    case 3:
+                        cntrApresentacaoPSS->executar();
+                        break;
+                    case 4:
+                        apresentar = false;
+                        break;
+
+            }
+
+
+        }
+
 }
 
 
@@ -36,39 +121,45 @@ void CntrApresentacaoControle::executar(){
 //--------------------------- Public ----------------------------
 int CntrApresentacaoAutenticacao::autenticar(Matricula *matricula){
     Senha senha;
-    string entrada;
+    int linha,coluna;                                                                           // Dados sobre tamanho da tela.
+    getmaxyx(stdscr,linha,coluna);                                                              // Armazena quantidade de linhas e colunas.
+    echo();                                                                                     // Habilita eco.
+    char campo1[80];
+    char campo2[80];
+
+    char texto1[]="Digite a Matricula : ";
+    char texto2[]="Digite a senha: ";
+    char texto3[]="Dado em formato incorreto. Digite algo.";
+
     // Solicitar matricula e senha.
-    while(true){
+
+    while(true) {
+        clear();                                                                                // Limpa janela.
+        mvprintw(linha/4,coluna/4,"%s",texto1);                                                 // Imprime nome do campo.
+        getstr(campo1);                                                                         // Lê valor do campo.
+        mvprintw(linha/4 + 2,coluna/4,"%s",texto2);                                             // Imprime nome do campo.
+        getstr(campo2);
+        Senha senha;
+
         try {
             // Pedir matrícula e salvar em entrada
-            cout << "insira matrícula" << endl;
-            cin >> entrada;
-            matricula->setValor(entrada);
+            matricula->setValor(string(campo1));
             // Pedir senha e salvar em entrada
-            cout << "insira senha:" << endl;
-            cin >> entrada;
-            senha.setValor(entrada);
+            senha.setValor(string(campo2));
             break;
         }
         catch (const invalid_argument &exp) {
-            cout << "matricula ou senha com formato inválido" << endl;
+            clear();                                                                            // Limpa janela.
+            mvprintw(linha/4,coluna/4,"%s",texto3);                                             // Informa formato incorreto.
+            noecho();
+            getch();                                                                            // Lê caracter digitado.
+            echo();
             // Tratamento de exceção
         }
     }
 
     // Solicitar autenticação.
     int resultado = cntrServicoAutenticacao->autenticar(*matricula, senha);
-    switch(resultado){
-        case 0:
-            cout << "Autenticado com sucesso" << endl;
-            break;
-        case 1:
-            cout << "Senha incorreta" << endl;
-            break;
-        case 2:
-            cout << "Falha em recuperar a senha no banco de dados" << endl;
-            break;
-    }
     // Retornar resultado da autenticação.
     return resultado;
 }
