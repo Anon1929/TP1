@@ -5,6 +5,7 @@
 #include "entidades.h"
 
 #include <list>
+#include <vector>
 
 #include <string>
 #include <stdio.h>
@@ -60,23 +61,71 @@ public:
         int executar();
 };
 
-
-class ComandoCadastrar:public ComandoSQL {
-public:
-        ComandoCadastrar(const Participante&);
-};
-
+//autenticar
 class ComandoLerSenha: public ComandoSQL{
 public:
         ComandoLerSenha(Matricula);
         Senha getResultado();
 };
+//participante
+class ComandoCadastrarParticipante:public ComandoSQL {
+public:
+        ComandoCadastrarParticipante(const Participante&);
+};
+
+class ComandoEditarParticipante:public ComandoSQL {
+public:
+        ComandoEditarParticipante(const Participante&);
+};
+
+class ComandoExcluirParticipante:public ComandoSQL {
+public:
+        ComandoExcluirParticipante(const Participante&);
+};
 
 class ComandoPesquisarParticipante:public ComandoSQL{
 public:
-        ComandoPesquisarParticipante(Matricula);
+        ComandoPesquisarParticipante(const Matricula&);
         Participante getResultado();
 };
 
+class ComandoCadastrarParticipanteEmPeca:public ComandoSQL{
+    public:
+        ComandoCadastrarParticipanteEmPeca(const Matricula&, const Codigo&);
+};
+
+
+//peca
+class ComandoVisualizarPecas:public ComandoSQL {
+public:
+        ComandoVisualizarPecas();
+        vector<Peca> getValor();
+};
+
+class ComandoCadastrarPeca:public ComandoSQL {
+public:
+        ComandoCadastrarPeca(const Peca&);
+};
+
+class ComandoEditarPeca:public ComandoSQL {
+public:
+        ComandoEditarPeca(const Peca&);
+};
+
+class ComandoExcluirPeca:public ComandoSQL {
+public:
+        ComandoExcluirPeca(const Peca&);
+};
+
+class ComandoPesquisarPeca:public ComandoSQL{
+public:
+        ComandoPesquisarPeca(const Codigo&);
+        Peca getResultado();
+};
+
+
+//sessao
+
+//sala
 
 #endif // UNIDADEPERSISTENCIA_H_INCLUDED

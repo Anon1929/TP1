@@ -322,6 +322,7 @@ void CntrApresentacaoParticipante::cadastrar(){
             clear();                                                                                // Limpa janela.
             mvprintw(linha/4,coluna/4,"%s","Digite o Telefone : ");
             getstr(campo1);
+
             telefone.setValor(campo1);
 
             participante.setMatricula(matricula);
@@ -347,23 +348,19 @@ void CntrApresentacaoParticipante::cadastrar(){
     clear();
     resultado = cntrServicoParticipante->cadastrarUsuario(participante);
     switch(resultado){
-    case 0:
-        mvprintw(linha/4,coluna/4,"%s","Participante cadastrado com sucesso. Digite algo.");
-        noecho();
-        getch();
-        echo();
-        break;
-    case 1:
-    default:
-        mvprintw(linha/4,coluna/4,"%s","Falha ao cadastrar participante. Digite algo.");
-        noecho();
-        getch();
-        echo();
-        break;
+        case 0:
+            mvprintw(linha/4,coluna/4,"%s","Participante cadastrado com sucesso. Digite algo.");
+            noecho();
+            getch();
+            echo();
+            break;
+        case 1:
+            mvprintw(linha/4 -3,coluna/4,"%s","Falha no cadastro. Muito provavelmente ja existe usuário com essa matricula. Digite algo.");
+            noecho();
+            getch();
+            echo();
+            break;
     }
-
-
-
 }
 bool CntrApresentacaoParticipante::executar(const Matricula& matricula){
     clear();

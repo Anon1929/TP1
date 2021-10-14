@@ -26,9 +26,12 @@ int CntrServicoAutenticacao::autenticar(const Matricula& matricula, const Senha&
 // CntrServicoParticipante
 //--------------------------- Private ---------------------------
 //--------------------------- Public ----------------------------
-int CntrServicoParticipante::cadastrarUsuario(const Participante&){
+int CntrServicoParticipante::cadastrarUsuario(const Participante& participante){
+    ComandoCadastrarParticipante cadastrar(participante);
+    return cadastrar.executar();
 }
 int CntrServicoParticipante::editarUsuario(const Participante&){
+
 }
 int CntrServicoParticipante::excluirUsuario(const Matricula&){
 }
