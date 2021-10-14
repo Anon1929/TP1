@@ -59,7 +59,7 @@ int ComandoSQL::callback(void *NotUsed, int argc, char **valorColuna, char **nom
       return 0;
 }
 
-ComandoCadastrar::ComandoCadastrar(const Participante& participante){
+ComandoCadastrarParticipante::ComandoCadastrarParticipante(const Participante& participante){
         comandoSQL = "INSERT INTO participantes VALUES (";
         comandoSQL += "'" + participante.getMatricula().getValor() + "', ";
         comandoSQL += "'" + participante.getNome().getValor() + "', ";
@@ -90,7 +90,7 @@ Senha ComandoLerSenha::getResultado() {
 }
 
 
-ComandoPesquisarParticipante::ComandoPesquisarParticipante(Matricula matricula){
+ComandoPesquisarParticipante::ComandoPesquisarParticipante(const Matricula& matricula){
         comandoSQL = "SELECT * FROM participantes WHERE matricula = ";
         comandoSQL += matricula.getValor();
 }

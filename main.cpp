@@ -31,6 +31,7 @@ int main(void){
     cntrApresentacaoPSS.setCntrServicoPSS(&cntrServicoPSS);
 
     initscr();
+
     cntrApresentacaoControle.executar();
     endwin();
 

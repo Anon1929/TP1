@@ -42,10 +42,7 @@
 		<Unit filename="dominios.cpp" />
 		<Unit filename="dominios.h" />
 		<Unit filename="dominiosteste.cpp" />
-		<Unit filename="dominiosteste.h" />
 		<Unit filename="entidades.h" />
-		<Unit filename="entidadesteste.cpp" />
-		<Unit filename="entidadesteste.h" />
 		<Unit filename="interfaces.h" />
 		<Unit filename="main.cpp" />
 		<Unit filename="sqlite3.c">
