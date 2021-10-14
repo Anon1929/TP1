@@ -38,7 +38,7 @@ class IServicoAutenticacao {
 class IApresentacaoParticipante {
     public:
         virtual void cadastrar() = 0;
-        virtual void executar(const Matricula&) = 0;
+        virtual bool executar(const Matricula&) = 0;
         virtual void setCntrServicoParticipante(IServicoParticipante*) = 0;
         virtual ~IApresentacaoParticipante(){}
 };
