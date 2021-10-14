@@ -51,7 +51,9 @@ vector<Sessao> CntrServicoPSS::listarSessoes(){
 vector<Sala> CntrServicoPSS::listarSalas(){
 }
 //Peças
-int CntrServicoPSS::incluirPeca (const Peca&){
+int CntrServicoPSS::incluirPeca (const Peca& peca){
+    ComandoCadastrarPeca cadastrar(peca);
+    return cadastrar.executar();
 }
 int CntrServicoPSS::editarPeca (const Peca&){
 }
@@ -60,7 +62,9 @@ int CntrServicoPSS::excluirPeca (const Codigo&){
 int CntrServicoPSS::visualizarPeca (const Codigo&, Peca*){
 }
 //Sessões
-int CntrServicoPSS::incluirSessao (const Sessao&, const Codigo&, const Codigo&){
+int CntrServicoPSS::incluirSessao (const Sessao& sessao, const Codigo& codigoPeca, const Codigo& codigoSala){
+    ComandoCadastrarSessao cadastrar(sessao, codigoPeca, codigoSala);
+    return cadastrar.executar();
 }
 int CntrServicoPSS::editarSessao (const Sessao&){
 }
@@ -69,7 +73,9 @@ int CntrServicoPSS::excluirSessao (const Codigo&){
 int CntrServicoPSS::visualizarSessao (const Codigo&, Sessao*){
 }
 //Salas
-int CntrServicoPSS::incluirSala (const Sala&){
+int CntrServicoPSS::incluirSala (const Sala& sala){
+    ComandoCadastrarSala cadastrar(sala);
+    return cadastrar.executar();
 }
 int CntrServicoPSS::editarSala (const Sala&){
 }
