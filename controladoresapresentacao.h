@@ -51,12 +51,12 @@ inline void CntrApresentacaoAutenticacao::setCntrServicoAutenticacao(IServicoAut
 class CntrApresentacaoParticipante:public IApresentacaoParticipante{
     private:
         IServicoParticipante *cntrServicoParticipante;
-        void consultarDadosPessoais();
-        void editarUsuario();
-        void excluirUsuario();
+        void consultarDadosPessoais(const Matricula& );
+        void editarUsuario(const Matricula&);
+        void excluirUsuario(const Matricula&);
     public:
         void cadastrar();
-        void executar(const Matricula&);
+        bool executar(const Matricula&);
         void setCntrServicoParticipante(IServicoParticipante*);
 };
 
