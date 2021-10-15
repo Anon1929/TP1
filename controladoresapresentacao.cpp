@@ -265,6 +265,9 @@ void CntrApresentacaoParticipante::excluirUsuario(const Matricula& matricula){
         break;
     }
 }
+void CntrApresentacaoParticipante::cadastrarcomoparticipante(const Matricula& matricula){
+
+}
 //--------------------------- Public ----------------------------
 void CntrApresentacaoParticipante::cadastrar(){
     Participante participante;
@@ -361,12 +364,13 @@ bool CntrApresentacaoParticipante::executar(const Matricula& matricula){
     int campo;
     while(apresentar){
             clear();
-            mvprintw(linha/4,coluna/4,"%s","Selecione um dos servicos : ");                             // Imprime nome do campo.
-            mvprintw(linha/4 + 2,coluna/4,"%s","1 - Cadastrar outro participante.");                         // Imprime nome do campo.
-            mvprintw(linha/4 + 4,coluna/4,"%s","2 - Ver dados de usuário.");                         // Imprime nome do campo.
-            mvprintw(linha/4 + 6,coluna/4,"%s","3 - Editar dados de usuário.");                         // Imprime nome do campo.                                    // Apresenta tela de seleção de serviço.
-            mvprintw(linha/4 + 6,coluna/4,"%s","4 - Excluir usuário.");                         // Imprime nome do campo.                                    // Apresenta tela de seleção de serviço.
-            mvprintw(linha/4 + 6,coluna/4,"%s","5 - Retornar.");                         // Imprime nome do campo.                                    // Apresenta tela de seleção de serviço.
+            mvprintw(linha/6,coluna/4,"%s","Selecione um dos servicos : ");                             // Imprime nome do campo.
+            mvprintw(linha/6 + 2,coluna/4,"%s","1 - Cadastrar outro participante.");                         // Imprime nome do campo.
+            mvprintw(linha/6 + 4,coluna/4,"%s","2 - Ver dados de usuário.");                         // Imprime nome do campo.
+            mvprintw(linha/6 + 6,coluna/4,"%s","3 - Editar dados de usuário.");                         // Imprime nome do campo.                                    // Apresenta tela de seleção de serviço.
+            mvprintw(linha/6 + 8,coluna/4,"%s","4 - Excluir usuário.");                         // Imprime nome do campo.                                    // Apresenta tela de seleção de serviço.
+            mvprintw(linha/4 + 6,coluna/4,"%s","5 - Cadastrar usuário como participante de Peca.");                         // Imprime nome do campo.                                    // Apresenta tela de seleção de serviço.
+            mvprintw(linha/6 + 10,coluna/4,"%s","6 - Retornar.");                         // Imprime nome do campo.                                    // Apresenta tela de seleção de serviço.
             campo = getch() - 48;                                                                   // Leitura do campo de entrada e conversão de ASCII.
             switch(campo){
                 case 1:
@@ -383,6 +387,9 @@ bool CntrApresentacaoParticipante::executar(const Matricula& matricula){
                     return true;
                     break;
                 case 5:
+                    cadastrarcomoparticipante(matricula);
+                    break;
+                case 6:
                     return false;
                     break;
             }
@@ -607,7 +614,7 @@ void CntrApresentacaoPSS::visualizarPeca(){
     }
 
     clear();
-    int resultado = CntrServicoPSS->visualizarPeca(codigo,peca);
+    int resultado = cntrServicoPSS->visualizarPeca(codigo,peca);
     switch(resultado){
         case 0:
             mvprintw(linha/8+2,coluna/4,"%s %s","Codigo : ", peca->getCodigo().getValor());
@@ -835,7 +842,7 @@ void CntrApresentacaoPSS::visualizarSessao(){
     }
 
     clear();
-    int resultado = CntrServicoPSS->visualizarSessao(codigo,sessao);
+    int resultado = cntrServicoPSS->visualizarSessao(codigo,sessao);
     switch(resultado){
         case 0:
             mvprintw(linha/8+2,coluna/4,"%s %s","Codigo : ", sessao->getCodigo().getValor());
@@ -1036,7 +1043,7 @@ void CntrApresentacaoPSS::visualizarSala(){
     }
 
     clear();
-    int resultado = CntrServicoPSS->visualizarSala(codigo,sala);
+    int resultado = cntrServicoPSS->visualizarSala(codigo,sala);
     switch(resultado){
         case 0:
             mvprintw(linha/8+2,coluna/4,"%s %s","Codigo : ", sala->getCodigo().getValor());
@@ -1090,6 +1097,7 @@ void CntrApresentacaoPSS::executar(const Matricula&){
     int linha,coluna;
     getmaxyx(stdscr,linha,coluna);                                                              // Armazena quantidade de linhas e colunas.
     bool apresentar = true;
+    bool apresentar0;
     while(apresentar){
         clear();
         mvprintw(linha/4,coluna/4,"%s","Selecione um dos servicos : ");                                                 // Imprime nome do campo.
@@ -1114,7 +1122,7 @@ void CntrApresentacaoPSS::executar(const Matricula&){
                 listarSalas();
                 break;
             case 4:
-                bool apresentar0 = true;
+                apresentar0 = true;
                 while(apresentar0){
                     clear();
                     mvprintw(linha/4,coluna/4,"%s","Selecione um dos servicos relacionados a pecas: ");                  // Imprime nome do campo.
@@ -1146,7 +1154,7 @@ void CntrApresentacaoPSS::executar(const Matricula&){
                 }
                 break;
             case 5:
-                bool apresentar0 = true;
+                apresentar0 = true;
                 while(apresentar0){
                     clear();
                     mvprintw(linha/4,coluna/4,"%s","Selecione um dos servicos relacionados a sessoes: ");                  // Imprime nome do campo.
@@ -1178,7 +1186,7 @@ void CntrApresentacaoPSS::executar(const Matricula&){
                 }
                 break;
             case 6:
-                bool apresentar0 = true;
+                apresentar0 = true;
                 while(apresentar0){
                     clear();
                     mvprintw(linha/4,coluna/4,"%s","Selecione um dos servicos relacionados a salas: ");                  // Imprime nome do campo.

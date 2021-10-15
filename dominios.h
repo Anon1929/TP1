@@ -11,8 +11,8 @@
 class Capacidade {
 
     private:
-        int valor;
-        void validar(int argumento);
+        std::string  valor;
+        void validar(std::string  argumento);
         public:
 
 /// Inicializa objeto com  valor 100.
@@ -24,22 +24,22 @@ class Capacidade {
 /// @param valor capacidade
 /// @throw invalid_argument
 
-        Capacidade(int valor);
+        Capacidade(std::string  valor);
 
 /// Armazena valor caso valor informado seja válido
 /// Lança exceção caso valor seja inválido
 /// @param valor capacidade
 /// @throw invalid_argument
 
-        void setValor(int valor);
+        void setValor(std::string valor);
 
 /// Retorna valor
 /// @return valor
 
-        int getValor() const;
+        std::string getValor() const;
 
     };
-inline int Capacidade::getValor() const{
+inline std::string Capacidade::getValor() const{
     return valor;
     }
 

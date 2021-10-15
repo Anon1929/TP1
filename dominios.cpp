@@ -5,9 +5,9 @@
 #include <string>
 #include <algorithm>
 
-void Capacidade::validar(int argumento){
+void Capacidade::validar(std::string argumento){
     bool valido;
-    if (argumento == 100 || argumento == 200 || argumento == 300 || argumento == 400 || argumento == 500){
+    if (argumento == "100" || argumento == "200" || argumento == "300" || argumento == "400" || argumento == "500"){
         valido = true;
     }
     else
@@ -16,16 +16,16 @@ void Capacidade::validar(int argumento){
         throw std::invalid_argument("Argumento invalido");
     }
 
-void Capacidade::setValor(int valor){
+void Capacidade::setValor(std::string argumento){
     validar(valor);
     this->valor = valor;
 }
 
 Capacidade::Capacidade(){
-    valor = 100;
+    valor = "100";
 }
 
-Capacidade::Capacidade(int valor){
+Capacidade::Capacidade(std::string argumento){
     validar(valor);
     this->valor = valor;
 }
