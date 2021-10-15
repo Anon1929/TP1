@@ -266,6 +266,43 @@ void CntrApresentacaoParticipante::excluirUsuario(const Matricula& matricula){
     }
 }
 void CntrApresentacaoParticipante::cadastrarcomoparticipante(const Matricula& matricula){
+    clear();
+    int linha,coluna;                                                                           // Dados sobre tamanho da tela.
+    getmaxyx(stdscr,linha,coluna);                                                              // Armazena quantidade de linhas e colunas.
+    bool apresentar=true;
+    char campo[80];
+    Codigo codigo;
+    while(apresentar){
+        mvprintw(linha/6,coluna/4,"%s","Insira o código da peça : ");                             // Imprime nome do campo.
+        getstr(campo);
+        try{
+            codigo.setValor(campo);
+            apresentar =false;
+        }
+        catch(...){
+            clear();
+            mvprintw(linha/4,coluna/4,"%s","Dado em formato incorreto. Digite algo.");                                             // Informa formato incorreto.
+            noecho();
+            getch();                                                                            // Lê caracter digitado.
+            echo();
+        }
+    }
+    int resultado = cntrServicoParticipante->cadastrarComoParticipante(matricula,codigo);
+    switch(resultado){
+        case 0:
+            mvprintw(linha/4,coluna/4,"%s","Participante cadastro em Sala com sucesso. Digite algo.");
+            noecho();
+            getch();
+            echo();
+            break;
+        case 1:
+        default:
+            mvprintw(linha/4,coluna/4,"%s","Falha ao cadastrar participante em sala. Digite algo.");
+            noecho();
+            getch();
+            echo();
+    }
+
 
 }
 //--------------------------- Public ----------------------------
