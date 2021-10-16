@@ -149,22 +149,26 @@ int CntrApresentacaoAutenticacao::autenticar(Matricula *matricula){
 void CntrApresentacaoParticipante::consultarDadosPessoais(const Matricula& matricula){
     Participante *participante = new Participante;
     cntrServicoParticipante->visualizarUsuario(matricula,participante);
+    string ex = "oi";
     int linha,coluna;                                                                           // Dados sobre tamanho da tela.
     getmaxyx(stdscr,linha,coluna);                                                              // Armazena quantidade de linhas e colunas.
     clear();
-    mvprintw(linha/8+2,coluna/4,"%s %s","Matricula : ", participante->getMatricula().getValor());
-    mvprintw(linha/8+4,coluna/4,"%s %s","Nome : ", participante->getNome().getValor());
-    mvprintw(linha/8+6,coluna/4,"%s %s","Sobrenome : ", participante->getSobrenome().getValor());
-    mvprintw(linha/8+8,coluna/4,"%s %s","Cargo : ", participante->getCargo().getValor());
-    mvprintw(linha/8+10,coluna/4,"%s %s","Email : ", participante->getEmail().getValor());
-    mvprintw(linha/8+12,coluna/4,"%s %s","Telefone : ", participante->getTelefone().getValor());
-    mvprintw(linha/8+12,coluna/4,"%s %s","Senha : ", participante->getSenha().getValor());
-    mvprintw(linha/8+14,coluna/4,"%s","Digite algo para continuar");
+    mvprintw(linha/8,coluna/4,"%s %s","Exemplo : ", ex.c_str());
+    mvprintw(linha/8+2,coluna/4,"%s %s","Matricula : ", participante->getMatricula().getValor().c_str());
+    mvprintw(linha/8+4,coluna/4,"%s %s","Nome : ", participante->getNome().getValor().c_str());
+    mvprintw(linha/8+6,coluna/4,"%s %s","Sobrenome : ", participante->getSobrenome().getValor().c_str());
+    mvprintw(linha/8+8,coluna/4,"%s %s","Cargo : ", participante->getCargo().getValor().c_str());
+    mvprintw(linha/8+10,coluna/4,"%s %s","Email : ", participante->getEmail().getValor().c_str());
+    mvprintw(linha/8+12,coluna/4,"%s %s","Telefone : ", participante->getTelefone().getValor().c_str());
+    mvprintw(linha/8+14,coluna/4,"%s %s","Senha : ", participante->getSenha().getValor().c_str());
+    mvprintw(linha/8+16,coluna/4,"%s %s","IdPeca : ", participante->getIdPeca().getValor().c_str());
+    mvprintw(linha/8+18,coluna/4,"%s","Digite algo para continuar");
     getch();                                                                            // L� caracter digitado.
 
 }
 void CntrApresentacaoParticipante::editarUsuario(const Matricula& matricula){
     Participante participante;
+    participante.setMatricula(matricula);
     char campo1[80];
     int linha,coluna;                                                                           // Dados sobre tamanho da tela.
     getmaxyx(stdscr,linha,coluna);                                                              // Armazena quantidade de linhas e colunas.
@@ -177,42 +181,51 @@ void CntrApresentacaoParticipante::editarUsuario(const Matricula& matricula){
     while(true) {
         try {
             clear();                                                                                // Limpa janela.
-            mvprintw(linha/4,coluna/4,"%s","Digite o Nome : ");
+            mvprintw(linha/4,coluna/4,"%s","Digite o Nome : (vazio para não modificar)");
             getstr(campo1);
-            nome.setValor(campo1);
+            if(strcmp(campo1, "") != 0){
+                nome.setValor(campo1);
+                participante.setNome(nome);
+            }
+            clear();                                                                                // Limpa janela.
+            mvprintw(linha/4,coluna/4,"%s","Digite o Sobrenome :  (vazio para não modificar)");
+            getstr(campo1);
+            if(strcmp(campo1, "") != 0){
+                sobrenome.setValor(campo1);
+                participante.setSobrenome(sobrenome);
+            }
 
             clear();                                                                                // Limpa janela.
-            mvprintw(linha/4,coluna/4,"%s","Digite o Sobrenome : ");
+            mvprintw(linha/4,coluna/4,"%s","Digite o Email :  (vazio para não modificar)");
             getstr(campo1);
-            sobrenome.setValor(campo1);
+            if(strcmp(campo1, "") != 0){
+                email.setValor(campo1);
+                participante.setEmail(email);
+            }
 
             clear();                                                                                // Limpa janela.
-            mvprintw(linha/4,coluna/4,"%s","Digite o Email : ");
+            mvprintw(linha/4,coluna/4,"%s","Digite o Cargo :  (vazio para não modificar)");
             getstr(campo1);
-            email.setValor(campo1);
+            if(strcmp(campo1, "") != 0){
+                cargo.setValor(campo1);
+                participante.setCargo(cargo);
+            }
 
             clear();                                                                                // Limpa janela.
-            mvprintw(linha/4,coluna/4,"%s","Digite o Cargo : ");
+            mvprintw(linha/4,coluna/4,"%s","Digite a Senha : (vazio para não modificar) ");
             getstr(campo1);
-            cargo.setValor(campo1);
+            if(strcmp(campo1, "") != 0){
+                senha.setValor(campo1);
+                participante.setSenha(senha);
+            }
 
             clear();                                                                                // Limpa janela.
-            mvprintw(linha/4,coluna/4,"%s","Digite a Senha : ");
+            mvprintw(linha/4,coluna/4,"%s","Digite o Telefone :  (vazio para não modificar)");
             getstr(campo1);
-            senha.setValor(campo1);
-
-            clear();                                                                                // Limpa janela.
-            mvprintw(linha/4,coluna/4,"%s","Digite o Telefone : ");
-            getstr(campo1);
-            telefone.setValor(campo1);
-
-            participante.setMatricula(matricula);
-            participante.setNome(nome);
-            participante.setSobrenome(sobrenome);
-            participante.setCargo(cargo);
-            participante.setEmail(email);
-            participante.setSenha(senha);
-            participante.setTelefone(telefone);
+            if(strcmp(campo1, "") != 0){
+                telefone.setValor(campo1);
+                participante.setTelefone(telefone);
+            }
 
             break;
         }

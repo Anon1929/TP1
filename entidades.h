@@ -151,7 +151,7 @@ public:
 ///Retorna atributo código como objeto
 ///@return Codigo codigo
 
-    Codigo getCodigo();
+    Codigo getCodigo() const;
 
 
 ///Define atributo nome com objeto Nome passado
@@ -162,7 +162,7 @@ public:
 ///Retorna atributo nome como objeto
 ///@return Nome nome
 
-    Nome getNome();
+    Nome getNome()const;
 
 ///Define atributo tipo com objeto Tipo passado
 ///@param const Tipo& tipo
@@ -173,7 +173,7 @@ public:
 ///Retorna atributo tipo como objeto
 ///@return Tipo tipo
 
-    Tipo getTipo();
+    Tipo getTipo()const;
 
 ///Define atributo classificação com objeto Classificação passado
 ///@param const Classificacao& classificacao
@@ -183,34 +183,34 @@ public:
 ///Retorna atributo classificação como objeto
 ///@return Classificacao classificacao
 
-    Classificacao getClassificacao();
+    Classificacao getClassificacao() const;
 
 };
 inline void Peca::setCodigo(const Codigo& codigo){
     this->codigo = codigo;
 }
-inline Codigo Peca::getCodigo(){
+inline Codigo Peca::getCodigo() const{
     return codigo;
 }
 
 inline void Peca::setNome(const Nome& nome){
     this->nome = nome;
 }
-inline Nome Peca::getNome(){
+inline Nome Peca::getNome() const{
 
     return nome;
 }
 inline void Peca::setTipo(const Tipo& tipo){
     this->tipo = tipo;
 }
-inline Tipo Peca::getTipo(){
+inline Tipo Peca::getTipo() const{
     return tipo;
 }
 
 inline void Peca::setClassificacao(const Classificacao& classificacao){
     this->classificacao = classificacao;
 }
-inline Classificacao Peca::getClassificacao(){
+inline Classificacao Peca::getClassificacao() const{
     return classificacao;
 }
 

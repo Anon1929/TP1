@@ -114,7 +114,7 @@ public:
 
 class ComandoExcluirPeca:public ComandoSQL {
 public:
-        ComandoExcluirPeca(const Peca&);
+        ComandoExcluirPeca(const Codigo&);
 };
 
 class ComandoPesquisarPeca:public ComandoSQL{
@@ -143,13 +143,13 @@ public:
 
 class ComandoExcluirSessao:public ComandoSQL {
 public:
-        ComandoExcluirSessao(const Sessao&);
+        ComandoExcluirSessao(const Codigo&);
 };
 
 class ComandoPesquisarSessao:public ComandoSQL{
 public:
         ComandoPesquisarSessao(const Codigo&);
-        Sala getResultado();
+        Sessao getResultado();
 };
 
 //Sala
@@ -171,7 +171,7 @@ public:
 
 class ComandoExcluirSala:public ComandoSQL {
 public:
-        ComandoExcluirSala(const Sala&);
+        ComandoExcluirSala(const Codigo&);
 };
 
 class ComandoPesquisarSala:public ComandoSQL{

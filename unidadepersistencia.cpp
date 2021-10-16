@@ -1,4 +1,5 @@
 #include "unidadepersistencia.h"
+#include <string.h>
 
 using namespace std;
 
@@ -146,10 +147,31 @@ Participante ComandoPesquisarParticipante::getResultado(){
                 throw "Lista de resultados vazia.";
         resultado = listaResultado.back();
         listaResultado.pop_back();
-        participante.setIdPeca(Codigo(resultado.getValorColuna()));
+        if(resultado.getValorColuna().compare("0") != 0)
+            participante.setIdPeca(Codigo(resultado.getValorColuna()));
 
         return participante;
 }
+
+ComandoEditarParticipante::ComandoEditarParticipante(const Participante& participante){
+    comandoSQL = "UPDATE participantes SET ";
+    if(participante.getNome().getValor()!= "")
+        comandoSQL += "nome = '" + participante.getNome().getValor();
+    if(participante.getSobrenome().getValor()!= "")
+        comandoSQL += "' sobrenome = '" + participante.getSobrenome().getValor();
+    if(participante.getEmail().getValor()!= "")
+        comandoSQL += "' email = '" + participante.getEmail().getValor();
+    if(participante.getTelefone().getValor()!= "")
+        comandoSQL += "' telefone = '" + participante.getTelefone().getValor();
+    if(participante.getSenha().getValor()!= "")
+        comandoSQL += "' senha = '" + participante.getSenha().getValor();
+    if(participante.getCargo().getValor()!= "")
+        comandoSQL += "' cargo = '" + participante.getCargo().getValor();
+    if(participante.getIdPeca().getValor()!= "")
+        comandoSQL += "' peca_id = '" + participante.getIdPeca().getValor();
+    comandoSQL += "' WHERE matricula = '"+ participante.getMatricula().getValor()+"';";
+}
+
 
 ComandoCadastrarParticipanteEmPeca::ComandoCadastrarParticipanteEmPeca(const Matricula& matricula, const Codigo& idPeca){
     comandoSQL = "UPDATE participantes SET ";
@@ -161,8 +183,60 @@ ComandoExcluirParticipante::ComandoExcluirParticipante(const Matricula& matricul
     comandoSQL += "DELETE FROM participantes WHERE matricula = '" + matricula.getValor() + "';";
 }
 
-//stubs
-ComandoCadastrarPeca::ComandoCadastrarPeca(const Peca&){
+//Peca
+ComandoCadastrarPeca::ComandoCadastrarPeca(const Peca& peca){
+    comandoSQL = "INSERT INTO pecas VALUES (";
+    comandoSQL += "'" + peca.getCodigo().getValor() + "', ";
+    comandoSQL += "'" + peca.getNome().getValor() + "', ";
+    comandoSQL += "'" + peca.getTipo().getValor() + "', ";
+    comandoSQL += "'" + peca.getClassificacao().getValor() + "'); ";
+}
+ComandoEditarPeca::ComandoEditarPeca(const Peca&){
+    comandoSQL = "SELEC * FROM participantes";
+}
+ComandoPesquisarPeca::ComandoPesquisarPeca(const Codigo& id){
+    comandoSQL = "SELEC * FROM participantes";
+}
+Peca ComandoPesquisarPeca::getResultado(){
+    Peca peca;
+    return peca;
+}
+ComandoExcluirPeca::ComandoExcluirPeca(const Codigo& id){
     comandoSQL = "SELEC * FROM participantes";
 }
 
+//Sala
+ComandoCadastrarSala::ComandoCadastrarSala(const Sala&){
+    comandoSQL = "SELEC * FROM participantes";
+}
+ComandoEditarSala::ComandoEditarSala(const Sala&){
+    comandoSQL = "SELEC * FROM participantes";
+}
+ComandoPesquisarSala::ComandoPesquisarSala(const Codigo& id){
+    comandoSQL = "SELEC * FROM participantes";
+}
+Sala ComandoPesquisarSala::getResultado(){
+    Sala sala;
+    return sala;
+}
+ComandoExcluirSala::ComandoExcluirSala(const Codigo& id){
+    comandoSQL = "SELEC * FROM participantes";
+}
+
+//Sessao
+ComandoCadastrarSessao::ComandoCadastrarSessao(const Sessao&){
+    comandoSQL = "SELEC * FROM participantes";
+}
+ComandoEditarSessao::ComandoEditarSessao(const Sessao&){
+    comandoSQL = "SELEC * FROM participantes";
+}
+ComandoPesquisarSessao::ComandoPesquisarSessao(const Codigo& id){
+    comandoSQL = "SELEC * FROM participantes";
+}
+Sessao ComandoPesquisarSessao::getResultado(){
+    Sessao sessao;
+    return sessao;
+}
+ComandoExcluirSessao::ComandoExcluirSessao(const Codigo& id){
+    comandoSQL = "SELEC * FROM participantes";
+}

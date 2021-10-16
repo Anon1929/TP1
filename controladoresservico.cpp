@@ -30,9 +30,9 @@ int CntrServicoParticipante::cadastrarUsuario(const Participante& participante){
     ComandoCadastrarParticipante cadastrar(participante);
     return cadastrar.executar();
 }
-int CntrServicoParticipante::editarUsuario(const Participante&){
-    //Selecionar os parâmetros a serem mudados
-    return 0;
+int CntrServicoParticipante::editarUsuario(const Participante& participante){
+    ComandoEditarParticipante comando(participante);
+    return comando.executar();
 }
 int CntrServicoParticipante::excluirUsuario(const Matricula& matricula){
     ComandoExcluirParticipante comando(matricula);
@@ -42,8 +42,13 @@ int CntrServicoParticipante::cadastrarComoParticipante(const Matricula& matricul
     ComandoCadastrarParticipanteEmPeca cadastrar(matricula, id);
     return cadastrar.executar();
 }
-int CntrServicoParticipante::visualizarUsuario(const Matricula&, Participante*){
-    return 0;
+int CntrServicoParticipante::visualizarUsuario(const Matricula& matricula, Participante* participante){
+    ComandoPesquisarParticipante comando(matricula);
+    int ret = comando.executar();
+    if(ret == 0){
+        *participante = comando.getResultado();
+        return 0;
+    }else return 1;
 }
 
 //--------------------------------------------------------------------------------------------

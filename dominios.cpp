@@ -5,6 +5,10 @@
 #include <string>
 #include <algorithm>
 
+Capacidade::Capacidade(){
+    valor = "";
+}
+
 void Capacidade::validar(std::string argumento){
     bool valido;
     if (argumento == "100" || argumento == "200" || argumento == "300" || argumento == "400" || argumento == "500"){
@@ -21,13 +25,14 @@ void Capacidade::setValor(std::string argumento){
     this->valor = valor;
 }
 
-Capacidade::Capacidade(){
-    valor = "100";
-}
-
 Capacidade::Capacidade(std::string argumento){
     validar(valor);
     this->valor = valor;
+}
+
+//Cargo
+Cargo::Cargo(){
+    valor = "";
 }
 
 void Cargo::validar(std::string valor){
@@ -39,9 +44,6 @@ void Cargo::validar(std::string valor){
     if (!valido)
         throw std::invalid_argument("Argumento invalido");
 }
-Cargo::Cargo(){
-    valor = "ator";
-}
 Cargo::Cargo(std::string valor){
     validar(valor);
     this->valor = valor;
@@ -51,6 +53,11 @@ void Cargo::setValor(std::string valor){
     this->valor = valor;
 }
 
+
+//Tipo
+Tipo::Tipo(){
+    valor = "";
+}
 void Tipo::validar(std::string valor){
     bool valido;
     if (valor=="auto"||valor=="comédia"||valor=="drama"||valor=="farsa"||valor=="melodrama"||valor=="monólogo"||valor=="musical"||valor=="ópera"||valor=="revista")
@@ -60,10 +67,6 @@ void Tipo::validar(std::string valor){
     if (!valido)
         throw std::invalid_argument("Argumento invalido");
 
-}
-
-Tipo::Tipo(){
-    valor = "auto";
 }
 
 Tipo::Tipo(std::string valor){
@@ -76,6 +79,11 @@ void Tipo::setValor(std::string valor){
     this->valor = valor;
 }
 
+
+//Classificação
+Classificacao::Classificacao(){
+    valor = "";
+}
 void Classificacao::validar(std::string valor){
     bool valido;
     if (valor=="livre"||valor=="10"||valor=="12"||valor=="14"||valor=="16"||valor=="18")
@@ -85,10 +93,6 @@ void Classificacao::validar(std::string valor){
     if (!valido)
         throw std::invalid_argument("Argumento invalido");
 }
-Classificacao::Classificacao(){
-    valor = "auto";
-}
-
 Classificacao::Classificacao(std::string valor){
     validar(valor);
     this->valor = valor;
@@ -98,7 +102,10 @@ void Classificacao::setValor(std::string valor){
     validar(valor);
     this->valor = valor;
 }
-
+//Matricula
+Matricula::Matricula(){
+    valor = "";
+}
 void Matricula::validar(std::string valor){
     if(valor.size()!= 5){
         throw std::invalid_argument("Argumento inválido, tamanho errado matricula");
@@ -116,12 +123,14 @@ void Matricula::setValor(std::string valor){
     validar(valor);
     this->valor = valor;
 }
-Matricula::Matricula(){
-    valor = "12345";
-}
 Matricula::Matricula(std::string valor){
     validar(valor);
     this->valor = valor;
+}
+
+//Senha
+Senha::Senha(){
+    valor = "";
 }
 
 void Senha::validar(std::string valor){
@@ -156,8 +165,9 @@ Senha::Senha(std::string valor){
     this->valor = valor;
 }
 
-Senha::Senha(){
-    valor = "ABC123#$";
+//Telefone
+Telefone::Telefone(){
+    valor = "";
 }
 
 void Telefone::validar(std::string valor) {
@@ -188,10 +198,6 @@ void Telefone::validar(std::string valor) {
         throw std::invalid_argument("Argumento invalido, numero nao pode ser 000000000.");
 }
 
-Telefone::Telefone(){
-    valor = "(11)-000000001";
-}
-
 Telefone::Telefone(std::string valor){
     setValor(valor);
 }
@@ -199,6 +205,11 @@ Telefone::Telefone(std::string valor){
 void Telefone::setValor(std::string valor){
     validar(valor);
     this->valor = valor;
+}
+
+//Codigo
+Codigo::Codigo(){
+    valor = "";
 }
 
 void Codigo::validar(std::string valor) {
@@ -219,10 +230,6 @@ void Codigo::validar(std::string valor) {
         throw std::invalid_argument("Argumento invalido, formato incorreto. Quatro ultimos caracteres nao sao numeros.");
 }
 
-Codigo::Codigo(){
-    valor = "AA0000";
-}
-
 Codigo::Codigo(std::string valor){
     setValor(valor);
 }
@@ -230,6 +237,11 @@ Codigo::Codigo(std::string valor){
 void Codigo::setValor(std::string valor){
     validar(valor);
     this->valor = valor;
+}
+
+//Horario
+Horario::Horario(){
+    valor = "";
 }
 
 void Horario::validar(std::string valor) {
@@ -255,10 +267,6 @@ void Horario::validar(std::string valor) {
         throw std::invalid_argument("Argumento invalido, Minutos tem que ser 00, 15, 30 ou 45.");
 }
 
-Horario::Horario(){
-    valor = "00:00";
-}
-
 Horario::Horario(std::string valor){
     setValor(valor);
 }
@@ -268,8 +276,9 @@ void Horario::setValor(std::string valor){
     this->valor = valor;
 }
 
+//Nome
 Nome::Nome(){
-    setValor("Nome Padrao");
+    valor = "";
 }
 
 Nome::Nome(std::string valor){
@@ -305,8 +314,9 @@ void Nome::setValor(std::string valor){
     this->valor = valor;
 }
 
+//Email
 Email::Email(){
-    setValor("teste@email.com");
+    valor = "";
 }
 
 Email::Email(std::string valor){
@@ -356,8 +366,9 @@ void Email::setValor(std::string valor){
     this->valor = valor;
 }
 
+//Data
 Data::Data(){
-    setValor("13/03/2002");
+    valor = "";
 }
 
 Data::Data(std::string valor){
