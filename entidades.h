@@ -14,6 +14,7 @@ class Participante {
             Telefone telefone;
             Senha senha;
             Cargo cargo;
+            Codigo idPeca;
     public:
             ///Define Matrícula a partir de objeto Matricula recebido
             ///@param const Matricula& matricula
@@ -63,6 +64,10 @@ class Participante {
             ///Retorna atributo Cargo
             ///@return Cargo cargo
             Cargo getCargo() const;
+
+            void setIdPeca(const Codigo&);
+
+            Codigo getIdPeca() const;
 };
 //Matricula
 inline void Participante::setMatricula(const Matricula &matricula){
@@ -120,6 +125,13 @@ inline Cargo Participante::getCargo() const{
     return cargo;
 }
 
+//Cargo
+inline void Participante::setIdPeca(const Codigo &id){
+    this->idPeca = id;
+}
+inline Codigo Participante::getIdPeca() const{
+    return idPeca;
+}
 
 /// Matricula aluno 200028545
 /// Classe representativa de entidade Peça
@@ -243,6 +255,7 @@ public:
     Capacidade getCapacidade();
 
 };
+
 inline void Sala::setCodigo(const Codigo& codigo){
     this->codigo = codigo;
 }
@@ -271,6 +284,8 @@ private:
     Codigo codigo;
     Data data;
     Horario horario;
+    Codigo idPeca;
+    Codigo idSala;
 
 public:
     void setCodigo(const Codigo& );
@@ -300,6 +315,15 @@ public:
 ///@return Horario horario
 
     Horario getHorario();
+
+    void setIdPeca(const Codigo&);
+
+    Codigo getIdPeca();
+
+    void setIdSala(const Codigo&);
+
+    Codigo getIdSala();
+
 };
 inline void Sessao::setCodigo(const Codigo& codigo){
     this->codigo = codigo;
@@ -321,7 +345,18 @@ inline void Sessao::setHorario(const Horario& horario){
 inline Horario Sessao::getHorario(){
     return horario;
 }
-
-
+//
+inline void Sessao::setIdPeca(const Codigo& id){
+    this->idPeca = id;
+}
+inline Codigo Sessao::getIdPeca(){
+    return idPeca;
+}
+inline void Sessao::setIdSala(const Codigo& id){
+    this->idSala = id;
+}
+inline Codigo Sessao::getIdSala(){
+    return idSala;
+}
 
 #endif // ENTIDADESH

@@ -39,7 +39,7 @@ class CntrServicoPSS:public IServicoPSS{
         int excluirPeca (const Codigo&);
         int visualizarPeca (const Codigo&, Peca*);
         //Sess�es
-        int incluirSessao (const Sessao&, const Codigo&, const Codigo&);
+        int incluirSessao (const Sessao&);
         int editarSessao (const Sessao&);
         int excluirSessao (const Codigo&);
         int visualizarSessao (const Codigo&, Sessao*);

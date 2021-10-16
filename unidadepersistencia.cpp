@@ -67,7 +67,8 @@ ComandoCadastrarParticipante::ComandoCadastrarParticipante(const Participante& p
         comandoSQL += "'" + participante.getEmail().getValor() + "', ";
         comandoSQL += "'" + participante.getTelefone().getValor() + "', ";
         comandoSQL += "'" + participante.getSenha().getValor() + "', ";
-        comandoSQL += "'" + participante.getCargo().getValor() + "'); ";
+        comandoSQL += "'" + participante.getCargo().getValor() + "', ";
+        comandoSQL += "'0');";
 }
 
 ComandoLerSenha::ComandoLerSenha(Matricula matricula) {
@@ -88,7 +89,6 @@ Senha ComandoLerSenha::getResultado() {
 
         return senha;
 }
-
 
 ComandoPesquisarParticipante::ComandoPesquisarParticipante(const Matricula& matricula){
         comandoSQL = "SELECT * FROM participantes WHERE matricula = ";
@@ -141,6 +141,28 @@ Participante ComandoPesquisarParticipante::getResultado(){
         resultado = listaResultado.back();
         listaResultado.pop_back();
         participante.setCargo(Cargo(resultado.getValorColuna()));
+
+        if (listaResultado.empty())
+                throw "Lista de resultados vazia.";
+        resultado = listaResultado.back();
+        listaResultado.pop_back();
+        participante.setIdPeca(Codigo(resultado.getValorColuna()));
+
         return participante;
+}
+
+ComandoCadastrarParticipanteEmPeca::ComandoCadastrarParticipanteEmPeca(const Matricula& matricula, const Codigo& idPeca){
+    comandoSQL = "UPDATE participantes SET ";
+    comandoSQL += "peca_id = '" + idPeca.getValor();
+    comandoSQL += "' WHERE matricula = '"+ matricula.getValor()+"';";
+}
+
+ComandoExcluirParticipante::ComandoExcluirParticipante(const Matricula& matricula){
+    comandoSQL += "DELETE FROM participantes WHERE matricula = '" + matricula.getValor() + "';";
+}
+
+//stubs
+ComandoCadastrarPeca::ComandoCadastrarPeca(const Peca&){
+    comandoSQL = "SELEC * FROM participantes";
 }
 

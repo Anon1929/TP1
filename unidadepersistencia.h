@@ -80,7 +80,7 @@ public:
 
 class ComandoExcluirParticipante:public ComandoSQL {
 public:
-        ComandoExcluirParticipante(const Participante&);
+        ComandoExcluirParticipante(const Matricula&);
 };
 
 class ComandoPesquisarParticipante:public ComandoSQL{
@@ -95,7 +95,7 @@ class ComandoCadastrarParticipanteEmPeca:public ComandoSQL{
 };
 
 
-//peca
+//Peca
 class ComandoVisualizarPecas:public ComandoSQL {
 public:
         ComandoVisualizarPecas();
@@ -124,8 +124,60 @@ public:
 };
 
 
-//sessao
+//Sessao
+class ComandoVisualizarSessoes:public ComandoSQL {
+public:
+        ComandoVisualizarSessoes();
+        vector<Sessao> getValor();
+};
 
-//sala
+class ComandoCadastrarSessao:public ComandoSQL {
+public:
+        ComandoCadastrarSessao(const Sessao&);
+};
+
+class ComandoEditarSessao:public ComandoSQL {
+public:
+        ComandoEditarSessao(const Sessao&);
+};
+
+class ComandoExcluirSessao:public ComandoSQL {
+public:
+        ComandoExcluirSessao(const Sessao&);
+};
+
+class ComandoPesquisarSessao:public ComandoSQL{
+public:
+        ComandoPesquisarSessao(const Codigo&);
+        Sala getResultado();
+};
+
+//Sala
+class ComandoVisualizarSalas:public ComandoSQL {
+public:
+        ComandoVisualizarSalas();
+        vector<Sala> getValor();
+};
+
+class ComandoCadastrarSala:public ComandoSQL {
+public:
+        ComandoCadastrarSala(const Sala&);
+};
+
+class ComandoEditarSala:public ComandoSQL {
+public:
+        ComandoEditarSala(const Sala&);
+};
+
+class ComandoExcluirSala:public ComandoSQL {
+public:
+        ComandoExcluirSala(const Sala&);
+};
+
+class ComandoPesquisarSala:public ComandoSQL{
+public:
+        ComandoPesquisarSala(const Codigo&);
+        Sala getResultado();
+};
 
 #endif // UNIDADEPERSISTENCIA_H_INCLUDED

@@ -5,7 +5,7 @@
 #include "controladoresservico.h"
 #include "unidadepersistencia.h"
 
-// Implementações de métodos de classes controladoras de apresentação.
+// Implementaï¿½ï¿½es de mï¿½todos de classes controladoras de apresentaï¿½ï¿½o.
 //--------------------------------------------------------------------------------------------
 // CntrServicoAutenticacao
 //--------------------------- Private ---------------------------
@@ -31,13 +31,19 @@ int CntrServicoParticipante::cadastrarUsuario(const Participante& participante){
     return cadastrar.executar();
 }
 int CntrServicoParticipante::editarUsuario(const Participante&){
-
+    //Selecionar os parÃ¢metros a serem mudados
+    return 0;
 }
-int CntrServicoParticipante::excluirUsuario(const Matricula&){
+int CntrServicoParticipante::excluirUsuario(const Matricula& matricula){
+    ComandoExcluirParticipante comando(matricula);
+    return comando.executar();
 }
-int CntrServicoParticipante::cadastrarComoParticipante(const Matricula&, const Codigo&){
+int CntrServicoParticipante::cadastrarComoParticipante(const Matricula& matricula, const Codigo& id){
+    ComandoCadastrarParticipanteEmPeca cadastrar(matricula, id);
+    return cadastrar.executar();
 }
 int CntrServicoParticipante::visualizarUsuario(const Matricula&, Participante*){
+    return 0;
 }
 
 //--------------------------------------------------------------------------------------------
@@ -45,35 +51,59 @@ int CntrServicoParticipante::visualizarUsuario(const Matricula&, Participante*){
 //--------------------------- Private ---------------------------
 //---------------------------- Public ----------------------------
 vector<Peca> CntrServicoPSS::listarPecas(){
+    vector<Peca> r;
+    return r;
 }
 vector<Sessao> CntrServicoPSS::listarSessoes(){
+    vector<Sessao> r;
+    return r;
 }
 vector<Sala> CntrServicoPSS::listarSalas(){
+    vector<Sala> r;
+    return r;
 }
-//Peças
-int CntrServicoPSS::incluirPeca (const Peca&){
+//Peï¿½as
+int CntrServicoPSS::incluirPeca (const Peca& peca){
+//ComandoCadastrarPeca cadastrar(peca);
+//    return cadastrar.executar();
+        return 0;
 }
 int CntrServicoPSS::editarPeca (const Peca&){
+    return 0;
 }
 int CntrServicoPSS::excluirPeca (const Codigo&){
+    return 0;
 }
 int CntrServicoPSS::visualizarPeca (const Codigo&, Peca*){
+    return 0;
 }
-//Sessões
-int CntrServicoPSS::incluirSessao (const Sessao&, const Codigo&, const Codigo&){
+//Sessï¿½es
+int CntrServicoPSS::incluirSessao (const Sessao& sessao){
+    //ComandoCadastrarSessao cadastrar(sessao);
+    //return cadastrar.executar();
+    return 0;
 }
 int CntrServicoPSS::editarSessao (const Sessao&){
+    return 0;
 }
 int CntrServicoPSS::excluirSessao (const Codigo&){
+    return 0;
 }
 int CntrServicoPSS::visualizarSessao (const Codigo&, Sessao*){
+    return 0;
 }
 //Salas
-int CntrServicoPSS::incluirSala (const Sala&){
+int CntrServicoPSS::incluirSala (const Sala& sala){
+    //ComandoCadastrarSala cadastrar(sala);
+    //return cadastrar.executar();
+    return 0;
 }
 int CntrServicoPSS::editarSala (const Sala&){
+    return 0;
 }
 int CntrServicoPSS::excluirSala (const Codigo&){
+    return 0;
 }
 int CntrServicoPSS::visualizarSala (const Codigo&, Sala*){
+    return 0;
 }

@@ -54,6 +54,7 @@ class CntrApresentacaoParticipante:public IApresentacaoParticipante{
         void consultarDadosPessoais(const Matricula& );
         void editarUsuario(const Matricula&);
         void excluirUsuario(const Matricula&);
+        void cadastrarcomoparticipante(const Matricula&);
     public:
         void cadastrar();
         bool executar(const Matricula&);

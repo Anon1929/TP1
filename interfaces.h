@@ -73,7 +73,7 @@ class IServicoPSS {
         virtual int excluirPeca (const Codigo&) = 0;
         virtual int visualizarPeca (const Codigo&, Peca*) = 0;
         //Sessões
-        virtual int incluirSessao (const Sessao&, const Codigo&, const Codigo&) = 0;
+        virtual int incluirSessao (const Sessao&) = 0;
         virtual int editarSessao (const Sessao&) = 0;
         virtual int excluirSessao (const Codigo&) = 0;
         virtual int visualizarSessao (const Codigo&, Sessao*) = 0;
