@@ -45,10 +45,16 @@ int CntrServicoParticipante::cadastrarComoParticipante(const Matricula& matricul
 int CntrServicoParticipante::visualizarUsuario(const Matricula& matricula, Participante* participante){
     ComandoPesquisarParticipante comando(matricula);
     int ret = comando.executar();
-    if(ret == 0){
-        *participante = comando.getResultado();
-        return 0;
-    }else return 1;
+    if(ret==0){
+        try{
+            *participante = comando.getResultado();
+            return 0;
+        }catch(...){
+            return 1;
+        }
+    }else{
+        return 1;
+    }
 }
 
 //--------------------------------------------------------------------------------------------
@@ -57,7 +63,18 @@ int CntrServicoParticipante::visualizarUsuario(const Matricula& matricula, Parti
 //---------------------------- Public ----------------------------
 vector<Peca> CntrServicoPSS::listarPecas(){
     vector<Peca> r;
-    return r;
+    ComandoVisualizarPecas comando;
+    int ret = comando.executar();
+    if(ret==0){
+        try{
+            r = comando.getValor();
+            return r;
+        }catch(...){
+            return r;
+        }
+    }else{
+        return r;
+    }
 }
 vector<Sessao> CntrServicoPSS::listarSessoes(){
     vector<Sessao> r;
@@ -72,15 +89,27 @@ int CntrServicoPSS::incluirPeca (const Peca& peca){
     ComandoCadastrarPeca cadastrar(peca);
     return cadastrar.executar();
 }
-int CntrServicoPSS::editarPeca (const Peca&){
-    return 0;
+int CntrServicoPSS::editarPeca (const Peca& peca){
+    ComandoEditarPeca comando(peca);
+    return comando.executar();
 }
 int CntrServicoPSS::excluirPeca (const Codigo& codigo){
     ComandoExcluirPeca comando(codigo);
     return comando.executar();
 }
-int CntrServicoPSS::visualizarPeca (const Codigo&, Peca*){
-    return 0;
+int CntrServicoPSS::visualizarPeca (const Codigo& codigo, Peca* peca){
+    ComandoPesquisarPeca comando(codigo);
+    int ret = comando.executar();
+    if(ret==0){
+        try{
+            *peca = comando.getResultado();
+            return 0;
+        }catch(...){
+            return 1;
+        }
+    }else{
+        return 1;
+    }
 }
 //Sess�es
 int CntrServicoPSS::incluirSessao (const Sessao& sessao){

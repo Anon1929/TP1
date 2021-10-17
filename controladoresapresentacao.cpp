@@ -447,16 +447,51 @@ bool CntrApresentacaoParticipante::executar(const Matricula& matricula){
 // CntrApresentacaoPSS
 //--------------------------- Private ---------------------------
 void CntrApresentacaoPSS::listarPecas(){
-    vector<Peca> Pecas;
-    Pecas = cntrServicoPSS->listarPecas();
+    clear();
+    int linha,coluna;                                                                           // Dados sobre tamanho da tela.
+    getmaxyx(stdscr,linha,coluna);
+    vector<Peca> pecas;
+    pecas = cntrServicoPSS->listarPecas();
+    int i=0;
+    if(pecas.empty()){
+        mvprintw(linha/6, coluna/6,"Nenhum elemento cadastrado");
+        getch();
+        return;
+    }
+    for(auto peca : pecas){
+        mvprintw(linha/8 + i*2, coluna/8,"Codigo: %s, Nome: %s, Tipo: %s, Classificacao: %s", peca.getCodigo().getValor().c_str(), peca.getNome().getValor().c_str(), peca.getTipo().getValor().c_str(), peca.getClassificacao().getValor().c_str());
+        i++;
+    }
+    mvprintw(linha/8 + i*2, coluna/8,"Clique qualquer tecla para voltar");
+    getch();
 }
 void CntrApresentacaoPSS::listarSessoes(){
-    vector<Sessao> Sessoes;
-    Sessoes = cntrServicoPSS->listarSessoes();
+    clear();
+    int linha,coluna;                                                                           // Dados sobre tamanho da tela.
+    getmaxyx(stdscr,linha,coluna);
+    vector<Sessao> sessoes;
+    sessoes = cntrServicoPSS->listarSessoes();
+    int i=0;
+    for(auto sessao : sessoes){
+        mvprintw(linha/8 + i*2, coluna/8,"Codigo: %s data: %s", sessao.getCodigo().getValor().c_str(), sessao.getData().getValor().c_str());
+        i++;
+    }
+    mvprintw(linha/8 + i*2, coluna/8,"Clique qualquer tecla para voltar");
+    getch();
 }
 void CntrApresentacaoPSS::listarSalas(){
-    vector<Sala> Salas;
-    Salas = cntrServicoPSS->listarSalas();
+    clear();
+    int linha,coluna;                                                                           // Dados sobre tamanho da tela.
+    getmaxyx(stdscr,linha,coluna);
+    vector<Sala> salas;
+    salas = cntrServicoPSS->listarSalas();
+    int i=0;
+    for(auto sala : salas){
+        mvprintw(linha/8 + i*2, coluna/8,"Codigo: %s Nome: %s", sala.getCodigo().getValor().c_str(), sala.getNome().getValor().c_str());
+        i++;
+    }
+    mvprintw(linha/8 + i*2, coluna/8,"Clique qualquer tecla para voltar");
+    getch();
 }
 //Pecas
 void CntrApresentacaoPSS::incluirPeca(){
@@ -538,22 +573,26 @@ void CntrApresentacaoPSS::editarPeca(){
             clear();                                                                                // Limpa janela.
             mvprintw(linha/4,coluna/4,"%s","Digite o Codigo : ");
             getstr(campo1);
-            codigo.setValor(campo1);
+            if(strcmp(campo1, "")!=0)
+                codigo.setValor(campo1);
 
             clear();                                                                                // Limpa janela.
             mvprintw(linha/4,coluna/4,"%s","Digite o Nome : ");
             getstr(campo1);
-            nome.setValor(campo1);
+            if(strcmp(campo1, "")!=0)
+                nome.setValor(campo1);
 
             clear();                                                                                // Limpa janela.
             mvprintw(linha/4,coluna/4,"%s","Digite o Tipo : ");
             getstr(campo1);
-            tipo.setValor(campo1);
+            if(strcmp(campo1, "")!=0)
+                tipo.setValor(campo1);
 
             clear();                                                                                // Limpa janela.
             mvprintw(linha/4,coluna/4,"%s","Digite a Classificacao : ");
             getstr(campo1);
-            classificacao.setValor(campo1);
+            if(strcmp(campo1, "")!=0)
+                classificacao.setValor(campo1);
 
             peca.setCodigo(codigo);
             peca.setNome(nome);

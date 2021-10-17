@@ -75,8 +75,8 @@ ComandoCadastrarParticipante::ComandoCadastrarParticipante(const Participante& p
 }
 
 ComandoLerSenha::ComandoLerSenha(Matricula matricula) {
-        comandoSQL = "SELECT senha FROM participantes WHERE matricula = ";
-        comandoSQL += matricula.getValor();
+        comandoSQL = "SELECT senha FROM participantes WHERE matricula = '";
+        comandoSQL += matricula.getValor()+"';";
 }
 
 Senha ComandoLerSenha::getResultado() {
@@ -94,8 +94,8 @@ Senha ComandoLerSenha::getResultado() {
 }
 
 ComandoPesquisarParticipante::ComandoPesquisarParticipante(const Matricula& matricula){
-        comandoSQL = "SELECT * FROM participantes WHERE matricula = ";
-        comandoSQL += matricula.getValor();
+        comandoSQL = "SELECT * FROM participantes WHERE matricula = '";
+        comandoSQL += matricula.getValor()+"';";
 }
 Participante ComandoPesquisarParticipante::getResultado(){
         ElementoResultado resultado;
@@ -198,7 +198,53 @@ ComandoExcluirParticipante::ComandoExcluirParticipante(const Matricula& matricul
     comandoSQL += "DELETE FROM participantes WHERE matricula = '" + matricula.getValor() + "';";
 }
 
+
+
 //Peca
+ComandoVisualizarPecas::ComandoVisualizarPecas(){
+    comandoSQL = "SELECT * FROM pecas;";
+}
+vector<Peca> ComandoVisualizarPecas::getValor(){
+    ElementoResultado resultado;
+    vector<Peca> pecas;
+
+    if (listaResultado.empty()){
+        throw "Lista de resultados vazia.";
+    }
+
+    Peca peca;
+    while(!listaResultado.empty()){
+
+        resultado = listaResultado.back();
+        listaResultado.pop_back();
+        peca.setCodigo(Codigo(resultado.getValorColuna()));
+
+        if (listaResultado.empty()){
+            throw "Lista de resultados vazia.";
+        }
+        resultado = listaResultado.back();
+        listaResultado.pop_back();
+        peca.setNome(Nome(resultado.getValorColuna()));
+
+        if (listaResultado.empty()){
+            throw "Lista de resultados vazia.";
+        }
+        resultado = listaResultado.back();
+        listaResultado.pop_back();
+        peca.setTipo(Tipo(resultado.getValorColuna()));
+
+        if (listaResultado.empty()){
+            throw "Lista de resultados vazia.";
+        }
+        resultado = listaResultado.back();
+        listaResultado.pop_back();
+        peca.setClassificacao(Classificacao(resultado.getValorColuna()));
+
+        pecas.push_back(peca);
+    }
+    return pecas;
+}
+
 ComandoCadastrarPeca::ComandoCadastrarPeca(const Peca& peca){
     comandoSQL = "INSERT INTO pecas VALUES (";
     comandoSQL += "'" + peca.getCodigo().getValor() + "', ";
@@ -226,10 +272,10 @@ ComandoEditarPeca::ComandoEditarPeca(const Peca& peca){
         }
     }
 
-    comandoSQL += " WHERE identificador = " + peca.getCodigo().getValor();
+    comandoSQL += " WHERE identificador = '" + peca.getCodigo().getValor()+"';";
 }
 ComandoPesquisarPeca::ComandoPesquisarPeca(const Codigo& id){
-    comandoSQL = "SELECT * FROM pecas WHERE identificador = " + id.getValor();
+    comandoSQL = "SELECT * FROM pecas WHERE identificador = '" + id.getValor()+"';";
 }
 Peca ComandoPesquisarPeca::getResultado(){
     ElementoResultado resultado;
@@ -266,41 +312,41 @@ Peca ComandoPesquisarPeca::getResultado(){
     return peca;
 }
 ComandoExcluirPeca::ComandoExcluirPeca(const Codigo& id){
-    comandoSQL = "DELETE FROM pecas WHERE indentificador = " + id.getValor();
+    comandoSQL = "DELETE FROM pecas WHERE identificador = '" + id.getValor()+"';";
 }
 
 //Sala
 ComandoCadastrarSala::ComandoCadastrarSala(const Sala&){
-    comandoSQL = "SELECT * FROM participantes";
+    comandoSQL = "SELECT * FROM participantes;";
 }
 ComandoEditarSala::ComandoEditarSala(const Sala&){
-    comandoSQL = "SELECT * FROM participantes";
+    comandoSQL = "SELECT * FROM participantes;";
 }
 ComandoPesquisarSala::ComandoPesquisarSala(const Codigo& id){
-    comandoSQL = "SELECT * FROM salas WHERE identificador = " + id.getValor();
+    comandoSQL = "SELECT * FROM salas WHERE identificador = '" + id.getValor()+"';";
 }
 Sala ComandoPesquisarSala::getResultado(){
     Sala sala;
     return sala;
 }
 ComandoExcluirSala::ComandoExcluirSala(const Codigo& id){
-    comandoSQL = "DELETE FROM salas WHERE identificador = " + id.getValor();
+    comandoSQL = "DELETE FROM salas WHERE identificador = '" + id.getValor()+"';";
 }
 
 //Sessao
 ComandoCadastrarSessao::ComandoCadastrarSessao(const Sessao&){
-    comandoSQL = "SELECT * FROM participantes";
+    comandoSQL = "SELECT * FROM participantes;";
 }
 ComandoEditarSessao::ComandoEditarSessao(const Sessao&){
-    comandoSQL = "SELECT * FROM participantes";
+    comandoSQL = "SELECT * FROM participantes;";
 }
 ComandoPesquisarSessao::ComandoPesquisarSessao(const Codigo& id){
-    comandoSQL = "SELECT * FROM sessoes WHERE identificador = " + id.getValor();
+    comandoSQL = "SELECT * FROM sessoes WHERE identificador = '" + id.getValor()+"';";
 }
 Sessao ComandoPesquisarSessao::getResultado(){
     Sessao sessao;
     return sessao;
 }
 ComandoExcluirSessao::ComandoExcluirSessao(const Codigo& id){
-    comandoSQL = "DELETE FROM sessoes WHERE identificador = "+ id.getValor();
+    comandoSQL = "DELETE FROM sessoes WHERE identificador = '"+ id.getValor()+"';";
 }
