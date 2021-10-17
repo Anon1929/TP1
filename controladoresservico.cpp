@@ -69,15 +69,15 @@ vector<Sala> CntrServicoPSS::listarSalas(){
 }
 //Pe�as
 int CntrServicoPSS::incluirPeca (const Peca& peca){
-//ComandoCadastrarPeca cadastrar(peca);
-//    return cadastrar.executar();
-        return 0;
+    ComandoCadastrarPeca cadastrar(peca);
+    return cadastrar.executar();
 }
 int CntrServicoPSS::editarPeca (const Peca&){
     return 0;
 }
-int CntrServicoPSS::excluirPeca (const Codigo&){
-    return 0;
+int CntrServicoPSS::excluirPeca (const Codigo& codigo){
+    ComandoExcluirPeca comando(codigo);
+    return comando.executar();
 }
 int CntrServicoPSS::visualizarPeca (const Codigo&, Peca*){
     return 0;

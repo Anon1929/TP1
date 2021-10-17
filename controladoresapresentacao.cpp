@@ -149,11 +149,9 @@ int CntrApresentacaoAutenticacao::autenticar(Matricula *matricula){
 void CntrApresentacaoParticipante::consultarDadosPessoais(const Matricula& matricula){
     Participante *participante = new Participante;
     cntrServicoParticipante->visualizarUsuario(matricula,participante);
-    string ex = "oi";
     int linha,coluna;                                                                           // Dados sobre tamanho da tela.
     getmaxyx(stdscr,linha,coluna);                                                              // Armazena quantidade de linhas e colunas.
     clear();
-    mvprintw(linha/8,coluna/4,"%s %s","Exemplo : ", ex.c_str());
     mvprintw(linha/8+2,coluna/4,"%s %s","Matricula : ", participante->getMatricula().getValor().c_str());
     mvprintw(linha/8+4,coluna/4,"%s %s","Nome : ", participante->getNome().getValor().c_str());
     mvprintw(linha/8+6,coluna/4,"%s %s","Sobrenome : ", participante->getSobrenome().getValor().c_str());
@@ -415,10 +413,10 @@ bool CntrApresentacaoParticipante::executar(const Matricula& matricula){
     while(apresentar){
             clear();
             mvprintw(linha/6,coluna/4,"%s","Selecione um dos servicos : ");                             // Imprime nome do campo.
-            mvprintw(linha/6 + 2,coluna/4,"%s","1 - Ver dados de usu�rio.");                         // Imprime nome do campo.
-            mvprintw(linha/6 + 4,coluna/4,"%s","2 - Editar dados de usu�rio.");                         // Imprime nome do campo.                                    // Apresenta tela de sele��o de servi�o.
-            mvprintw(linha/6 + 6,coluna/4,"%s","3 - Excluir usu�rio.");                         // Imprime nome do campo.                                    // Apresenta tela de sele��o de servi�o.
-            mvprintw(linha/4 + 8,coluna/4,"%s","4 - Cadastrar usu�rio como participante de Peca.");                         // Imprime nome do campo.                                    // Apresenta tela de sele��o de servi�o.
+            mvprintw(linha/6 + 2,coluna/4,"%s","1 - Ver dados de usuario.");                         // Imprime nome do campo.
+            mvprintw(linha/6 + 4,coluna/4,"%s","2 - Editar dados de usuario.");                         // Imprime nome do campo.                                    // Apresenta tela de sele��o de servi�o.
+            mvprintw(linha/6 + 6,coluna/4,"%s","3 - Excluir usuario.");                         // Imprime nome do campo.                                    // Apresenta tela de sele��o de servi�o.
+            mvprintw(linha/4 + 8,coluna/4,"%s","4 - Cadastrar usuario como participante de Peca.");                         // Imprime nome do campo.                                    // Apresenta tela de sele��o de servi�o.
             mvprintw(linha/4 + 10,coluna/4,"%s","5 - Retornar.");                         // Imprime nome do campo.                                    // Apresenta tela de sele��o de servi�o.
             campo = getch() - 48;                                                                   // Leitura do campo de entrada e convers�o de ASCII.
             switch(campo){
@@ -662,10 +660,10 @@ void CntrApresentacaoPSS::visualizarPeca(){
     int resultado = cntrServicoPSS->visualizarPeca(codigo,peca);
     switch(resultado){
         case 0:
-            mvprintw(linha/8+2,coluna/4,"%s %s","Codigo : ", peca->getCodigo().getValor());
-            mvprintw(linha/8+4,coluna/4,"%s %s","Nome : ", peca->getNome().getValor());
-            mvprintw(linha/8+6,coluna/4,"%s %s","Tipo: ", peca->getTipo().getValor());
-            mvprintw(linha/8+8,coluna/4,"%s %s","Classificacao: ", peca->getClassificacao().getValor());
+            mvprintw(linha/8+2,coluna/4,"%s %s","Codigo : ", peca->getCodigo().getValor().c_str());
+            mvprintw(linha/8+4,coluna/4,"%s %s","Nome : ", peca->getNome().getValor().c_str());
+            mvprintw(linha/8+6,coluna/4,"%s %s","Tipo: ", peca->getTipo().getValor().c_str());
+            mvprintw(linha/8+8,coluna/4,"%s %s","Classificacao: ", peca->getClassificacao().getValor().c_str());
             mvprintw(linha/8+10,coluna/4,"%s","Digite algo para continuar");
             getch();                                                                            // L� caracter digitado.
             break;
@@ -892,9 +890,9 @@ void CntrApresentacaoPSS::visualizarSessao(){
     int resultado = cntrServicoPSS->visualizarSessao(codigo,sessao);
     switch(resultado){
         case 0:
-            mvprintw(linha/8+2,coluna/4,"%s %s","Codigo : ", sessao->getCodigo().getValor());
-            mvprintw(linha/8+4,coluna/4,"%s %s","Data : ", sessao->getData().getValor());
-            mvprintw(linha/8+6,coluna/4,"%s %s","Horario: ", sessao->getHorario().getValor());
+            mvprintw(linha/8+2,coluna/4,"%s %s","Codigo : ", sessao->getCodigo().getValor().c_str());
+            mvprintw(linha/8+4,coluna/4,"%s %s","Data : ", sessao->getData().getValor().c_str());
+            mvprintw(linha/8+6,coluna/4,"%s %s","Horario: ", sessao->getHorario().getValor().c_str());
             mvprintw(linha/8+8,coluna/4,"%s","Digite algo para continuar");
             getch();                                                                           // L� caracter digitado.
             break;
@@ -1093,9 +1091,9 @@ void CntrApresentacaoPSS::visualizarSala(){
     int resultado = cntrServicoPSS->visualizarSala(codigo,sala);
     switch(resultado){
         case 0:
-            mvprintw(linha/8+2,coluna/4,"%s %s","Codigo : ", sala->getCodigo().getValor());
-            mvprintw(linha/8+4,coluna/4,"%s %s","Nome : ", sala->getNome().getValor());
-            mvprintw(linha/8+6,coluna/4,"%s %s","Capacidade: ", sala->getCapacidade().getValor());
+            mvprintw(linha/8+2,coluna/4,"%s %s","Codigo : ", sala->getCodigo().getValor().c_str());
+            mvprintw(linha/8+4,coluna/4,"%s %s","Nome : ", sala->getNome().getValor().c_str());
+            mvprintw(linha/8+6,coluna/4,"%s %s","Capacidade: ", sala->getCapacidade().getValor().c_str());
             mvprintw(linha/8+8,coluna/4,"%s","Digite algo para continuar");
             getch();                                                                            // L� caracter digitado.
             break;
