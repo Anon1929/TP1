@@ -18,11 +18,9 @@ void CntrApresentacaoControle::executar(){
     int linha,coluna;
     getmaxyx(stdscr,linha,coluna);                                                              // Armazena quantidade de linhas e colunas.
 
-
-
         while(apresentar){
             clear();
-            mvprintw(linha/4,coluna/4,"%s %d","Selecione um dos servicos : ");                                                 // Imprime nome do campo.
+            mvprintw(linha/4,coluna/4,"%s","Selecione um dos servicos : ");                                                 // Imprime nome do campo.
             mvprintw(linha/4 + 2,coluna/4,"%s","1 - Acessar sistema.");                                             // Imprime nome do campo.
             mvprintw(linha/4 + 4,coluna/4,"%s","2 - Cadastrar usuario.");                                             // Imprime nome do campo.
             mvprintw(linha/4 + 6,coluna/4,"%s","3 - Listar dados sobre pecas, sessoes ou salas.");                                             // Imprime nome do campo.
@@ -416,8 +414,8 @@ bool CntrApresentacaoParticipante::executar(const Matricula& matricula){
             mvprintw(linha/6 + 2,coluna/4,"%s","1 - Ver dados de usuario.");                         // Imprime nome do campo.
             mvprintw(linha/6 + 4,coluna/4,"%s","2 - Editar dados de usuario.");                         // Imprime nome do campo.                                    // Apresenta tela de sele��o de servi�o.
             mvprintw(linha/6 + 6,coluna/4,"%s","3 - Excluir usuario.");                         // Imprime nome do campo.                                    // Apresenta tela de sele��o de servi�o.
-            mvprintw(linha/4 + 8,coluna/4,"%s","4 - Cadastrar usuario como participante de Peca.");                         // Imprime nome do campo.                                    // Apresenta tela de sele��o de servi�o.
-            mvprintw(linha/4 + 10,coluna/4,"%s","5 - Retornar.");                         // Imprime nome do campo.                                    // Apresenta tela de sele��o de servi�o.
+            mvprintw(linha/6 + 8,coluna/4,"%s","4 - Cadastrar usuario como participante de Peca.");                         // Imprime nome do campo.                                    // Apresenta tela de sele��o de servi�o.
+            mvprintw(linha/6 + 10,coluna/4,"%s","5 - Retornar.");                         // Imprime nome do campo.                                    // Apresenta tela de sele��o de servi�o.
             campo = getch() - 48;                                                                   // Leitura do campo de entrada e convers�o de ASCII.
             switch(campo){
                 case 1:
@@ -454,7 +452,7 @@ void CntrApresentacaoPSS::listarPecas(){
     pecas = cntrServicoPSS->listarPecas();
     int i=0;
     if(pecas.empty()){
-        mvprintw(linha/6, coluna/6,"Nenhum elemento cadastrado");
+        mvprintw(linha/8, coluna/6,"Nenhum elemento cadastrado");
         getch();
         return;
     }
@@ -471,9 +469,14 @@ void CntrApresentacaoPSS::listarSessoes(){
     getmaxyx(stdscr,linha,coluna);
     vector<Sessao> sessoes;
     sessoes = cntrServicoPSS->listarSessoes();
+    if(sessoes.empty()){
+        mvprintw(linha/8, coluna/6,"Nenhum elemento cadastrado");
+        getch();
+        return;
+    }
     int i=0;
     for(auto sessao : sessoes){
-        mvprintw(linha/8 + i*2, coluna/8,"Codigo: %s data: %s", sessao.getCodigo().getValor().c_str(), sessao.getData().getValor().c_str());
+        mvprintw(linha/8 + i*2, coluna/8,"Codigo: %s, data: %s, horario: %s, idSala: %s, idPeca: %s", sessao.getCodigo().getValor().c_str(), sessao.getData().getValor().c_str(), sessao.getHorario().getValor().c_str(), sessao.getIdSala().getValor().c_str(), sessao.getIdPeca().getValor().c_str());
         i++;
     }
     mvprintw(linha/8 + i*2, coluna/8,"Clique qualquer tecla para voltar");
@@ -485,9 +488,14 @@ void CntrApresentacaoPSS::listarSalas(){
     getmaxyx(stdscr,linha,coluna);
     vector<Sala> salas;
     salas = cntrServicoPSS->listarSalas();
+    if(salas.empty()){
+        mvprintw(linha/8, coluna/6,"Nenhum elemento cadastrado");
+        getch();
+        return;
+    }
     int i=0;
     for(auto sala : salas){
-        mvprintw(linha/8 + i*2, coluna/8,"Codigo: %s Nome: %s", sala.getCodigo().getValor().c_str(), sala.getNome().getValor().c_str());
+        mvprintw(linha/8 + i*2, coluna/8,"Codigo: %s, Nome: %s, Capacidade: %s", sala.getCodigo().getValor().c_str(), sala.getNome().getValor().c_str(), sala.getCapacidade().getValor().c_str());
         i++;
     }
     mvprintw(linha/8 + i*2, coluna/8,"Clique qualquer tecla para voltar");
@@ -538,7 +546,7 @@ void CntrApresentacaoPSS::incluirPeca(){
             noecho();
             getch();                                                                            // L� caracter digitado.
             echo();
-            // Tratamento de exce��o
+            // Tratamento de excecao
         }
     }
 
@@ -714,7 +722,7 @@ void CntrApresentacaoPSS::visualizarPeca(){
             break;
     }
 }
-//Sess�es
+//Sessoes
 void CntrApresentacaoPSS::incluirSessao(){
     char campo1[80];
     int linha,coluna;                                                                           // Dados sobre tamanho da tela.
@@ -803,27 +811,32 @@ void CntrApresentacaoPSS::editarSessao(){
             clear();                                                                                // Limpa janela.
             mvprintw(linha/4,coluna/4,"%s","Digite o Codigo : ");
             getstr(campo1);
-            codigo.setValor(campo1);
+            if(strcmp(campo1, "")!=0)
+                codigo.setValor(campo1);
 
             clear();                                                                                // Limpa janela.
             mvprintw(linha/4,coluna/4,"%s","Digite a Data : ");
             getstr(campo1);
-            data.setValor(campo1);
+            if(strcmp(campo1, "")!=0)
+                data.setValor(campo1);
 
             clear();                                                                                // Limpa janela.
             mvprintw(linha/4,coluna/4,"%s","Digite o Horario : ");
             getstr(campo1);
-            horario.setValor(campo1);
+            if(strcmp(campo1, "")!=0)
+                horario.setValor(campo1);
 
             clear();                                                                                // Limpa janela.
             mvprintw(linha/4,coluna/4,"%s","Digite o Codigo da Peca : ");
             getstr(campo1);
-            codigoPeca.setValor(campo1);
+            if(strcmp(campo1, "")!=0)
+                codigoPeca.setValor(campo1);
 
             clear();                                                                                // Limpa janela.
             mvprintw(linha/4,coluna/4,"%s","Digite o Codigo da Sala : ");
             getstr(campo1);
-            codigoSala.setValor(campo1);
+            if(strcmp(campo1, "")!=0)
+                codigoSala.setValor(campo1);
 
 
             sessao.setCodigo(codigo);
@@ -932,7 +945,9 @@ void CntrApresentacaoPSS::visualizarSessao(){
             mvprintw(linha/8+2,coluna/4,"%s %s","Codigo : ", sessao->getCodigo().getValor().c_str());
             mvprintw(linha/8+4,coluna/4,"%s %s","Data : ", sessao->getData().getValor().c_str());
             mvprintw(linha/8+6,coluna/4,"%s %s","Horario: ", sessao->getHorario().getValor().c_str());
-            mvprintw(linha/8+8,coluna/4,"%s","Digite algo para continuar");
+            mvprintw(linha/8+8,coluna/4,"%s %s","idSala: ", sessao->getIdSala().getValor().c_str());
+            mvprintw(linha/8+10,coluna/4,"%s %s","idPeca: ", sessao->getIdPeca().getValor().c_str());
+            mvprintw(linha/8+12,coluna/4,"%s","Digite algo para continuar");
             getch();                                                                           // L� caracter digitado.
             break;
         case 1:
@@ -1015,20 +1030,24 @@ void CntrApresentacaoPSS::editarSala(){
             clear();                                                                                // Limpa janela.
             mvprintw(linha/4,coluna/4,"%s","Digite o Codigo : ");
             getstr(campo1);
+            if(strcmp(campo1, "")!=0)
             codigo.setValor(campo1);
 
             clear();                                                                                // Limpa janela.
             mvprintw(linha/4,coluna/4,"%s","Digite o Nome : ");
             getstr(campo1);
+            if(strcmp(campo1, "")!=0)
             nome.setValor(campo1);
 
             clear();                                                                                // Limpa janela.
             mvprintw(linha/4,coluna/4,"%s","Digite a Capacidade : ");
             getstr(campo1);
+            if(strcmp(campo1, "")!=0)
             capacidade.setValor(campo1);
 
             sala.setCodigo(codigo);
             sala.setNome(nome);
+            if(strcmp(campo1, "")!=0)
             sala.setCapacidade(capacidade);
 
             break;

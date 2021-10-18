@@ -232,7 +232,7 @@ public:
 ///Retorna atributo código como objeto
 ///@return Codigo codigo
 
-    Codigo getCodigo();
+    Codigo getCodigo() const;
 
 ///Define atributo nome com objeto Nome passado
 ///@param const Nome& nome
@@ -242,7 +242,7 @@ public:
 ///Retorna atributo nome como objeto
 ///@return Nome nome
 
-    Nome getNome();
+    Nome getNome() const;
 
 ///Define atributo Capacidade com objeto capacidade passado
 ///@param const Capacidade& capacidade
@@ -252,28 +252,28 @@ public:
 ///Retorna atributo Capacidade como objeto
 ///@return Capacidade capacidade
 
-    Capacidade getCapacidade();
+    Capacidade getCapacidade() const;
 
 };
 
 inline void Sala::setCodigo(const Codigo& codigo){
     this->codigo = codigo;
 }
-inline Codigo Sala::getCodigo(){
+inline Codigo Sala::getCodigo() const{
         return codigo;
 }
 
 inline void Sala::setNome(const Nome& nome){
     this->nome = nome;
 }
-inline Nome Sala::getNome(){
+inline Nome Sala::getNome() const{
     return nome;
 }
 
 inline void Sala::setCapacidade(const Capacidade& capacidade){
     this->capacidade = capacidade;
 }
-inline Capacidade Sala::getCapacidade(){
+inline Capacidade Sala::getCapacidade() const{
     return capacidade;
 }
 
@@ -293,7 +293,7 @@ public:
 ///Retorna atributo código como objeto
 ///@return Codigo codigo
 
-    Codigo getCodigo();
+    Codigo getCodigo() const;
 
 ///Define atributo data com objeto Data passado
 ///@param const Data& data
@@ -303,7 +303,7 @@ public:
 ///Retorna atributo data como objeto
 ///@return Data data
 
-    Data getData();
+    Data getData() const;
 
 ///Define atributo horario com objeto Horario passado
 ///@param const Horario& horario
@@ -314,48 +314,48 @@ public:
 ///Retorna atributo horario como objeto
 ///@return Horario horario
 
-    Horario getHorario();
+    Horario getHorario() const;
 
     void setIdPeca(const Codigo&);
 
-    Codigo getIdPeca();
+    Codigo getIdPeca() const;
 
     void setIdSala(const Codigo&);
 
-    Codigo getIdSala();
+    Codigo getIdSala() const;
 
 };
 inline void Sessao::setCodigo(const Codigo& codigo){
     this->codigo = codigo;
 }
-inline Codigo Sessao::getCodigo(){
+inline Codigo Sessao::getCodigo() const{
     return codigo;
 }
 
 inline void Sessao::setData(const Data& data){
     this->data = data;
 }
-inline Data Sessao::getData(){
+inline Data Sessao::getData() const{
     return data;
 }
 
 inline void Sessao::setHorario(const Horario& horario){
     this->horario = horario;
 }
-inline Horario Sessao::getHorario(){
+inline Horario Sessao::getHorario() const{
     return horario;
 }
 //
 inline void Sessao::setIdPeca(const Codigo& id){
     this->idPeca = id;
 }
-inline Codigo Sessao::getIdPeca(){
+inline Codigo Sessao::getIdPeca() const{
     return idPeca;
 }
 inline void Sessao::setIdSala(const Codigo& id){
     this->idSala = id;
 }
-inline Codigo Sessao::getIdSala(){
+inline Codigo Sessao::getIdSala() const{
     return idSala;
 }
 

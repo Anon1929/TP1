@@ -316,17 +316,97 @@ ComandoExcluirPeca::ComandoExcluirPeca(const Codigo& id){
 }
 
 //Sala
-ComandoCadastrarSala::ComandoCadastrarSala(const Sala&){
-    comandoSQL = "SELECT * FROM participantes;";
+ComandoVisualizarSalas::ComandoVisualizarSalas(){
+    comandoSQL = "SELECT * FROM salas;";
 }
-ComandoEditarSala::ComandoEditarSala(const Sala&){
-    comandoSQL = "SELECT * FROM participantes;";
+vector<Sala> ComandoVisualizarSalas::getValor(){
+    ElementoResultado resultado;
+    vector<Sala> salas;
+
+    if (listaResultado.empty()){
+        throw "Lista de resultados vazia.";
+    }
+
+    Sala sala;
+    while(!listaResultado.empty()){
+
+        resultado = listaResultado.back();
+        listaResultado.pop_back();
+        sala.setCodigo(Codigo(resultado.getValorColuna()));
+
+        if (listaResultado.empty()){
+            throw "Lista de resultados vazia.";
+        }
+        resultado = listaResultado.back();
+        listaResultado.pop_back();
+        sala.setNome(Nome(resultado.getValorColuna()));
+
+        if (listaResultado.empty()){
+            throw "Lista de resultados vazia.";
+        }
+        resultado = listaResultado.back();
+        listaResultado.pop_back();
+        sala.setCapacidade(Capacidade(resultado.getValorColuna()));
+
+        salas.push_back(sala);
+    }
+    return salas;
+}
+
+ComandoCadastrarSala::ComandoCadastrarSala(const Sala& sala){
+    comandoSQL = "INSERT INTO salas VALUES (";
+    comandoSQL += "'" + sala.getCodigo().getValor() + "', ";
+    comandoSQL += "'" + sala.getNome().getValor() + "', ";
+    comandoSQL += "'" + sala.getCapacidade().getValor() + "'); ";
+}
+ComandoEditarSala::ComandoEditarSala(const Sala& sala){
+    comandoSQL = "UPDATE salas SET ";
+    vector<string> edits;
+    if(sala.getNome().getValor().compare("")!=0)
+        edits.push_back("nome = '" + sala.getNome().getValor()+ "'");
+    if(sala.getCapacidade().getValor().compare("")!=0)
+        edits.push_back("capacidade = '" + sala.getCapacidade().getValor()+ "'");
+
+    bool comma = false;
+    for(auto l : edits){
+        if(comma){
+            comandoSQL += ", " + l;
+        }else{
+            comandoSQL += l.c_str();
+            comma = true;
+        }
+    }
+
+    comandoSQL += " WHERE identificador = '" + sala.getCodigo().getValor()+"';";
 }
 ComandoPesquisarSala::ComandoPesquisarSala(const Codigo& id){
     comandoSQL = "SELECT * FROM salas WHERE identificador = '" + id.getValor()+"';";
 }
 Sala ComandoPesquisarSala::getResultado(){
     Sala sala;
+    ElementoResultado resultado;
+
+    if (listaResultado.empty()){
+        throw "Lista de resultados vazia.";
+    }
+    resultado = listaResultado.back();
+    listaResultado.pop_back();
+    sala.setCodigo(Codigo(resultado.getValorColuna()));
+
+    if (listaResultado.empty()){
+        throw "Lista de resultados vazia.";
+    }
+    resultado = listaResultado.back();
+    listaResultado.pop_back();
+    sala.setNome(Nome(resultado.getValorColuna()));
+
+    if (listaResultado.empty()){
+        throw "Lista de resultados vazia.";
+    }
+    resultado = listaResultado.back();
+    listaResultado.pop_back();
+        sala.setCapacidade(Capacidade(resultado.getValorColuna()));
+
     return sala;
 }
 ComandoExcluirSala::ComandoExcluirSala(const Codigo& id){
@@ -334,17 +414,131 @@ ComandoExcluirSala::ComandoExcluirSala(const Codigo& id){
 }
 
 //Sessao
-ComandoCadastrarSessao::ComandoCadastrarSessao(const Sessao&){
-    comandoSQL = "SELECT * FROM participantes;";
+ComandoVisualizarSessoes::ComandoVisualizarSessoes(){
+    comandoSQL = "SELECT * FROM sessoes;";
 }
-ComandoEditarSessao::ComandoEditarSessao(const Sessao&){
-    comandoSQL = "SELECT * FROM participantes;";
+vector<Sessao> ComandoVisualizarSessoes::getValor(){
+    ElementoResultado resultado;
+    vector<Sessao> sessoes;
+
+    if (listaResultado.empty()){
+        throw "Lista de resultados vazia.";
+    }
+
+    Sessao sessao;
+    while(!listaResultado.empty()){
+
+        resultado = listaResultado.back();
+        listaResultado.pop_back();
+        sessao.setCodigo(Codigo(resultado.getValorColuna()));
+
+        if (listaResultado.empty()){
+            throw "Lista de resultados vazia.";
+        }
+        resultado = listaResultado.back();
+        listaResultado.pop_back();
+        sessao.setData(Data(resultado.getValorColuna()));
+
+        if (listaResultado.empty()){
+            throw "Lista de resultados vazia.";
+        }
+        resultado = listaResultado.back();
+        listaResultado.pop_back();
+        sessao.setHorario(Horario(resultado.getValorColuna()));
+
+        if (listaResultado.empty()){
+            throw "Lista de resultados vazia.";
+        }
+        resultado = listaResultado.back();
+        listaResultado.pop_back();
+        sessao.setIdSala(Codigo(resultado.getValorColuna()));
+
+        if (listaResultado.empty()){
+            throw "Lista de resultados vazia.";
+        }
+        resultado = listaResultado.back();
+        listaResultado.pop_back();
+        sessao.setIdPeca(Codigo(resultado.getValorColuna()));
+
+        sessoes.push_back(sessao);
+    }
+    return sessoes;
+}
+
+ComandoCadastrarSessao::ComandoCadastrarSessao(const Sessao& sessao){ //Parei aqui!!!!!!
+    comandoSQL = "INSERT INTO sessoes VALUES (";
+    comandoSQL += "'" + sessao.getCodigo().getValor() + "', ";
+    comandoSQL += "'" + sessao.getData().getValor() + "', ";
+    comandoSQL += "'" + sessao.getHorario().getValor() + "', ";
+    comandoSQL += "'" + sessao.getIdSala().getValor() + "', ";
+    comandoSQL += "'" + sessao.getIdPeca().getValor() + "'); ";
+}
+ComandoEditarSessao::ComandoEditarSessao(const Sessao& sessao){
+    comandoSQL = "UPDATE sessoes SET ";
+    vector<string> edits;
+    if(sessao.getData().getValor().compare("")!=0)
+        edits.push_back("data = '" + sessao.getData().getValor()+ "'");
+    if(sessao.getHorario().getValor().compare("")!=0)
+        edits.push_back("horario = '" + sessao.getHorario().getValor()+ "'");
+    if(sessao.getIdSala().getValor().compare("")!=0)
+        edits.push_back("idSala = '" + sessao.getIdSala().getValor()+ "'");
+    if(sessao.getIdPeca().getValor().compare("")!=0)
+        edits.push_back("idPeca = '" + sessao.getIdPeca().getValor()+ "'");
+
+    bool comma = false;
+    for(auto l : edits){
+        if(comma){
+            comandoSQL += ", " + l;
+        }else{
+            comandoSQL += l.c_str();
+            comma = true;
+        }
+    }
+
+    comandoSQL += " WHERE identificador = '" + sessao.getCodigo().getValor()+"';";
 }
 ComandoPesquisarSessao::ComandoPesquisarSessao(const Codigo& id){
     comandoSQL = "SELECT * FROM sessoes WHERE identificador = '" + id.getValor()+"';";
 }
 Sessao ComandoPesquisarSessao::getResultado(){
     Sessao sessao;
+    ElementoResultado resultado;
+
+    if (listaResultado.empty()){
+        throw "Lista de resultados vazia.";
+    }
+    resultado = listaResultado.back();
+    listaResultado.pop_back();
+    sessao.setCodigo(Codigo(resultado.getValorColuna()));
+
+    if (listaResultado.empty()){
+        throw "Lista de resultados vazia.";
+    }
+    resultado = listaResultado.back();
+    listaResultado.pop_back();
+    sessao.setData(Data(resultado.getValorColuna()));
+
+    if (listaResultado.empty()){
+        throw "Lista de resultados vazia.";
+    }
+    resultado = listaResultado.back();
+    listaResultado.pop_back();
+    sessao.setHorario(Horario(resultado.getValorColuna()));
+
+    if (listaResultado.empty()){
+        throw "Lista de resultados vazia.";
+    }
+    resultado = listaResultado.back();
+    listaResultado.pop_back();
+    sessao.setIdSala(Codigo(resultado.getValorColuna()));
+
+    if (listaResultado.empty()){
+        throw "Lista de resultados vazia.";
+    }
+    resultado = listaResultado.back();
+    listaResultado.pop_back();
+    sessao.setIdPeca(Codigo(resultado.getValorColuna()));
+
     return sessao;
 }
 ComandoExcluirSessao::ComandoExcluirSessao(const Codigo& id){

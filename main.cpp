@@ -8,7 +8,6 @@
 using namespace std;
 
 int main(void){
-
     //Instanciar controladores de apresentação
     CntrApresentacaoControle cntrApresentacaoControle;
     CntrApresentacaoAutenticacao cntrApresentacaoAutenticacao;

@@ -15,7 +15,7 @@ class Capacidade {
         void validar(std::string  argumento);
         public:
 
-/// Inicializa objeto com  valor 100.
+/// Inicializa objeto com  valor "".
 
         Capacidade();
 

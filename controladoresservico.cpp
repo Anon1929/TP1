@@ -78,11 +78,33 @@ vector<Peca> CntrServicoPSS::listarPecas(){
 }
 vector<Sessao> CntrServicoPSS::listarSessoes(){
     vector<Sessao> r;
-    return r;
+    ComandoVisualizarSessoes comando;
+    int ret = comando.executar();
+    if(ret==0){
+        try{
+            r = comando.getValor();
+            return r;
+        }catch(...){
+            return r;
+        }
+    }else{
+        return r;
+    }
 }
 vector<Sala> CntrServicoPSS::listarSalas(){
     vector<Sala> r;
-    return r;
+    ComandoVisualizarSalas comando;
+    int ret = comando.executar();
+    if(ret==0){
+        try{
+            r = comando.getValor();
+            return r;
+        }catch(...){
+            return r;
+        }
+    }else{
+        return r;
+    }
 }
 //Pe�as
 int CntrServicoPSS::incluirPeca (const Peca& peca){
@@ -113,31 +135,55 @@ int CntrServicoPSS::visualizarPeca (const Codigo& codigo, Peca* peca){
 }
 //Sess�es
 int CntrServicoPSS::incluirSessao (const Sessao& sessao){
-    //ComandoCadastrarSessao cadastrar(sessao);
-    //return cadastrar.executar();
-    return 0;
+    ComandoCadastrarSessao cadastrar(sessao);
+    return cadastrar.executar();
 }
-int CntrServicoPSS::editarSessao (const Sessao&){
-    return 0;
+int CntrServicoPSS::editarSessao (const Sessao& sessao){
+    ComandoEditarSessao comando(sessao);
+    return comando.executar();
 }
-int CntrServicoPSS::excluirSessao (const Codigo&){
-    return 0;
+int CntrServicoPSS::excluirSessao (const Codigo& codigo){
+    ComandoExcluirSessao comando(codigo);
+    return comando.executar();
 }
-int CntrServicoPSS::visualizarSessao (const Codigo&, Sessao*){
-    return 0;
+int CntrServicoPSS::visualizarSessao (const Codigo& codigo, Sessao* sessao){
+    ComandoPesquisarSessao comando(codigo);
+    int ret = comando.executar();
+    if(ret==0){
+        try{
+            *sessao = comando.getResultado();
+            return 0;
+        }catch(...){
+            return 1;
+        }
+    }else{
+        return 1;
+    }
 }
 //Salas
 int CntrServicoPSS::incluirSala (const Sala& sala){
-    //ComandoCadastrarSala cadastrar(sala);
-    //return cadastrar.executar();
-    return 0;
+    ComandoCadastrarSala cadastrar(sala);
+    return cadastrar.executar();
 }
-int CntrServicoPSS::editarSala (const Sala&){
-    return 0;
+int CntrServicoPSS::editarSala (const Sala& sala){
+    ComandoEditarSala comando(sala);
+    return comando.executar();
 }
-int CntrServicoPSS::excluirSala (const Codigo&){
-    return 0;
+int CntrServicoPSS::excluirSala (const Codigo& codigo){
+    ComandoExcluirSala comando(codigo);
+    return comando.executar();
 }
-int CntrServicoPSS::visualizarSala (const Codigo&, Sala*){
-    return 0;
+int CntrServicoPSS::visualizarSala (const Codigo& codigo, Sala* sala){
+    ComandoPesquisarSala comando(codigo);
+    int ret = comando.executar();
+    if(ret==0){
+        try{
+            *sala = comando.getResultado();
+            return 0;
+        }catch(...){
+            return 1;
+        }
+    }else{
+        return 1;
+    }
 }

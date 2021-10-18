@@ -4,28 +4,27 @@
 #include <vector>
 #include <string>
 #include <algorithm>
+#include <string.h>
 
 Capacidade::Capacidade(){
     valor = "";
 }
 
-void Capacidade::validar(std::string argumento){
+void Capacidade::validar(std::string valor){
     bool valido;
-    if (argumento == "100" || argumento == "200" || argumento == "300" || argumento == "400" || argumento == "500"){
-        valido = true;
-    }
-    else
-        valido = false;
+    valido = (valor == "100" || valor == "200" || valor == "300" || valor == "400" || valor == "500");
+
+    valido = true;
     if (!valido)
         throw std::invalid_argument("Argumento invalido");
     }
 
-void Capacidade::setValor(std::string argumento){
+void Capacidade::setValor(std::string valor){
     validar(valor);
     this->valor = valor;
 }
 
-Capacidade::Capacidade(std::string argumento){
+Capacidade::Capacidade(std::string valor){
     validar(valor);
     this->valor = valor;
 }
