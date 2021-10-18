@@ -299,14 +299,14 @@ void CntrApresentacaoParticipante::cadastrarcomoparticipante(const Matricula& ma
     int resultado = cntrServicoParticipante->cadastrarComoParticipante(matricula,codigo);
     switch(resultado){
         case 0:
-            mvprintw(linha/4,coluna/4,"%s","Participante cadastrado em Sala com sucesso. Digite algo.");
+            mvprintw(linha/4,coluna/4,"%s","Participante cadastrado em Peca com sucesso. Digite algo.");
             noecho();
             getch();
             echo();
             break;
         case 1:
         default:
-            mvprintw(linha/4,coluna/4,"%s","Falha ao cadastrar participante em sala. Digite algo.");
+            mvprintw(linha/4,coluna/4,"%s","Falha ao cadastrar participante em Peca. Digite algo.");
             noecho();
             getch();
             echo();
