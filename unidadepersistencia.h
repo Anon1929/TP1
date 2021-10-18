@@ -61,6 +61,13 @@ public:
         int executar();
 };
 
+//reiniciar banco de dados
+class ComandoReiniciarBD: public ComandoSQL{
+public:
+        ComandoReiniciarBD();
+        void reiniciar();
+};
+
 //autenticar
 class ComandoLerSenha: public ComandoSQL{
 public:

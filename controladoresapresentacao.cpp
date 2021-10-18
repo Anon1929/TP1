@@ -5,6 +5,7 @@
 #include "entidades.h"
 #include "interfaces.h"
 #include "controladoresapresentacao.h"
+#include "unidadepersistencia.h"
 
 // Implementa��es de m�todos de classes controladoras de apresenta��o.
 //--------------------------------------------------------------------------------------------
@@ -20,7 +21,8 @@ void CntrApresentacaoControle::executar(){
 
         while(apresentar){
             clear();
-            mvprintw(linha/4,coluna/4,"%s","Selecione um dos servicos : ");                                                 // Imprime nome do campo.
+            mvprintw(linha/4-2,coluna/4,"%s","Selecione um dos servicos : ");                                                 // Imprime nome do campo.
+            mvprintw(linha/4,coluna/4,"%s","0 - Reiniciar e popular BD.");
             mvprintw(linha/4 + 2,coluna/4,"%s","1 - Acessar sistema.");                                             // Imprime nome do campo.
             mvprintw(linha/4 + 4,coluna/4,"%s","2 - Cadastrar usuario.");                                             // Imprime nome do campo.
             mvprintw(linha/4 + 6,coluna/4,"%s","3 - Listar dados sobre pecas, sessoes ou salas.");                                             // Imprime nome do campo.
@@ -29,8 +31,20 @@ void CntrApresentacaoControle::executar(){
             campo = getch() - 48;                                                                   // Leitura do campo de entrada e convers�o de ASCII.
             echo();
 
-
+            ComandoReiniciarBD dbReset;
             switch(campo){
+                case 0:
+                    clear();
+                    mvprintw(linha/2-2, coluna/6, "Reiniciando...");
+                    try{
+                        dbReset.reiniciar();
+                        clear();
+                        mvprintw(linha/2-2, coluna/6, "Banco de dados reiniciado e populado");
+                    }catch(...){
+                        mvprintw(linha/2-2, coluna/6, "Falha na configuração do banco de dados");
+                    }
+                    getch();
+                    break;
                 case 1:
                 int retorno;
                 retorno = cntrApresentacaoAutenticacao->autenticar(&matricula);
@@ -45,6 +59,7 @@ void CntrApresentacaoControle::executar(){
                             noecho();
                             campo = getch() - 48;                                               // Leitura do campo de entrada e convers�o de ASCII.
                             echo();
+
                             switch(campo){
                                 case 1:
                                     if(cntrApresentacaoParticipante->executar(matricula))

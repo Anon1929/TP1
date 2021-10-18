@@ -62,6 +62,47 @@ int ComandoSQL::callback(void *NotUsed, int argc, char **valorColuna, char **nom
       return 0;
 }
 
+//Reiniciar banco de dados
+ComandoReiniciarBD::ComandoReiniciarBD(){
+    comandoSQL = "";
+}
+
+void ComandoReiniciarBD::reiniciar(){
+    //Reiniciar
+    comandoSQL = "PRAGMA foreign_keys = ON;";
+    executar();
+    comandoSQL = "DROP TABLE participantes;";
+    executar();
+    comandoSQL = "CREATE TABLE participantes(matricula VARCHAR(5) PRIMARY KEY,\n nome TEXT,\n sobrenome TEXT,\n email TEXT,\n telefone TEXT,\n senha TEXT,\n cargo TEXT,\n peca_id VARCHAR(6),\n FOREIGN KEY (peca_id)\n REFERENCES pecas (peca_id) );";
+    executar();
+    comandoSQL = "DROP TABLE pecas;";
+    executar();
+    comandoSQL = "CREATE TABLE pecas(identificador VARCHAR(6) PRIMARY KEY,\n nome TEXT,\n tipo TEXT,\n classificacao TEXT);";
+    executar();
+    comandoSQL = "DROP TABLE salas;";
+    executar();
+    comandoSQL = "CREATE TABLE salas(identificador VARCHAR(6) PRIMARY KEY,\n nome TEXT,\n capacidade TEXT);";
+    executar();
+    comandoSQL = "DROP TABLE sessoes;";
+    executar();
+    comandoSQL = "CREATE TABLE sessoes(Identificador VARCHAR(6) PRIMARY KEY,\n data TEXT,\n horario TEXT,\n sala_id VARCHAR(6),\n peca_id VARCHAR(6),\n FOREIGN KEY (sala_id)\n REFERENCES salas (sala_id) ON UPDATE SET NULL ON DELETE SET NULL\n FOREIGN KEY (peca_id)\n REFERENCES pecas (peca_id) ON UPDATE SET NULL ON DELETE SET NULL);";
+    executar();
+    //popular
+    comandoSQL = "INSERT INTO pecas VALUES('AA0001','Auto da compadecida','auto','livre');";
+    executar();
+    comandoSQL = "INSERT INTO pecas VALUES('AA0002','A formiguinha e a barata','drama',10);";
+    executar();
+    comandoSQL = "INSERT INTO salas VALUES('AA0001', 'Baleia', '100');";
+    executar();
+    comandoSQL = "INSERT INTO salas VALUES('AA0002', 'Macaco', '200');";
+    executar();
+    comandoSQL = "INSERT INTO sessoes VALUES('AA0001','01/04/2004','12:30', 'AA0001', 'AA0002');";
+    executar();
+    comandoSQL = "INSERT INTO sessoes VALUES('AA0002','31/10/2006','14:30', 'AA0002', 'AA0001');";
+    executar();
+}
+
+//Participantes
 ComandoCadastrarParticipante::ComandoCadastrarParticipante(const Participante& participante){
         comandoSQL = "INSERT INTO participantes VALUES (";
         comandoSQL += "'" + participante.getMatricula().getValor() + "', ";
